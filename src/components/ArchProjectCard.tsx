@@ -28,7 +28,7 @@ export default function ArchProjectCard({
           alt={`${project.title[locale]} — ${project.location[locale]}`}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-105"
+          className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
         />
 
         {/* Status badge */}

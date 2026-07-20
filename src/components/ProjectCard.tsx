@@ -22,7 +22,7 @@ export default function ProjectCard({
             alt={`${project.title[locale]} — ${project.location[locale]}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-105"
+            className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
             priority={priority}
           />
         </div>
