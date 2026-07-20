@@ -143,9 +143,9 @@ function ServiceCard({
       <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">{title}</h3>
       <p className="text-paper/65 leading-relaxed text-sm md:text-base flex-1">{body}</p>
       <div className="mt-8 pt-6 border-t border-paper/10 flex flex-wrap items-center justify-between gap-4">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-3">
           {tags.map(tag => (
-            <span key={tag} className="ticker text-[10px] text-paper/55 border border-paper/25 px-2.5 py-1.5">
+            <span key={tag} className="ticker text-[10px] text-paper/45">
               {tag}
             </span>
           ))}
