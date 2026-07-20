@@ -128,7 +128,7 @@ function ServiceCard({
   return (
     <Link
       href={href}
-      className="group bg-ink rounded-2xl p-10 md:p-12 lg:p-14 min-h-[380px] flex flex-col
+      className="group bg-ink rounded-2xl p-7 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between
         ring-1 ring-inset ring-paper/10
         transition-all duration-200
         hover:ring-paper/20
@@ -137,23 +137,34 @@ function ServiceCard({
         active:scale-[0.985]
         active:shadow-[inset_0_6px_20px_rgba(0,0,0,0.55)]"
     >
-      <div className="mb-8 text-paper/80">
-        {icon}
+      <div>
+        <div className="mb-6 md:mb-8 text-paper/80">{icon}</div>
+        <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 md:mb-4">{title}</h3>
+        <p className="text-paper/65 leading-relaxed text-sm md:text-base flex-1">{body}</p>
       </div>
-      <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">{title}</h3>
-      <p className="text-paper/65 leading-relaxed text-sm md:text-base flex-1">{body}</p>
-      <div className="mt-8 pt-6 border-t border-paper/10 flex flex-wrap items-center justify-between gap-4">
-        <div className="flex flex-wrap gap-3">
-          {tags.map(tag => (
+
+      <div className="mt-8 pt-6 border-t border-paper/10 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {tags.map((tag) => (
             <span key={tag} className="ticker text-[10px] text-paper/45">
               {tag}
             </span>
           ))}
         </div>
-        <span className="ticker text-[10px] text-paper border border-paper/30 px-3.5 py-2 flex items-center gap-2 group-hover:bg-paper group-hover:text-ink transition-all duration-300">
+        <span className="ticker text-[10px] text-paper border border-paper/30 px-3 py-1.5 flex-shrink-0 flex items-center gap-1.5 transition-all duration-300">
           <span>{ctaText}</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </span>
       </div>
