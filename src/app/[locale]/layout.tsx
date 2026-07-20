@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Heebo } from "next/font/google";
+import { Arimo } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/data/site";
 import Header from "@/components/Header";
@@ -11,11 +11,9 @@ import AccessibilityWidget from "@/components/AccessibilityWidget";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CookieConsent from "@/components/CookieConsent";
 
-const heebo = Heebo({
+const arimo = Arimo({
   subsets: ["hebrew", "latin"],
   variable: "--font-sans",
-  // ⬇ added 200 + 800 for Variation B (oversized index numerals + heavy display)
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -83,10 +81,46 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations("nav");
+  const metaT = await getTranslations({ locale, namespace: "meta" });
   const dir = locale === "he" ? "rtl" : "ltr";
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": metaT("siteName"),
+    "alternateName": locale === "he" 
+      ? ["אידלמן אדריכלים", "אליה אידלמן אדריכלים", "אדריכל אליה אידלמן"] 
+      : ["Eidelman Architects", "Eliya Eidelman Architects", "Architect Eliya Eidelman"],
+    "founder": {
+      "@type": "Person",
+      "name": locale === "he" ? "אליה אידלמן" : "Eliya Eidelman",
+      "jobTitle": locale === "he" ? "אדריכל" : "Architect"
+    },
+    "image": `${siteConfig.url}/images/og/og-default.jpg`,
+    "@id": `${siteConfig.url}/#organization`,
+    "url": siteConfig.url,
+    "telephone": siteConfig.contact.phone,
+    "email": siteConfig.contact.email,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": locale === "he" ? "ישראל" : "Israel",
+      "addressCountry": "IL"
+    },
+    "sameAs": [
+      siteConfig.social.instagram,
+      siteConfig.social.facebook
+    ].filter(Boolean),
+    "description": metaT("description"),
+  };
+
   return (
-    <html lang={locale} dir={dir} className={heebo.variable}>
+    <html lang={locale} dir={dir} className={arimo.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main" className="skip-link">{t("skipToMain")}</a>

@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "ELIYA Studio",
-    "tagline": "Architectural Design & Visualization Studio",
-    "description": "Architectural design and photorealistic 3D visualization studio. Meticulous planning and creative solutions for private homes, public buildings, and offices."
+    "tagline": "Eliya Eidelman — Architectural Design & 3D Visualization Studio",
+    "description": "Architectural design and photorealistic 3D visualization studio led by licensed architect Eliya Eidelman. Meticulous planning for private homes, public buildings, and offices."
   },
   "nav": {
     "home": "Home",
@@ -27,7 +27,7 @@
     },
     "intro": {
       "title": "A studio of precision and vision",
-      "body": "ELIYA Studio is an independent practice combining rigorous architectural design with photorealistic 3D visualization. We work with private clients, developers, and architectural firms — bringing every project to a precise visual finish."
+      "body": "ELIYA Studio is an independent architectural practice and visualization studio led by licensed architect Eliya Eidelman. We combine rigorous architectural design with photorealistic 3D visualization, working with private clients, developers, and architectural firms."
     },
     "services": {
       "title": "What we do",

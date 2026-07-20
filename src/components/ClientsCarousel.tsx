@@ -38,7 +38,7 @@ export default function ClientsCarousel({ logos, title }: Props) {
               key={i}
               className="flex-shrink-0 relative h-16 w-48 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             >
-              <Image src={src} alt="" fill className="object-contain" />
+              <Image src={src} alt="" fill sizes="192px" className="object-contain" />
             </div>
           ))}
         </div>
