@@ -74,7 +74,9 @@ function Content({ heroImage }: { heroImage: string }) {
                 </svg>
               }
               title={t("services.architecture.title")} body={t("services.architecture.body")}
-              tags={isHe ? ["בתים","ציבור","משרדים"] : ["Homes","Public","Offices"]} />
+              tags={isHe ? ["בתים","ציבור","משרדים"] : ["Homes","Public","Offices"]}
+              ctaText={isHe ? "למידע נוסף" : "Explore"}
+            />
             <ServiceCard
               href="/visualizations"
               icon={
@@ -85,7 +87,9 @@ function Content({ heroImage }: { heroImage: string }) {
                 </svg>
               }
               title={t("services.visualizations.title")} body={t("services.visualizations.body")}
-              tags={isHe ? ["חוץ","פנים","אווירה"] : ["Exterior","Interior","Atmosphere"]} />
+              tags={isHe ? ["חוץ","פנים","אווירה"] : ["Exterior","Interior","Atmosphere"]}
+              ctaText={isHe ? "למידע נוסף" : "Explore"}
+            />
           </div>
         </div>
       </section>
@@ -106,7 +110,21 @@ function Content({ heroImage }: { heroImage: string }) {
   );
 }
 
-function ServiceCard({ href, icon, title, body, tags }: { href: string; icon: React.ReactNode; title: string; body: string; tags: string[] }) {
+function ServiceCard({
+  href,
+  icon,
+  title,
+  body,
+  tags,
+  ctaText,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+  tags: string[];
+  ctaText: string;
+}) {
   return (
     <Link
       href={href}
@@ -124,12 +142,20 @@ function ServiceCard({ href, icon, title, body, tags }: { href: string; icon: Re
       </div>
       <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">{title}</h3>
       <p className="text-paper/65 leading-relaxed text-sm md:text-base flex-1">{body}</p>
-      <div className="mt-6 flex flex-wrap gap-2">
-        {tags.map(tag => (
-          <span key={tag} className="ticker text-[10px] text-paper/55 border border-paper/25 px-2.5 py-1.5">
-            {tag}
-          </span>
-        ))}
+      <div className="mt-8 pt-6 border-t border-paper/10 flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-wrap gap-2">
+          {tags.map(tag => (
+            <span key={tag} className="ticker text-[10px] text-paper/55 border border-paper/25 px-2.5 py-1.5">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <span className="ticker text-[10px] text-paper border border-paper/30 px-3.5 py-2 flex items-center gap-2 group-hover:bg-paper group-hover:text-ink transition-all duration-300">
+          <span>{ctaText}</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
       </div>
     </Link>
   );
