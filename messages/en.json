@@ -58,7 +58,7 @@
   "architecture": {
     "hero": {
       "eyebrow": "Architectural Design",
-      "title": "Architecture that begins with space, not template",
+      "title": "Transforming vision into spatial reality",
       "body": "We design every project through careful listening — to the site and to the client — shaping the precise space for your unique story."
     },
     "process": {
@@ -152,7 +152,7 @@
     },
     "story": {
       "title": "Our story",
-      "body1": "The studio was founded and led by Eliya Eidelman, a licensed architect, graduate of the Bezalel Academy of Arts and Design, and holder of a B.Arch in Architecture.",
+      "body1": "The studio was founded and is led by Eliya Eidelman, a licensed architect, graduate of the Bezalel Academy of Arts and Design, and holder of a B.Arch in Architecture.",
       "body2": "The studio operates from an innovative vision combining deep spatial thinking with the most advanced design and visualization tools on the market. Our process is grounded in BIM methodology and the integration of artificial intelligence, enabling maximum precision, outstanding visual simulations, and intelligent resolution of project complexity. The combination of rich professional experience and tomorrow's technologies ensures a complete, personalized, and uncompromising architectural response."
     },
     "arch": {
@@ -191,7 +191,7 @@
       "emailLabel": "Email",
       "addressLabel": "Address",
       "hoursLabel": "Hours",
-      "hoursValue": "Sun–Thu 09:00–18:00"
+      "hoursValue": "Sun–Thu 08:30–16:00"
     },
     "form": {
       "title": "Leave your details",
