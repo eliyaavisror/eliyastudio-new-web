@@ -138,7 +138,7 @@ export default function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block py-4 text-display-lg font-semibold text-ink transition-all duration-500 ${
+                  className={`block py-3 text-2xl md:text-3xl font-semibold text-ink transition-all duration-500 ${
                     mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   } ${isActive(item.href) ? "" : "!opacity-50"}`}
                   style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : "0ms" }}
