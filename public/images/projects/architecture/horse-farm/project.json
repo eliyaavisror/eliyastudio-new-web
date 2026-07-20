@@ -1,0 +1,64 @@
+{
+  "slug": "horse-farm",
+  "year": 2025,
+  "status": "licensing",
+  "title": {
+    "he": "חוות סוסים טיפולית",
+    "en": "Therapeutic Horse Farm"
+  },
+  "location": {
+    "he": "אלון",
+    "en": "Alon"
+  },
+  "client": {
+    "he": "רותי וחיים מן",
+    "en": "Ruth and Haim Man"
+  },
+  "cover": "הדמית הפרויקט.webp",
+  "credit": {
+    "he": "הפרויקט מתוכנן בשיתוף פעולה עם אדריכלית הנוף **צופיה ג'ייקוב**.",
+    "en": "Designed in collaboration with landscape architect **Tzofia Jacob**."
+  },
+  "titleBackground": "רקע_לוחם.png",
+  "description": {
+    "he": "חוות חוסן, סמוך ליישוב אלון בבנימין, היא מרחב שיקומי וטיפולי המשתרע על פני כ-27 דונם, שתוכנן בקפידה כדי לתמוך בתהליכי החלמה וצמיחה. הפרויקט מעניק מענה ייעודי ללוחמים, יוצאי צבא ומשפחותיהם, לצד מתחם רכיבה טיפולית לאוכלוסייה הכללית. התכנון רותם את הסביבה הבנויה ככלי טיפולי אקטיבי, ומייצר דיאלוג הרמוני עם נופי הבראשית המדבריים, כדי להעניק למטופלים מרחב שקט, מוגן ועוטף להשתקם בו.",
+    "en": "Hosin Farm, near the settlement of Alon in Binyamin, is a rehabilitative and therapeutic space spanning approximately 27 dunams, carefully designed to support recovery and growth. The project provides dedicated support for combatants, veterans, and their families, alongside an equine therapy center for the general public. The design harnesses the built environment as an active therapeutic tool, creating a harmonious dialogue with the primeval desert landscape, to offer patients a quiet, protected, and enveloping space in which to heal."
+  },
+  "sections": [
+    {
+      "id": "zones",
+      "title": { "he": "הפרדת מתחמים", "en": "Separated Zones" },
+      "he": "הפרויקט מחולק לשני מתחמים עצמאיים לחלוטין כדי למנוע חפיפה בין אוכלוסיות היעד וליצירת סביבה בטוחה. מתחם \"מרכז חוסן\" (לזכרו של סמ\"ר עומר וואן גלדר ז\"ל) מוקדש ללוחמים ומשפחותיהם, וכולל מבנה סדנאות רב-תכליתי, קליניקות טיפול, כלבייה טיפולית, ואזור חקלאות נפרד. המתחם השני משמש כחוות רכיבה לאוכלוסייה הכללית.",
+      "en": "The project is divided into two completely independent compounds to prevent overlap between target populations and create a safe environment. The 'Hosin Center' compound — dedicated to the memory of Cpl. Omer Van Gelder, of blessed memory — serves combatants and their families with a multi-purpose workshop building, therapy clinics, a therapy kennel, and a separate agricultural area. The second compound serves as an equestrian center for the general public.",
+      "image": "01_הפרדת מתחמים.webp"
+    },
+    {
+      "id": "spirit",
+      "title": { "he": "שותפות ורוח הבנייה", "en": "Partnership & Spirit" },
+      "he": "מעבר לתכנון האדריכלי, סיפור הקמתה של החווה שזור בערבות הדדית יוצאת דופן. המבנים בפרויקט נבנו בפועל על ידי חבורת קאובויים ממונטנה, ארה\"ב — ציונים אוהבי ישראל שהגיעו במיוחד כדי לקחת חלק בהקמת המקום. החיבור שלהם לעבודת הכפיים ולעולם הסוסים יצק לתוך המבנים אותנטיות של חוות בוקרים אמיתית, ומוסיף נדבך מרגש של תמיכה בינלאומית בלוחמי צה\"ל ובתהליך השיקום שלהם.",
+      "en": "Beyond the architectural design, the story of the farm's establishment is woven with extraordinary mutual responsibility. The project's structures were built by a group of cowboys from Montana, USA — Zionists who love Israel and arrived especially to take part in creating this place. Their connection to manual labor and the world of horses infused the buildings with the authenticity of a real working ranch, adding a moving layer of international support for IDF soldiers and their rehabilitation journey.",
+      "image": "02_שותפות ורוח בניה.jpg"
+    },
+    {
+      "id": "accessibility",
+      "title": { "he": "נגישות אוניברסלית", "en": "Universal Accessibility" },
+      "he": "כפרויקט המשרת נכי צה\"ל ומשתקמים, הנגישות אינה רק דרישת תקן אלא נקודת המוצא התכנונית. כלל המבנים, השבילים, מגרשי הרכיבה ומרחבי הטיפול תוכננו לאפשר תנועה עצמאית, בטוחה ורציפה במרחב לבעלי מוגבלויות פיזיות.",
+      "en": "As a project serving disabled IDF veterans and those in rehabilitation, accessibility is not merely a code requirement — it is the founding design principle. All buildings, paths, riding arenas, and therapy spaces were designed to allow independent, safe, and continuous movement for individuals with physical disabilities.",
+      "image": "03_נגישות.png"
+    },
+    {
+      "id": "landscape",
+      "title": { "he": "השתלבות נופית ושפה אדריכלית", "en": "Landscape & Architecture" },
+      "he": "התכנון נוצר מתוך כבוד עמוק לסביבה. המבנים מאופיינים בבינוי נמוך העוקב אחר הטופוגרפיה ההררית, במטרה לצמצם את הנראות במרחב ולשמר את קווי המבט הפתוחים אל הנוף — אלמנט קריטי בתהליך ההחלמה. השימוש בחומרים טבעיים כמו אבן, בטון חשוף וקורות עץ, מעניק למתחם מראה שורשי המשתלב באופן טבעי בגווני המדבר.",
+      "en": "The design was created with deep respect for the natural environment. The structures are characterized by low-rise construction that follows the mountainous topography, aiming to minimize visibility within the landscape and preserve open sightlines toward the view — a critical element in the recovery process. The use of natural materials such as stone, exposed concrete, and timber beams gives the compound a rooted character that blends naturally into the desert palette.",
+      "image": "04_השתלבות נופית.JPG"
+    },
+    {
+      "id": "infrastructure",
+      "title": { "he": "תשתיות ייעודיות ועשירות", "en": "Dedicated Infrastructure" },
+      "he": "החווה מתוכננת בסטנדרט הגבוה ביותר וכוללת מבני אורווה ומגרשי רכיבה נפרדים לכל מתחם, גדרות לשהיית עשרות סוסים, שטחי הצללה נרחבים ומוקדי התארגנות המאפשרים עבודה טיפולית רציפה בתנאים אופטימליים.",
+      "en": "The farm is planned to the highest standard and includes separate stable structures and riding arenas for each compound, fencing for dozens of horses, extensive shaded areas, and organizational hubs that enable continuous therapeutic work under optimal conditions.",
+      "image": "05_תשתיות.png"
+    }
+  ]
+}

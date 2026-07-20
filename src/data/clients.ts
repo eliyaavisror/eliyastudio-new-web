@@ -1,0 +1,16 @@
+export const clientLogos: string[] = [
+  "/images/clients/לוגו_אזורים.jpg",
+  "/images/clients/לוגו_איי קלאב.jpg",
+  "/images/clients/לוגו_אפקה.jpg",
+  "/images/clients/לוגו_בוני התיכון.jpg",
+  "/images/clients/לוגו_ביטמן בן צור.jpg",
+  "/images/clients/לוגו_הכשרת הישוב.jpg",
+  "/images/clients/לוגו_מטה בנימין.jpg",
+  "/images/clients/לוגו_מנוס.jpg",
+  "/images/clients/לוגו_פרשקובסקי.jpg",
+  "/images/clients/לוגו_צ.פ.jpg",
+  "/images/clients/לוגו_ציונוב ויתקון.jpg",
+  "/images/clients/לוגו_קרסו.jpg",
+  "/images/clients/לוגו_רות ולבנה.jpg",
+  "/images/clients/לוגו_תל אביב גני יהושוע.jpg",
+];

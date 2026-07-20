@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Architectural plan placeholder">
+  <rect width="1600" height="1000" fill="#FAFAF7"/>
+  <g stroke="#1A1A1A" stroke-width="2" fill="none">
+    <rect x="200" y="200" width="1200" height="600"/>
+    <line x1="600" y1="200" x2="600" y2="800"/>
+    <line x1="1000" y1="200" x2="1000" y2="500"/>
+    <line x1="600" y1="500" x2="1400" y2="500"/>
+    <line x1="200" y1="650" x2="600" y2="650"/>
+  </g>
+  <g stroke="#5A5A5A" stroke-width="1" stroke-dasharray="6 6" fill="none">
+    <line x1="100" y1="200" x2="1500" y2="200"/>
+    <line x1="100" y1="800" x2="1500" y2="800"/>
+    <line x1="200" y1="100" x2="200" y2="900"/>
+    <line x1="1400" y1="100" x2="1400" y2="900"/>
+  </g>
+  <g fill="#1A1A1A" font-family="serif" font-size="14" opacity="0.6">
+    <text x="380" y="380">LIVING</text>
+    <text x="780" y="380">KITCHEN</text>
+    <text x="1180" y="380">DINING</text>
+    <text x="380" y="700">BEDROOM</text>
+    <text x="780" y="700">BATH</text>
+    <text x="1180" y="700">STUDY</text>
+  </g>
+  <text x="800" y="970" text-anchor="middle" fill="#5A5A5A" font-family="serif" font-size="20" opacity="0.7">PRIVATE HOUSE PLAN — placeholder</text>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "slug": "office-building",
+  "year": 2022,
+  "status": "completed",
+  "title": {
+    "he": "מתחם משרדים",
+    "en": "Office Complex"
+  },
+  "location": {
+    "he": "הרצליה",
+    "en": "Herzliya"
+  },
+  "client": {
+    "he": "A Club",
+    "en": "A Club"
+  },
+  "description": {
+    "he": "תכנון מחדש למתחם משרדים להשכרה, 1,600 מר, 56 משרדים ושטחים משותפים",
+    "en": "Redesign of an office complex for rent, 1,600 square meters, 56 offices and common areas."
+  },
+  "images": [
+    "01.webp",
+    "02.webp",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg"
+  ]
+}

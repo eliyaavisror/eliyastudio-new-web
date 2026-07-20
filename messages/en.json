@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "siteName": "ELIYA Studio",
+    "tagline": "Architectural Design & Visualization Studio",
+    "description": "Architectural design and photorealistic 3D visualization studio. Meticulous planning and creative solutions for private homes, public buildings, and offices."
+  },
+  "nav": {
+    "home": "Home",
+    "architecture": "Architecture",
+    "visualizations": "Visualizations",
+    "about": "About",
+    "contact": "Contact",
+    "skipToMain": "Skip to main content",
+    "menu": "Menu",
+    "close": "Close",
+    "openMenu": "Open menu",
+    "language": "Language"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Architectural Design & Visualization Studio",
+      "title": "Meticulous architecture meets breathtaking 3D visualization",
+      "subtitle": "We design spaces that tell a story — from the first sketch to the final photorealistic render.",
+      "ctaArch": "Architecture",
+      "ctaViz": "Visualizations",
+      "ctaSecondary": "Get in touch"
+    },
+    "intro": {
+      "title": "A studio of precision and vision",
+      "body": "ELIYA Studio is an independent practice combining rigorous architectural design with photorealistic 3D visualization. We work with private clients, developers, and architectural firms — bringing every project to a precise visual finish."
+    },
+    "services": {
+      "title": "What we do",
+      "architecture": {
+        "title": "Architectural Design",
+        "body": "From private homes to public buildings. Functional, aesthetic planning tailored to client and site."
+      },
+      "visualizations": {
+        "title": "3D Visualization",
+        "body": "High-resolution realistic renders — exterior, interior, day and night atmospheres."
+      },
+      "consulting": {
+        "title": "Consulting & Interior Design",
+        "body": "Design guidance, material selection, and bespoke solutions tailored to each client."
+      }
+    },
+    "featured": {
+      "title": "Selected work",
+      "viewAll": "All projects",
+      "viewProject": "View project"
+    },
+    "cta": {
+      "title": "Starting a project?",
+      "body": "Tell us about your vision. We'll get back to you soon.",
+      "button": "Let's talk"
+    }
+  },
+  "architecture": {
+    "hero": {
+      "eyebrow": "Architectural Design",
+      "title": "Architecture that begins with space, not template",
+      "body": "We design every project through careful listening — to the site and to the client — shaping the precise space for your unique story."
+    },
+    "process": {
+      "title": "Our process",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Discovery & Program Definition",
+          "body": "Needs mapping, site visit, and budget review. We present the property's potential to private clients, and conduct feasibility studies, building rights, and zoning analysis for developers."
+        },
+        {
+          "number": "02",
+          "title": "Conceptual Design & Concept",
+          "body": "Translating the program into space and structure through sketches and design alternatives. The process is supported by 3D tools that deliver an experience for private clients and decision tools for developers."
+        },
+        {
+          "number": "03",
+          "title": "Licensing & Permit Submission",
+          "body": "Full management in the \"Rishui Zamin\" system — from information extraction to permit issuance. Handled meticulously to shorten timelines for developers, while navigating bureaucracy for private clients."
+        },
+        {
+          "number": "04",
+          "title": "Detailed Design & Systems Coordination",
+          "body": "Production of working drawings, sections, elevations, and building details. This phase includes full coordination with project consultants, maintaining architectural quality within budget."
+        },
+        {
+          "number": "05",
+          "title": "Construction Support & Supervision",
+          "body": "Close site supervision, contractor coordination, and real-time problem solving. We ensure peace of mind for private clients and protect the economic interests of developers."
+        }
+      ]
+    },
+    "specialties": {
+      "title": "Areas of expertise",
+      "items": [
+        "Private homes",
+        "Public buildings",
+        "Offices and retail",
+        "Additions and renovations"
+      ]
+    },
+    "cta": {
+      "title": "Have a project?",
+      "body": "We'd love to hear about it. Initial consultation at no charge.",
+      "button": "Schedule a meeting"
+    }
+  },
+  "visualizations": {
+    "hero": {
+      "eyebrow": "3D Visualization",
+      "title": "Light, material, space — before we build",
+      "body": "Photorealistic visualization that lets clients, developers, and committees see the finished project before the first concrete pour."
+    },
+    "types": {
+      "title": "Visualization types",
+      "exterior": {
+        "title": "Exterior renders",
+        "body": "Building facades, landscaping, urban environments, day and night atmospheres."
+      },
+      "interior": {
+        "title": "Interior renders",
+        "body": "Living rooms, kitchens, bedrooms, public spaces, and offices."
+      },
+      "aerial": {
+        "title": "Aerial views",
+        "body": "Top-down views, urban masterplans, and large complexes."
+      },
+      "animation": {
+        "title": "Animation & walkthroughs",
+        "body": "Virtual tours, motion animations, and video visualization."
+      }
+    },
+    "gallery": {
+      "title": "Gallery",
+      "filterAll": "All",
+      "filterExterior": "Exterior",
+      "filterInterior": "Interior",
+      "filterAerial": "Aerial"
+    },
+    "cta": {
+      "title": "Need a render?",
+      "body": "Send us your plans and we'll get back to you with a quote soon.",
+      "button": "Request a quote"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About",
+      "title": "One studio. Two tools. One outcome.",
+      "body": "ELIYA Studio was founded on the belief that great architectural design and authentic visualization are two sides of the same coin."
+    },
+    "story": {
+      "title": "Our story",
+      "body1": "The studio was founded and led by Eliya Eidelman, a licensed architect, graduate of the Bezalel Academy of Arts and Design, and holder of a B.Arch in Architecture.",
+      "body2": "The studio operates from an innovative vision combining deep spatial thinking with the most advanced design and visualization tools on the market. Our process is grounded in BIM methodology and the integration of artificial intelligence, enabling maximum precision, outstanding visual simulations, and intelligent resolution of project complexity. The combination of rich professional experience and tomorrow's technologies ensures a complete, personalized, and uncompromising architectural response."
+    },
+    "arch": {
+      "title": "Architectural Design",
+      "body1": "We believe that good architecture creates spaces that feel right, function well, and stand the test of time. Our design process begins with the person — their needs, feelings, and way of life — and expands outward to the place, nature, and environment in which the building exists.",
+      "body2": "We harness cutting-edge technological tools to sharpen ideas and streamline processes, always through a human, sensitive, and attentive lens. Nature is a full creative partner in our work — through the intelligent use of light, air, natural materials, and harmonious integration into the surrounding landscape. We accompany every project from the first concept through the last detail in execution.",
+      "body3": ""
+    },
+    "viz": {
+      "title": "The Visualization Studio",
+      "body1": "As a studio specializing in architectural visualization, 3D for us is far more than a work tool. It is an artistic language that bridges idea and reality, breathing life into the design vision.",
+      "body2": "Thanks to our professional architectural background, the visualizations we produce are not only visually impressive — they are fully faithful to the plans, meticulous down to the last detail, and reflect the architecture in the most authentic way possible.",
+      "body3": "Our goal is to inspire and provide clients with a tangible, precise experience of the project before the first brick is laid. We open a window into the world of tomorrow, allowing people to experience the space as close to reality as possible.",
+      "clients": "Our clients include leading real-estate companies and top-tier architecture firms."
+    },
+    "clientsTitle": "Clients & partners",
+    "stats": {
+      "projects": "Projects",
+      "years": "Years experience",
+      "clients": "Happy clients"
+    },
+    "cta": {
+      "title": "Let's meet",
+      "body": "We'd be glad to host you for a studio visit or a conversation.",
+      "button": "Get in touch"
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about your next project",
+      "body": "We'll get back to you as soon as possible."
+    },
+    "info": {
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "addressLabel": "Address",
+      "hoursLabel": "Hours",
+      "hoursValue": "Sun–Thu 09:00–18:00"
+    },
+    "form": {
+      "title": "Leave your details",
+      "name": "Full name",
+      "namePlaceholder": "First and last name",
+      "phone": "Phone",
+      "phonePlaceholder": "050-0000000",
+      "email": "Email",
+      "emailPlaceholder": "name@example.com",
+      "subject": "Subject",
+      "subjectOptions": {
+        "architecture": "Architectural design",
+        "visualization": "Visualization",
+        "consulting": "Consulting",
+        "other": "Other"
+      },
+      "message": "Your message",
+      "messagePlaceholder": "Tell us about your project...",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "consent": "I agree to the",
+      "privacyLink": "privacy policy",
+      "success": "Thank you! Your message was received. We'll be in touch shortly.",
+      "error": "Something went wrong. Please try again or call us directly.",
+      "required": "Required field",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number"
+    },
+    "whatsapp": "Open WhatsApp chat",
+    "callNow": "Call now",
+    "emailNow": "Send email"
+  },
+  "footer": {
+    "tagline": "Architectural design & visualization studio",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "follow": "Follow us",
+    "accessibility": "Accessibility statement",
+    "privacy": "Privacy policy",
+    "sitemap": "Sitemap",
+    "rights": "All rights reserved",
+    "designedBy": "Designed and built by the studio"
+  },
+  "accessibility": {
+    "title": "Accessibility statement",
+    "lastUpdated": "Last updated",
+    "intro": {
+      "title": "Introduction",
+      "body": "ELIYA Studio considers accessibility a core value and is committed to making this site usable by everyone, including people with disabilities. The site was built in line with the Israeli Accessibility Standard (IS 5568) which is based on WCAG 2.2 Level AA, and in compliance with the Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 2013."
+    },
+    "compliance": {
+      "title": "Conformance level",
+      "body": "The site meets WCAG 2.2 Level AA requirements, including:",
+      "items": [
+        "Full keyboard-only navigation",
+        "Screen reader support (NVDA, JAWS, VoiceOver)",
+        "Minimum 4.5:1 color contrast for text",
+        "Text resizing up to 200% without loss of content",
+        "Descriptive ALT text on all meaningful images",
+        "Semantic heading structure (H1–H6)",
+        "Clear labels on all form fields",
+        "Skip-to-main-content link",
+        "Visible focus indicators on all interactive elements",
+        "RTL and high-contrast mode support"
+      ]
+    },
+    "widget": {
+      "title": "Accessibility menu",
+      "body": "The site includes an on-page accessibility menu (icon at the bottom of the screen) offering: text resize, high contrast, monochrome, link emphasis, animation pause, and larger cursor."
+    },
+    "limitations": {
+      "title": "Known limitations",
+      "body": "Despite our efforts, parts of the site — primarily third-party content or external files — may not yet be fully accessible. We continuously work on closing these gaps."
+    },
+    "feedback": {
+      "title": "Feedback and contact",
+      "body": "Found an accessibility issue? Please reach out and we'll address it as soon as possible:",
+      "coordinator": "Accessibility coordinator",
+      "responseTime": "Response time: within two business days."
+    }
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "lastUpdated": "Last updated",
+    "intro": {
+      "body": "This privacy policy is written in accordance with the Israeli Protection of Privacy Law, 5741-1981, including Amendment No. 13 (effective August 2025). It governs the collection, use, retention, and transfer of personal information on the ELIYA Studio website (the \"Site\")."
+    },
+    "controller": {
+      "title": "1. Database controller",
+      "body": "The database controller is ELIYA Studio. For privacy-related matters, contact us via the details on the Contact page."
+    },
+    "collection": {
+      "title": "2. Information we collect",
+      "body": "We collect the following types of information:",
+      "items": [
+        "Information you provide via the contact form: full name, phone number, email address, and message content.",
+        "Technical information automatically collected: IP address, browser type, OS, resolution, pages viewed, time on site.",
+        "Cookies for functional, analytical, and user-experience purposes."
+      ]
+    },
+    "purposes": {
+      "title": "3. Purposes of processing",
+      "body": "Information is used solely for:",
+      "items": [
+        "Responding to inquiries and follow-up contact",
+        "Service delivery and improvement",
+        "Statistical analysis and site optimization",
+        "Compliance with legal obligations",
+        "Fraud and abuse prevention"
+      ]
+    },
+    "legalBasis": {
+      "title": "4. Legal basis",
+      "body": "Processing is based on your explicit consent when filling the form, our legitimate interest, and legal obligations."
+    },
+    "sharing": {
+      "title": "5. Sharing with third parties",
+      "body": "We do not sell, rent, or trade personal information. We may share information with:",
+      "items": [
+        "Technology service providers (hosting, analytics, email) bound by confidentiality and data protection agreements.",
+        "Authorities — only when legally required or by court order."
+      ]
+    },
+    "retention": {
+      "title": "6. Retention period",
+      "body": "Information is retained only for the time required for the stated purposes, and no longer than seven years from the end of engagement, unless required otherwise by law."
+    },
+    "security": {
+      "title": "7. Information security",
+      "body": "We apply reasonable security measures — traffic encryption (HTTPS), unauthorized-access protection, regular backups, and access controls — in accordance with the Protection of Privacy Regulations (Information Security), 5777-2017."
+    },
+    "rights": {
+      "title": "8. Data subject rights (Amendment 13)",
+      "body": "Under Amendment 13 to the Protection of Privacy Law, you have the following rights:",
+      "items": [
+        "Right of access — to information held about you",
+        "Right of rectification — to correct inaccurate data",
+        "Right of erasure — to delete data no longer needed",
+        "Right to object — to processing for direct marketing",
+        "Right to portability — to receive data in a structured, common format",
+        "Right to withdraw consent at any time"
+      ],
+      "exercise": "To exercise these rights, contact us via the Contact page. We respond within 30 days."
+    },
+    "cookies": {
+      "title": "9. Cookies",
+      "body": "The site uses cookies for proper operation, preference saving, and usage analytics. You can block cookies in your browser settings, though this may affect site functionality."
+    },
+    "minors": {
+      "title": "10. Minors",
+      "body": "The site is not intended for the active collection of information from minors under 18. If a minor has submitted information, please contact us for immediate deletion."
+    },
+    "complaints": {
+      "title": "11. Privacy Protection Authority",
+      "body": "Privacy complaints can be filed with the Israeli Privacy Protection Authority at the Ministry of Justice: www.gov.il/he/departments/the_privacy_protection_authority"
+    },
+    "changes": {
+      "title": "12. Policy changes",
+      "body": "We may update this policy from time to time. The current version will always be posted on this page with an update date."
+    },
+    "contact": {
+      "title": "13. Contact",
+      "body": "For any privacy-related question, please reach out via the Contact page."
+    }
+  },
+  "a11yWidget": {
+    "title": "Accessibility menu",
+    "open": "Open accessibility menu",
+    "close": "Close accessibility menu",
+    "pageZoom": "Page zoom",
+    "bigText": "Larger text",
+    "highContrast": "High contrast",
+    "readableFont": "Readable font",
+    "biggerCursor": "Prominent cursor",
+    "pauseAnimations": "Pause animations",
+    "highlightHeadings": "Highlight headings",
+    "highlightLinks": "Highlight links",
+    "showAlt": "Show ALT text",
+    "reset": "Reset all"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "viewMore": "View more",
+    "scrollDown": "Scroll down",
+    "newTab": "opens in new tab"
+  },
+  "cookieConsent": {
+    "ariaLabel": "Cookie notice",
+    "text": "We use cookies to ensure the site works correctly, analyse usage, and improve your browsing experience. By continuing to browse you agree to our",
+    "privacyLink": "Privacy Policy",
+    "textAfterLink": ".",
+    "accept": "Accept",
+    "declineLabel": "Close"
+  }
+}

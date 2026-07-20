@@ -1,0 +1,50 @@
+{
+  "slug": "island-of-calm",
+  "year": 2025,
+  "status": "planning",
+  "title": {
+    "he": "אי של שקט — חוות מרפא",
+    "en": "Island of Calm — Healing Farm"
+  },
+  "location": {
+    "he": "נופי פרת, מדבר יהודה",
+    "en": "Nofei Prat, Judean Desert"
+  },
+  "client": {
+    "he": "אור אסייג ושיבי כהן ארזי",
+    "en": "Or Asayag and Shibi Cohen Arzi"
+  },
+  "cover": "הדמיה כללית.webp",
+  "titleBackground": "מדורה.webp",
+  "heroVideo": "hero.mp4",
+  "description": {
+    "he": "מול העוצמה השקטה של הנוף המדברי במדבר יהודה, סמוך ליישוב נופי פרת, מוקם הפרויקט \"אי של שקט — חוות מרפא\", חוות חוסן שנועדה להיות עוגן ומרחב בטוח. הפרויקט, שיזמו אור אסייג ושיבי כהן ארזי, נולד מתוך שליחות וצורך לאומי לתת מענה עוטף וראוי לאלפי לוחמים ומשפחותיהם, אשר חוו את טראומת המלחמה וזקוקים למקום שבו יוכלו לעצור, לנשום ולהשתקם.",
+    "en": "Facing the quiet power of the desert landscape in the Judean Desert, near the community of Nofei Prat, the \"Island of Calm — Healing Farm\" is being established — a resilience farm intended to serve as an anchor and a safe space. Initiated by Or Asayag and Shibi Cohen Arzi, the project was born out of a sense of mission and a national need to provide a fitting, embracing response for thousands of combatants and their families who have experienced the trauma of war and need a place where they can pause, breathe, and heal."
+  },
+  "credit": {
+    "he": "הפרויקט מתוכנן בשיתוף פעולה עם אדריכלית הנוף **צופיה ג'ייקוב**.",
+    "en": "Designed in collaboration with landscape architect **Tzofia Jacob**."
+  },
+  "sections": [
+    {
+      "id": "salutogenic",
+      "title": {
+        "he": "אדריכלות טיפולית",
+        "en": "Therapeutic Architecture"
+      },
+      "he": "ליבת התכנון מושתתת על עקרונות הגישה הסלוטוגנית — אדריכלות ששמה לה למטרה אקטיבית לקדם בריאות, רווחה נפשית ובניית חוסן פנימי. כל אלמנט וחלל בפרויקט תוכננו כדי להפחית מתחים ולהשרות תחושת ביטחון, רוגע ושליטה. כחלק מכך, הושם דגש עליון ובלתי מתפשר על נגישות מוחלטת, המבטיחה שכל אדם יוכל לנוע במרחב בעצמאות, בכבוד וללא כל חסם פיזי או תחושתי.",
+      "en": "The core of the design is grounded in the principles of the salutogenic approach — architecture that actively sets out to promote health, mental well-being and the building of inner resilience. Every element and space in the project was designed to reduce stress and instill a sense of security, calm and control. As part of this, an utmost and uncompromising emphasis was placed on complete accessibility, ensuring that every person can move through the space independently, with dignity, and without any physical or sensory barrier.",
+      "image": "צמחיה ומים.webp"
+    },
+    {
+      "id": "nature",
+      "title": {
+        "he": "אדריכלות המשתלבת בטבע",
+        "en": "Architecture Woven into Nature"
+      },
+      "he": "הפרויקט, המשתרע על פני 11 דונם, תוכנן מתוך יראת כבוד לסביבה המדברית. בשיתוף פעולה הדוק עם אדריכלית הנוף צופיה ג'ייקוב, יצרנו תכנון שבו הבינוי צומח מתוך הטופוגרפיה המקומית ונטמע בה בהרמוניה. הארכיטקטורה אינה כופה את עצמה על ההר, אלא מנהלת איתו דיאלוג מיוחד. החומריות המקומית והטבעית מטשטשת את הגבולות שבין המבנים לנוף, ומאפשרת לשלווה המדברית לחדור אל תוך חללי השהייה ולשמש כחלק אינטגרלי מתהליך הריפוי.",
+      "en": "Spanning 11 dunams, the project was designed with reverence for the desert environment. In close collaboration with landscape architect Tzofia Jacob, we created a design in which the built form grows out of the local topography and blends into it harmoniously. The architecture does not impose itself on the mountain, but rather holds a special dialogue with it. The local, natural materiality blurs the boundaries between the buildings and the landscape, allowing the desert serenity to permeate the interior spaces and become an integral part of the healing process.",
+      "image": "חומריות.webp"
+    }
+  ]
+}
