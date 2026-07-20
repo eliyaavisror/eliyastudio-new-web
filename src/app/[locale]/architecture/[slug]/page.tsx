@@ -81,25 +81,28 @@ function Content({ slug }: { slug: string }) {
             {project.title[locale]}
           </h1>
 
-          {/* Meta row — status + location + client + year, all inline */}
-          <div className="mt-5 md:mt-6 flex flex-wrap items-center gap-x-5 sm:gap-x-7 gap-y-3 text-paper">
+          {/* Meta rows — status on its own line, location/client/year on separate clean row */}
+          <div className="mt-5 md:mt-6 space-y-4 text-paper">
             {status && (
-              <span className="inline-flex items-center gap-2">
-                <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
-                <span className="text-sm font-medium">{status[locale]}</span>
-              </span>
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium ticker bg-paper/10 text-paper backdrop-blur-md border border-paper/20 rounded-full">
+                  <span className={`w-2 h-2 rounded-full ${status.dot}`} />
+                  <span>{status[locale]}</span>
+                </span>
+              </div>
             )}
-            {status && <Divider />}
 
-            <HeroFact label={locale === "he" ? "מיקום" : "Location"} value={project.location[locale]} />
-            {project.client && (
-              <>
-                <Divider />
-                <HeroFact label={locale === "he" ? "יזם" : "Client"} value={project.client[locale]} />
-              </>
-            )}
-            <Divider />
-            <HeroFact label={locale === "he" ? "שנה" : "Year"} value={String(project.year)} />
+            <div className="flex flex-wrap items-center gap-x-6 sm:gap-x-8 gap-y-3 pt-1">
+              <HeroFact label={locale === "he" ? "מיקום" : "Location"} value={project.location[locale]} />
+              {project.client && (
+                <>
+                  <Divider />
+                  <HeroFact label={locale === "he" ? "יזם" : "Client"} value={project.client[locale]} />
+                </>
+              )}
+              <Divider />
+              <HeroFact label={locale === "he" ? "שנה" : "Year"} value={String(project.year)} />
+            </div>
           </div>
         </div>
       </section>
