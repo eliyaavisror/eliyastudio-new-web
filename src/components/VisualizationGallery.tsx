@@ -211,9 +211,9 @@ export default function VisualizationGallery({ images, locale }: Props) {
   );
 
   const btnBase =
-    "min-h-[44px] px-5 py-2.5 text-sm font-medium tracking-wide border transition-colors flex items-center gap-2";
-  const btnOn = "bg-ink text-paper border-ink";
-  const btnOff = "bg-transparent text-ink border-paper-line hover:border-ink";
+    "ticker text-xs min-h-[44px] px-4 py-2.5 transition-all duration-300 flex items-center gap-2 border-b-2";
+  const btnOn = "border-ink text-ink font-bold";
+  const btnOff = "border-transparent text-ink/50 hover:text-ink hover:border-ink/30";
 
   return (
     <>

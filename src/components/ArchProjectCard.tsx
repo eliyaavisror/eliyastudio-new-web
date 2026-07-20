@@ -20,7 +20,7 @@ export default function ArchProjectCard({
     <article className="group">
       <Link
         href={`/architecture/${project.slug}`}
-        className="block overflow-hidden rounded-xl bg-paper-warm relative aspect-[16/10]"
+        className="block overflow-hidden bg-paper-warm relative aspect-[16/10]"
         aria-label={project.title[locale]}
       >
         <Image
@@ -33,7 +33,7 @@ export default function ArchProjectCard({
 
         {/* Status badge */}
         {status && (
-          <span className={`absolute top-3 ltr:left-3 rtl:right-3 px-3 py-1 text-[10px] font-medium uppercase tracking-wider rounded-sm ${status.color}`}>
+          <span className="absolute top-4 ltr:left-4 rtl:right-4 px-3 py-1.5 text-[10px] ticker bg-ink/85 text-paper backdrop-blur-sm border border-paper/20">
             {status[locale]}
           </span>
         )}

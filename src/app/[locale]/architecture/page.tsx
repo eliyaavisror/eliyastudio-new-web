@@ -106,8 +106,8 @@ function Content({ heroImage }: { heroImage: string }) {
           </div>
           <ul className="grid grid-cols-4 gap-4 md:gap-16">
             {specialties.map((item, i) => (
-              <li key={item} className="group flex flex-col items-center gap-3 md:gap-4 text-center [perspective:400px]">
-                <span className="text-paper/70 [&>svg]:w-10 [&>svg]:h-10 md:[&>svg]:w-14 md:[&>svg]:h-14 transition-transform duration-500 ease-in-out group-hover:[transform:rotateY(360deg)]">
+              <li key={item} className="group flex flex-col items-center gap-3 md:gap-4 text-center">
+                <span className="text-paper/70 [&>svg]:w-10 [&>svg]:h-10 md:[&>svg]:w-14 md:[&>svg]:h-14 transition-all duration-300 group-hover:-translate-y-1.5 group-hover:text-paper">
                   {SPECIALTY_ICONS[i]}
                 </span>
                 <span className="text-xs md:text-base font-medium tracking-tight leading-snug">
@@ -150,11 +150,11 @@ function Content({ heroImage }: { heroImage: string }) {
       )}
 
       {/* CTA */}
-      <section className="section-pad bg-paper-warm">
+      <section className="section-pad bg-ink text-paper">
         <div className="container-x text-center max-w-3xl mx-auto">
           <h2 className="text-display-xl font-semibold text-balance">{t("cta.title")}</h2>
-          <p className="mt-7 text-lg md:text-xl text-ink-soft text-pretty">{t("cta.body")}</p>
-          <Link href="/contact" className="btn-primary mt-10">
+          <p className="mt-7 text-lg md:text-xl text-paper/70 text-pretty">{t("cta.body")}</p>
+          <Link href="/contact" className="btn-on-dark mt-10">
             {t("cta.button")}
           </Link>
         </div>

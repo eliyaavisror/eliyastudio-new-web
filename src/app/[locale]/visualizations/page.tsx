@@ -154,11 +154,11 @@ function Content({ heroImage, images }: { heroImage: string; images: GalleryImag
       </section>
 
       {/* CTA */}
-      <section className="section-pad bg-paper-warm">
+      <section className="section-pad bg-ink text-paper">
         <div className="container-x text-center max-w-3xl mx-auto">
           <h2 className="text-display-xl font-semibold text-balance">{t("cta.title")}</h2>
-          <p className="mt-7 text-lg md:text-xl text-ink-soft text-pretty">{t("cta.body")}</p>
-          <Link href="/contact" className="btn-primary mt-10">
+          <p className="mt-7 text-lg md:text-xl text-paper/70 text-pretty">{t("cta.body")}</p>
+          <Link href="/contact" className="btn-on-dark mt-10">
             {t("cta.button")}
           </Link>
         </div>

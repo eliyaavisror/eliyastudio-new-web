@@ -95,14 +95,14 @@ function Content({ heroImage }: { heroImage: string }) {
       </section>
 
       {/* CTA */}
-      <section className="section-pad bg-paper-warm">
+      <section className="section-pad bg-ink text-paper">
         <div className="container-x text-center max-w-3xl mx-auto">
           <h2 className="text-display-xl font-semibold text-balance">{t("cta.title")}</h2>
-          <p className="mt-7 text-lg md:text-xl text-ink-soft text-pretty max-w-[42ch] mx-auto">
+          <p className="mt-7 text-lg md:text-xl text-paper/70 text-pretty max-w-[42ch] mx-auto">
             {t("cta.body")}
           </p>
           <div className="mt-10 flex justify-center gap-2 flex-wrap">
-            <Link href="/contact" className="btn-primary">{t("cta.button")}</Link>
+            <Link href="/contact" className="btn-on-dark">{t("cta.button")}</Link>
           </div>
         </div>
       </section>
