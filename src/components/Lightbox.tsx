@@ -21,7 +21,7 @@ function CtrlBtn({
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors disabled:opacity-25"
+      className="w-10 h-10 flex items-center justify-center text-ink/60 hover:text-ink transition-colors disabled:opacity-25"
     >
       {children}
     </button>
@@ -128,7 +128,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
       role="dialog"
       aria-modal="true"
       aria-label={current.title ?? (isHe ? "תצוגת תמונה" : "Image viewer")}
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#0a0a0a] select-none"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-white select-none"
       onClick={zoom === 1 ? handleClose : undefined}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
@@ -143,7 +143,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
       </div>
 
       {/* Counter */}
-      <p className="absolute top-4 left-1/2 -translate-x-1/2 text-white/40 text-xs tracking-widest z-10 pointer-events-none">
+      <p className="absolute top-4 left-1/2 -translate-x-1/2 text-ink/50 text-xs tracking-widest z-10 pointer-events-none ticker">
         {index + 1} / {images.length}
       </p>
 
@@ -155,7 +155,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
           </svg>
         </CtrlBtn>
         {zoom > 1 && (
-          <span className="text-white/35 text-[11px] tabular-nums w-9 text-center">
+          <span className="text-ink/60 text-[11px] tabular-nums w-9 text-center font-medium">
             {Math.round(zoom * 100)}%
           </span>
         )}
@@ -186,13 +186,13 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
       {zoom === 1 && (
         <>
           <button onClick={e => { e.stopPropagation(); handlePrev(); }} aria-label={isHe ? "תמונה קודמת" : "Previous image"}
-            className="absolute left-1 md:left-3 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white/50 hover:text-white transition-colors z-10">
+            className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink/40 hover:text-ink transition-colors z-10">
             <svg width="28" height="28" fill="none" viewBox="0 0 28 28" aria-hidden="true">
               <path d="M17 6l-8 8 8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
           <button onClick={e => { e.stopPropagation(); handleNext(); }} aria-label={isHe ? "תמונה הבאה" : "Next image"}
-            className="absolute right-1 md:right-3 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-white/50 hover:text-white transition-colors z-10">
+            className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-ink/40 hover:text-ink transition-colors z-10">
             <svg width="28" height="28" fill="none" viewBox="0 0 28 28" aria-hidden="true">
               <path d="M11 6l8 8-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -200,9 +200,9 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
         </>
       )}
 
-      {/* Image */}
+      {/* Image Container — 75% of screen */}
       <div
-        className="absolute inset-0 flex items-center justify-center"
+        className="absolute inset-0 flex items-center justify-center p-4 sm:p-8"
         onClick={e => { if (zoom > 1) e.stopPropagation(); }}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
@@ -213,7 +213,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
         {/* Loading spinner */}
         {!loaded && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-8 h-8 border-2 border-white/15 border-t-white/50 rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-ink/15 border-t-ink/60 rounded-full animate-spin" />
           </div>
         )}
         <div
@@ -228,10 +228,10 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
             src={current.src}
             alt={current.title ?? ""}
             fill
+            unoptimized
             sizes="75vw"
             className="object-contain"
             priority
-            quality={90}
             onLoad={() => setLoaded(true)}
           />
         </div>
@@ -239,7 +239,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
 
       {/* Title */}
       {current.title && (
-        <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-widest text-center px-10 z-10 pointer-events-none">
+        <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-ink/70 text-xs tracking-widest text-center px-10 z-10 pointer-events-none ticker">
           {current.title}
         </p>
       )}

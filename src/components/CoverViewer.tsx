@@ -18,7 +18,7 @@ function CtrlBtn({
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors disabled:opacity-25"
+      className="w-10 h-10 flex items-center justify-center text-ink/60 hover:text-ink transition-colors disabled:opacity-25"
     >
       {children}
     </button>
@@ -140,7 +140,7 @@ export default function CoverViewer({ src, alt, aspect, locale }: Props) {
           role="dialog"
           aria-modal="true"
           aria-label={isHe ? "תצוגת תמונה מורחבת" : "Expanded image view"}
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-[#0a0a0a] select-none"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-white select-none"
           onClick={zoom === 1 ? close : undefined}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
@@ -154,7 +154,7 @@ export default function CoverViewer({ src, alt, aspect, locale }: Props) {
               </svg>
             </CtrlBtn>
             {zoom > 1 && (
-              <span className="text-white/35 text-[11px] tabular-nums w-9 text-center">
+              <span className="text-ink/60 text-[11px] tabular-nums w-9 text-center font-medium">
                 {Math.round(zoom * 100)}%
               </span>
             )}
@@ -183,7 +183,7 @@ export default function CoverViewer({ src, alt, aspect, locale }: Props) {
 
           {/* Image */}
           <div
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0 flex items-center justify-center p-4 sm:p-8"
             onClick={e => { if (zoom > 1) e.stopPropagation(); }}
             onMouseDown={onMouseDown}
             onTouchStart={onTouchStart}
@@ -193,7 +193,7 @@ export default function CoverViewer({ src, alt, aspect, locale }: Props) {
           >
             {!loaded && (
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-8 h-8 border-2 border-white/15 border-t-white/50 rounded-full animate-spin" />
+                <div className="w-8 h-8 border-2 border-ink/15 border-t-ink/60 rounded-full animate-spin" />
               </div>
             )}
             <div
@@ -207,10 +207,10 @@ export default function CoverViewer({ src, alt, aspect, locale }: Props) {
                 src={src}
                 alt={alt}
                 fill
+                unoptimized
                 sizes="75vw"
                 className="object-contain"
                 priority
-                quality={95}
                 onLoad={() => setLoaded(true)}
               />
             </div>
