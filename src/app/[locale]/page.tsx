@@ -128,7 +128,7 @@ function ServiceCard({
   return (
     <Link
       href={href}
-      className="group bg-ink rounded-2xl p-7 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between
+      className="group bg-ink rounded-2xl p-6 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between w-full max-w-full overflow-hidden
         ring-1 ring-inset ring-paper/10
         transition-all duration-200
         hover:ring-paper/20
@@ -143,15 +143,15 @@ function ServiceCard({
         <p className="text-paper/65 leading-relaxed text-sm md:text-base flex-1">{body}</p>
       </div>
 
-      <div className="mt-8 pt-6 border-t border-paper/10 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2 sm:gap-3">
+      <div className="mt-8 pt-6 border-t border-paper/10 flex flex-wrap items-center justify-between gap-y-3 gap-x-2">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
           {tags.map((tag) => (
-            <span key={tag} className="ticker text-[10px] text-paper/45">
+            <span key={tag} className="ticker text-[9px] sm:text-[10px] text-paper/45">
               {tag}
             </span>
           ))}
         </div>
-        <span className="ticker text-[10px] text-paper border border-paper/30 px-3 py-1.5 flex-shrink-0 flex items-center gap-1.5 transition-all duration-300">
+        <span className="ticker text-[9px] sm:text-[10px] text-paper border border-paper/30 px-3 py-1.5 flex-shrink-0 flex items-center gap-1.5 transition-all duration-300">
           <span>{ctaText}</span>
           <svg
             width="12"
