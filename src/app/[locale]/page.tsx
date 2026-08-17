@@ -56,7 +56,7 @@ function Content({ heroImage }: { heroImage: string }) {
       </section>
 
       {/* SERVICES — dark inverted grid, 2 cards */}
-      <section className="section-pad bg-ink text-paper">
+      <section className="section-pad bg-ink text-paper w-full max-w-full overflow-hidden">
         <div className="container-x">
           <div className="flex flex-wrap items-end justify-between gap-6 pb-8 mb-14 md:mb-16 border-b border-paper/20">
             <div>

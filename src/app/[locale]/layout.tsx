@@ -125,7 +125,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main" className="skip-link">{t("skipToMain")}</a>
           <Header />
-          <main id="main" tabIndex={-1}>{children}</main>
+          <main id="main" tabIndex={-1} className="w-full max-w-full overflow-x-hidden">{children}</main>
           <Footer />
           <AccessibilityWidget />
           <WhatsAppFloat />

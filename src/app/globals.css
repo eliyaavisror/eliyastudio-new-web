@@ -23,6 +23,8 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   html[dir="rtl"] body { text-align: right; }
@@ -30,6 +32,9 @@
   body {
     @apply bg-paper text-ink font-sans antialiased;
     font-feature-settings: "ss01", "kern";
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
   }
 
   ::selection {
