@@ -217,9 +217,8 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
           </div>
         )}
         <div
+          className="relative w-full h-full max-w-[85vw] max-h-[85vh] sm:max-w-[75vw] sm:max-h-[75vh]"
           style={{
-            position: "absolute",
-            inset: 0,
             transform: `scale(${zoom}) translate(${pan.x / zoom}px, ${pan.y / zoom}px)`,
             transition: isDragging ? "none" : "transform 0.15s ease",
           }}
@@ -229,7 +228,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
             src={current.src}
             alt={current.title ?? ""}
             fill
-            sizes="100vw"
+            sizes="75vw"
             className="object-contain"
             priority
             quality={90}
