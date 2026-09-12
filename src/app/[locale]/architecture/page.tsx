@@ -121,9 +121,9 @@ function Content({ heroImage }: { heroImage: string }) {
       </div>
 
       {/* PROCESS */}
-      <section className="pt-12 md:pt-16 pb-10 md:pb-14 border-t border-ink/10">
+      <section className="pt-16 md:pt-24 pb-16 md:pb-24 border-t border-ink/10">
         <div className="container-x">
-          <p className="ticker text-ink-muted mb-8 md:mb-10">{t("process.title")}</p>
+          <p className="ticker text-ink-muted mb-8 md:mb-12">{t("process.title")}</p>
           <ProcessAccordion steps={steps} />
         </div>
       </section>
