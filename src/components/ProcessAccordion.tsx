@@ -17,8 +17,8 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <div className="relative min-h-[480px] sm:min-h-[560px] md:min-h-[640px] lg:min-h-[720px] rounded-2xl overflow-hidden shadow-2xl bg-ink">
-      {/* Background images */}
+    <div className="relative aspect-[16/10] sm:aspect-[16/9] min-h-[500px] sm:min-h-[580px] md:min-h-[680px] lg:min-h-[760px] rounded-2xl overflow-hidden shadow-2xl bg-ink">
+      {/* Background images — clear, crisp display */}
       {steps.map((step, i) => (
         <div
           key={step.number}
@@ -33,14 +33,14 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
             unoptimized
             sizes="100vw"
             className="object-cover"
-            style={{ filter: "grayscale(1) brightness(0.85) contrast(0.75) saturate(0)" }}
+            style={{ filter: "grayscale(1) brightness(1.02) contrast(0.95)" }}
             aria-hidden="true"
           />
         </div>
       ))}
 
-      {/* Rich dark gradient coming from the bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/75 to-transparent z-10 pointer-events-none" />
+      {/* Dark gradient confined strictly to the bottom text area */}
+      <div className="absolute inset-x-0 bottom-0 h-[45%] sm:h-[40%] md:h-[35%] min-h-[180px] md:min-h-[220px] bg-gradient-to-t from-ink/95 via-ink/75 to-transparent z-10 pointer-events-none" />
 
       {/* Circular step buttons — vertical side layout */}
       <div className="absolute top-1/2 -translate-y-1/2 start-3 sm:start-5 md:start-8 lg:start-10 flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 z-30">
@@ -55,7 +55,7 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
               className={`w-8 h-8 sm:w-10 sm:h-10 md:w-13 md:h-13 lg:w-14 lg:h-14 rounded-full flex items-center justify-center text-[11px] sm:text-xs md:text-sm lg:text-base tabular-nums tracking-widest transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-paper/50 ${
                 isActive
                   ? "bg-paper text-ink font-bold shadow-xl scale-110"
-                  : "bg-ink/50 text-paper/75 hover:bg-ink/70 hover:text-paper backdrop-blur-sm border border-paper/15"
+                  : "bg-ink/65 text-paper/85 hover:bg-ink/80 hover:text-paper backdrop-blur-md border border-paper/20 shadow-md"
               }`}
             >
               {step.number}
