@@ -8,7 +8,7 @@ type Step = { number: string; title: string; body: string };
 const STEP_IMAGES = [
   "/images/process/step-01.webp",
   "/images/process/step-02.webp",
-  "/images/process/step-03.webp",
+  "/images/process/step-03.png",
   "/images/process/step-04.webp",
   "/images/process/step-05.webp",
 ];
