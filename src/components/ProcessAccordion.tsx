@@ -33,7 +33,7 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
             unoptimized
             sizes="100vw"
             className="object-cover"
-            style={{ filter: "grayscale(1) brightness(1.02) contrast(0.95)" }}
+            style={{ filter: "grayscale(1) brightness(1.12) contrast(0.86)" }}
             aria-hidden="true"
           />
         </div>
@@ -54,8 +54,8 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
               aria-pressed={isActive}
               className={`w-8 h-8 sm:w-10 sm:h-10 md:w-13 md:h-13 lg:w-14 lg:h-14 rounded-full flex items-center justify-center text-[11px] sm:text-xs md:text-sm lg:text-base tabular-nums tracking-widest transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-paper/50 ${
                 isActive
-                  ? "bg-paper text-ink font-bold shadow-xl scale-110"
-                  : "bg-ink/65 text-paper/85 hover:bg-ink/80 hover:text-paper backdrop-blur-md border border-paper/20 shadow-md"
+                  ? "bg-white/90 text-ink font-bold backdrop-blur-xl shadow-2xl scale-110 border border-white"
+                  : "bg-black/25 text-paper/90 hover:bg-black/45 hover:text-white backdrop-blur-xl border border-white/20 shadow-lg"
               }`}
             >
               {step.number}
