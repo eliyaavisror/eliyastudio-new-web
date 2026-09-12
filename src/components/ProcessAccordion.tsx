@@ -9,7 +9,7 @@ const STEP_IMAGES = [
   "/images/process/step-01.webp",
   "/images/process/step-02.webp",
   "/images/process/step-03.png",
-  "/images/process/step-04.webp",
+  "/images/process/step-04.png",
   "/images/process/step-05.webp",
 ];
 
