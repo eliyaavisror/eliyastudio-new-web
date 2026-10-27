@@ -3,7 +3,7 @@ import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Arimo } from "next/font/google";
+import { Heebo } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/data/site";
 import Header from "@/components/Header";
@@ -12,7 +12,7 @@ import AccessibilityWidget from "@/components/AccessibilityWidget";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CookieConsent from "@/components/CookieConsent";
 
-const arimo = Arimo({
+const heebo = Heebo({
   subsets: ["hebrew", "latin"],
   variable: "--font-sans",
   display: "swap",
@@ -115,7 +115,7 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} dir={dir} className={arimo.variable}>
+    <html lang={locale} dir={dir} className={heebo.variable}>
       <head>
         <script
           type="application/ld+json"
