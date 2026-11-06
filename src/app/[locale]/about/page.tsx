@@ -4,7 +4,6 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import ClientsCarousel from "@/components/ClientsCarousel";
-import PrinciplesInteractive from "@/components/PrinciplesInteractive";
 import { clientLogos } from "@/data/clients";
 import { getHeroImage } from "@/lib/heroImage";
 import type { Metadata } from "next";
@@ -110,144 +109,126 @@ function Content({ heroImage }: { heroImage: string }) {
   const archPrinciples = isHe
     ? [
         {
-          title: "האדם במרכז התכנון",
-          tag: "פרוגרמה וחוויה",
-          desc: "התכנון מתחיל באדם, בצרכים, בתחושות ובאורח החיים, מתוך מטרה ליצור מרחבים שמרגישים נכונים ומתפקדים היטב לאורך שנים.",
+          title: "אדם וחוויה",
+          desc: "תכנון שמתחיל באורח החיים ובתחושת המרחב",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="18" cy="11" r="5" />
-              <path d="M8 30C8 24.5 12.5 20 18 20C23.5 20 28 24.5 28 30" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Outer drafting circle */}
+              <circle cx="36" cy="36" r="28" strokeWidth="1" strokeDasharray="3 3" className=" opacity-35" />
+              {/* Spatial frame */}
+              <rect x="16" y="16" width="40" height="40" strokeWidth="1" className="opacity-30" />
+              {/* Human / Spatial proportion */}
+              <circle cx="36" cy="25" r="5.5" strokeWidth="1.5" />
+              <path d="M23 50C23 42.5 28.8 36.5 36 36.5C43.2 36.5 49 42.5 49 50" strokeWidth="1.5" strokeLinecap="round" />
+              {/* Axis ticks */}
+              <line x1="36" y1="4" x2="36" y2="10" strokeWidth="1" className="opacity-45" />
+              <line x1="36" y1="62" x2="36" y2="68" strokeWidth="1" className="opacity-45" />
             </svg>
           ),
         },
         {
-          title: "דיאלוג עם המקום והטבע",
-          tag: "אור, אוויר וחומר",
-          desc: "הטבע הוא שותף מלא ליצירה דרך ניצול חכם של אור טבעי, זרימת אוויר, טופוגרפיה וחומריות טבעית המשתלבת בהרמוניה בסביבה.",
+          title: "מקום וטבע",
+          desc: "הרמוניה של אור טבעי, אוויר וטופוגרפיה",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M4 28L13 18L20 25L26 19L32 28H4Z" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Sun path arc */}
+              <path d="M10 46A26 26 0 0 1 62 46" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
+              {/* Sun */}
+              <circle cx="26" cy="24" r="5.5" strokeWidth="1.5" />
+              {/* Topography / landscape lines */}
+              <path d="M8 50C18 42 28 42 38 48C46 52.5 55 51 64 45" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M12 57C22 51 34 51 44 56C51 59.5 58 58 64 54" strokeWidth="1.2" strokeLinecap="round" className="opacity-55" />
             </svg>
           ),
         },
         {
-          title: "מתודולוגיית BIM מתקדמת",
-          tag: "דיוק וסנכרון מערכות",
-          desc: "עבודה במודל תלת ממדי חכם ומבוסס מידע המאפשר רמת דיוק מרבית, תיאום מלא מול יועצי הפרויקט ושמירה על מסגרת התקציב.",
+          title: "BIM & AI",
+          desc: "מודל תלת ממדי חכם ובינה מלאכותית",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polygon points="18 4 31 11.5 31 24.5 18 32 5 24.5 5 11.5 18 4" />
-              <polyline points="5 11.5 18 19 31 11.5" />
-              <line x1="18" y1="19" x2="18" y2="32" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Isometric 3D BIM Cube */}
+              <polygon points="36 12 58 24.5 58 49.5 36 62 14 49.5 14 24.5 36 12" strokeWidth="1.5" strokeLinejoin="round" />
+              <polyline points="14 24.5 36 37 58 24.5" strokeWidth="1.3" strokeLinejoin="round" />
+              <line x1="36" y1="37" x2="36" y2="62" strokeWidth="1.3" />
+              {/* Internal wireframe dashed lines */}
+              <polyline points="14 49.5 36 37 58 49.5" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-40" />
+              {/* AI / Data nodes */}
+              <circle cx="36" cy="12" r="2.5" fill="currentColor" />
+              <circle cx="58" cy="24.5" r="2.5" fill="currentColor" />
+              <circle cx="14" cy="24.5" r="2.5" fill="currentColor" />
+              <circle cx="36" cy="37" r="2.8" fill="currentColor" />
             </svg>
           ),
         },
         {
-          title: "אינטגרציה של כלי AI",
-          tag: "חדשנות תכנונית",
-          desc: "רתימת כלי בינה מלאכותית פורצי דרך לחידוד רעיונות, בחינת חלופות תכנוניות בזמן אמת ופיצוח חכם של מורכבויות הפרויקט.",
+          title: "מהסקיצה לביצוע",
+          desc: "ליווי הדוק מהרעיון ועד לפרט האחרון",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M18 4V10M18 26V32M4 18H10M26 18H32" />
-              <circle cx="18" cy="18" r="6" />
-              <path d="M8.5 8.5L13 13M23 23L27.5 27.5M27.5 8.5L23 13M13 23L8.5 27.5" />
-            </svg>
-          ),
-        },
-        {
-          title: "סימולציה וראייה מרחבית",
-          tag: "מהסקיצה לתלת ממד",
-          desc: "שילוב סימולציות ויזואליות לאורך כל שלבי התכנון, המעניקות ללקוח וליזם ודאות מלאה לגבי נראות ותחושת המרחב עוד לפני הבנייה.",
-          icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="5" y="7" width="26" height="22" rx="2" />
-              <path d="M5 14H31" />
-              <path d="M14 14V29" />
-            </svg>
-          ),
-        },
-        {
-          title: "ליווי אישי עד לפרט האחרון",
-          tag: "ייזום, רישוי וביצוע",
-          desc: "ניהול מוקפד של כלל שלבי הפרויקט, משלב הפרוגרמה והרישוי ועד להפקת תוכניות עבודה מפורטות ופיקוח עליון צמוד בשטח.",
-          icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M7 29L29 7" />
-              <path d="M18 7H29V18" />
-              <path d="M7 15V29H21" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Drafting construction lines */}
+              <line x1="10" y1="56" x2="62" y2="56" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="16" y1="12" x2="16" y2="60" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
+              {/* Architectural elevation structure */}
+              <path d="M16 56V30L36 16L56 30V56" strokeWidth="1.5" strokeLinejoin="round" />
+              <path d="M36 16V56" strokeWidth="1" strokeDasharray="3 3" className="opacity-45" />
+              <rect x="28" y="38" width="16" height="18" strokeWidth="1.3" />
             </svg>
           ),
         },
       ]
     : [
         {
-          title: "Human Centered Design",
-          tag: "Program & Experience",
-          desc: "Design begins with the person, their needs, feelings, and lifestyle to create spaces that feel right and endure over time.",
+          title: "Human & Space",
+          desc: "Design rooted in lifestyle and spatial experience",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="18" cy="11" r="5" />
-              <path d="M8 30C8 24.5 12.5 20 18 20C23.5 20 28 24.5 28 30" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="36" cy="36" r="28" strokeWidth="1" strokeDasharray="3 3" className="opacity-35" />
+              <rect x="16" y="16" width="40" height="40" strokeWidth="1" className="opacity-30" />
+              <circle cx="36" cy="25" r="5.5" strokeWidth="1.5" />
+              <path d="M23 50C23 42.5 28.8 36.5 36 36.5C43.2 36.5 49 42.5 49 50" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="36" y1="4" x2="36" y2="10" strokeWidth="1" className="opacity-45" />
+              <line x1="36" y1="62" x2="36" y2="68" strokeWidth="1" className="opacity-45" />
             </svg>
           ),
         },
         {
-          title: "Dialogue with Site & Nature",
-          tag: "Light, Air & Material",
-          desc: "Nature is a full partner in our work through smart use of natural light, airflow, topography, and honest materials.",
+          title: "Site & Nature",
+          desc: "Harmony of natural light, airflow and topography",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M4 28L13 18L20 25L26 19L32 28H4Z" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M10 46A26 26 0 0 1 62 46" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
+              <circle cx="26" cy="24" r="5.5" strokeWidth="1.5" />
+              <path d="M8 50C18 42 28 42 38 48C46 52.5 55 51 64 45" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M12 57C22 51 34 51 44 56C51 59.5 58 58 64 54" strokeWidth="1.2" strokeLinecap="round" className="opacity-55" />
             </svg>
           ),
         },
         {
-          title: "Advanced BIM Methodology",
-          tag: "Precision & Coordination",
-          desc: "Data-driven 3D BIM modeling enabling maximum precision, full consultant synchronization, and budget control.",
+          title: "BIM & AI",
+          desc: "Smart 3D modeling and artificial intelligence",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polygon points="18 4 31 11.5 31 24.5 18 32 5 24.5 5 11.5 18 4" />
-              <polyline points="5 11.5 18 19 31 11.5" />
-              <line x1="18" y1="19" x2="18" y2="32" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <polygon points="36 12 58 24.5 58 49.5 36 62 14 49.5 14 24.5 36 12" strokeWidth="1.5" strokeLinejoin="round" />
+              <polyline points="14 24.5 36 37 58 24.5" strokeWidth="1.3" strokeLinejoin="round" />
+              <line x1="36" y1="37" x2="36" y2="62" strokeWidth="1.3" />
+              <polyline points="14 49.5 36 37 58 49.5" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-40" />
+              <circle cx="36" cy="12" r="2.5" fill="currentColor" />
+              <circle cx="58" cy="24.5" r="2.5" fill="currentColor" />
+              <circle cx="14" cy="24.5" r="2.5" fill="currentColor" />
+              <circle cx="36" cy="37" r="2.8" fill="currentColor" />
             </svg>
           ),
         },
         {
-          title: "AI Tool Integration",
-          tag: "Design Innovation",
-          desc: "Harnessing cutting-edge artificial intelligence to sharpen concepts, test design alternatives, and solve complex spatial challenges.",
+          title: "Sketch to Build",
+          desc: "Close guidance from first concept to final detail",
           icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M18 4V10M18 26V32M4 18H10M26 18H32" />
-              <circle cx="18" cy="18" r="6" />
-              <path d="M8.5 8.5L13 13M23 23L27.5 27.5M27.5 8.5L23 13M13 23L8.5 27.5" />
-            </svg>
-          ),
-        },
-        {
-          title: "Spatial Simulation",
-          tag: "From Sketch to 3D",
-          desc: "Continuous visual simulations throughout the planning stages, giving clients complete confidence in the space before construction.",
-          icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="5" y="7" width="26" height="22" rx="2" />
-              <path d="M5 14H31" />
-              <path d="M14 14V29" />
-            </svg>
-          ),
-        },
-        {
-          title: "End-to-End Guidance",
-          tag: "Permits to Execution",
-          desc: "Close guidance from initial programming and licensing through detailed working drawings and site supervision.",
-          icon: (
-            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M7 29L29 7" />
-              <path d="M18 7H29V18" />
-              <path d="M7 15V29H21" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <line x1="10" y1="56" x2="62" y2="56" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="16" y1="12" x2="16" y2="60" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
+              <path d="M16 56V30L36 16L56 30V56" strokeWidth="1.5" strokeLinejoin="round" />
+              <path d="M36 16V56" strokeWidth="1" strokeDasharray="3 3" className="opacity-45" />
+              <rect x="28" y="38" width="16" height="18" strokeWidth="1.3" />
             </svg>
           ),
         },
@@ -382,22 +363,39 @@ function Content({ heroImage }: { heroImage: string }) {
         </div>
       </section>
 
-      {/* ══ SECTION 2: ARCHITECTURAL DESIGN PRINCIPLES — Graphic Icon Grid (BIM, AI, Human & Nature) ══ */}
-      <section className="py-14 md:py-20 bg-paper-warm text-ink border-b border-ink/12">
+      {/* ══ SECTION 2: ARCHITECTURAL DESIGN PRINCIPLES — Pure Iconic Quartet ══ */}
+      <section className="py-16 md:py-24 bg-paper-warm text-ink border-b border-ink/12">
         <div className="container-x">
-          <div className="max-w-3xl mb-10 md:mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
               {isHe ? "עקרונות התכנון האדריכלי" : "Architectural Design Principles"}
             </h2>
-            <p className="mt-2.5 text-base md:text-lg font-light text-ink-soft leading-relaxed text-pretty">
+            <p className="mt-2 text-base md:text-lg font-light text-ink-soft">
               {isHe
-                ? "שילוב בין רגישות אנושית וסביבתית לבין מתודולוגיית BIM וכלי הבינה המלאכותית המתקדמים ביותר."
-                : "Combining human and environmental sensitivity with advanced BIM and AI design methodologies."}
+                ? "רגישות אנושית וסביבתית לצד מתודולוגיית BIM ובינה מלאכותית"
+                : "Human and environmental sensitivity alongside BIM and AI methodology"}
             </p>
           </div>
 
-          {/* Interactive Graphic Principles — Icons + Title, expands to text on click */}
-          <PrinciplesInteractive items={archPrinciples} />
+          {/* 4 Monumental Iconic Pillars */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6 md:gap-x-10">
+            {archPrinciples.map((item) => (
+              <div
+                key={item.title}
+                className="group flex flex-col items-center text-center"
+              >
+                <div className="text-ink/80 group-hover:text-ink group-hover:scale-105 transition-all duration-500 mb-5">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-1.5 text-xs sm:text-sm font-light text-ink-soft max-w-[22ch] leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
