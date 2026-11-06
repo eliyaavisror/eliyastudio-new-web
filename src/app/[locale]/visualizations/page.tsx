@@ -42,34 +42,30 @@ function Content({
     {
       key: "exterior" as const,
       icon: (
-        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M4 36V17L19 5L34 17V36H4Z" />
-          <path d="M14 36V25H24V36" />
-          <path d="M9 19H15V25H9Z" />
-          <path d="M23 19H29V25H23Z" />
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 21V10.5L12 3l9 7.5V21H3Z" />
+          <path d="M9 21v-6h6v6" />
         </svg>
       ),
     },
     {
       key: "interior" as const,
       icon: (
-        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M5 33V5H33" />
-          <path d="M9 33H33V9" />
-          <rect x="12" y="21" width="18" height="8" />
-          <path d="M12 21V17H15" />
-          <path d="M30 21V17H27" />
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 20V4h18" />
+          <path d="M6 20h15V7" />
+          <rect x="8" y="13" width="11" height="5" />
         </svg>
       ),
     },
     {
       key: "aerial" as const,
       icon: (
-        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <rect x="4" y="4" width="13" height="13" />
-          <rect x="21" y="4" width="13" height="13" />
-          <rect x="4" y="21" width="13" height="13" />
-          <rect x="21" y="21" width="13" height="13" />
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7.5" height="7.5" />
+          <rect x="13.5" y="3" width="7.5" height="7.5" />
+          <rect x="3" y="13.5" width="7.5" height="7.5" />
+          <rect x="13.5" y="13.5" width="7.5" height="7.5" />
         </svg>
       ),
     },
@@ -78,7 +74,7 @@ function Content({
   return (
     <>
       {/* ══ HERO WITH BACKGROUND IMAGE ══ */}
-      <section className="relative min-h-[38vh] md:min-h-[40vh] flex flex-col justify-end pt-24 md:pt-28 pb-7 md:pb-9 border-b border-ink/12">
+      <section className="relative min-h-[40vh] md:min-h-[42vh] flex flex-col justify-end pt-24 md:pt-28 pb-7 md:pb-9 border-b border-ink/12">
         <div className="absolute inset-0 -z-10">
           <Image
             src={heroImage}
@@ -105,47 +101,37 @@ function Content({
               {t("hero.body")}
             </p>
           </div>
+
+          {/* Compact Visualization Types Row — minimal strip under the heading like Architecture page */}
+          <div className="mt-6 pt-4 border-t border-ink/15">
+            <ul className="flex flex-wrap sm:flex-nowrap items-center gap-x-6 sm:gap-x-8 gap-y-2.5">
+              {types.map(({ key, icon }) => (
+                <li
+                  key={key}
+                  className="flex items-center gap-2 text-ink whitespace-nowrap"
+                >
+                  <span className="text-ink/75 shrink-0 scale-90">
+                    {icon}
+                  </span>
+                  <span className="text-xs sm:text-sm text-ink/90">
+                    {t(`types.${key}.title`)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
       {/* ══ GALLERY — Immediately visible on first screen ══ */}
-      <section id="gallery" className="pt-10 md:pt-14 pb-20 md:pb-28 bg-paper">
+      <section id="gallery" className="pt-10 md:pt-14 pb-20 md:pb-28 bg-paper border-b border-ink/12">
         <div className="container-x">
           <VisualizationGallery images={images} locale={locale} />
         </div>
       </section>
 
-      {/* ══ TYPES — Light Swiss Architectural Grid ══ */}
-      <section className="section-pad bg-paper-warm text-ink border-y border-ink/12">
-        <div className="container-x">
-          <div className="mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
-              {t("types.title")}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-ink/15 border border-ink/15">
-            {types.map(({ key, icon }) => (
-              <div key={key} className="bg-paper p-7 md:p-10 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-end mb-6">
-                    <span className="text-ink/75">{icon}</span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-ink mb-3">
-                    {t(`types.${key}.title`)}
-                  </h3>
-                </div>
-                <p className="text-ink-soft text-sm md:text-base leading-relaxed text-pretty">
-                  {t(`types.${key}.body`)}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══ COMPACT PROPORTIONAL CONTACT STRIP ══ */}
-      <section className="py-10 md:py-12 bg-paper text-ink">
+      <section className="py-10 md:py-12 bg-paper-warm text-ink">
         <div className="container-x flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
