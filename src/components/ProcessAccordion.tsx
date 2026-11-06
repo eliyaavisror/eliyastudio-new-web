@@ -65,23 +65,27 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
       </div>
 
       {/* Text per step — positioned at the bottom with dark gradient background */}
-      {steps.map((step, i) => (
-        <div
-          key={step.number}
-          className={`absolute bottom-0 inset-x-0 p-6 pb-7 ps-16 sm:ps-20 md:p-12 md:pb-12 md:ps-28 lg:p-14 lg:pb-14 lg:ps-36 transition-all duration-500 z-20 ${
-            i === openIndex
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-4 pointer-events-none"
-          }`}
-        >
-          <h3 className="text-paper text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug text-balance mb-2.5 md:mb-4">
-            {step.title}
-          </h3>
-          <p className="text-paper/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-[58ch]">
-            {step.body}
-          </p>
-        </div>
-      ))}
+      {steps.map((step, i) => {
+        const isActive = i === openIndex;
+        return (
+          <div
+            key={step.number}
+            aria-hidden={!isActive}
+            className={`absolute bottom-0 inset-x-0 p-6 pb-7 ps-16 sm:ps-20 md:p-12 md:pb-12 md:ps-28 lg:p-14 lg:pb-14 lg:ps-36 transition-all duration-500 z-20 ${
+              isActive
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4 pointer-events-none"
+            }`}
+          >
+            <h3 className="text-paper text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug text-balance mb-2.5 md:mb-4">
+              {step.title}
+            </h3>
+            <p className="text-paper/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-[58ch]">
+              {step.body}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }

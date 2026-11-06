@@ -67,8 +67,28 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
   }, []);
 
   useEffect(() => {
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const root = rootRef.current;
+    const firstBtn = root?.querySelector<HTMLElement>("button");
+    firstBtn?.focus();
+
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") { if (document.fullscreenElement) document.exitFullscreen(); else handleClose(); return; }
+      if (e.key === "Tab" && root) {
+        const focusables = root.querySelectorAll<HTMLElement>('button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+        if (focusables.length > 0) {
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+        return;
+      }
       if (zoom === 1) {
         if (e.key === "ArrowLeft") handlePrev();
         if (e.key === "ArrowRight") handleNext();
@@ -78,7 +98,11 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
-    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+      previousFocus?.focus?.();
+    };
   }, [handleClose, handlePrev, handleNext, zoomIn, zoomOut, zoom]);
 
   /* ── Mouse drag (pan when zoomed) ── */
@@ -226,7 +250,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Pro
           <Image
             key={current.src}
             src={current.src}
-            alt={current.title ?? ""}
+            alt={current.title ?? (isHe ? `הדמיה אדריכלית (${index + 1} מתוך ${images.length})` : `Architectural visualization (${index + 1} of ${images.length})`)}
             fill
             unoptimized
             sizes="75vw"

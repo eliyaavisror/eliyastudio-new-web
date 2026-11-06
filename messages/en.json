@@ -364,13 +364,17 @@
     "pageZoom": "Page zoom",
     "bigText": "Larger text",
     "highContrast": "High contrast",
+    "darkContrast": "Dark contrast",
+    "monochrome": "Monochrome",
     "readableFont": "Readable font",
-    "biggerCursor": "Prominent cursor",
+    "biggerCursor": "Large cursor",
     "pauseAnimations": "Pause animations",
     "highlightHeadings": "Highlight headings",
     "highlightLinks": "Highlight links",
-    "showAlt": "Show ALT text",
-    "reset": "Reset all"
+    "focusHighlight": "Focus indicator",
+    "showAlt": "Image descriptions",
+    "reset": "Reset settings",
+    "statement": "Accessibility statement"
   },
   "common": {
     "loading": "Loading...",

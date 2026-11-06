@@ -36,10 +36,10 @@ export const siteConfig = {
   },
 
   accessibility: {
-    coordinatorName: "רכז הנגישות",
+    coordinatorName: "אליה אידלמן",
     coordinatorPhone: "+972-53-2328683",
     coordinatorEmail: "eliyaeidelman@gmail.com",
-    lastUpdated: "2026-05-03",
+    lastUpdated: "2026-11-06",
   },
 
   privacy: {

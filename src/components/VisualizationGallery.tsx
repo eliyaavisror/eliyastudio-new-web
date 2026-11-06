@@ -15,10 +15,14 @@ type OpenDropdown = null | "exterior" | "interior";
 /* ── Masonry item ─────────────────────────────────────────────────────── */
 function MasonryItem({
   src,
+  alt,
+  openLabel,
   index,
   onClick,
 }: {
   src: string;
+  alt: string;
+  openLabel: string;
   index: number;
   onClick: () => void;
 }) {
@@ -49,14 +53,15 @@ function MasonryItem({
       }}
     >
       <button
+        type="button"
         onClick={onClick}
-        aria-label="פתח תמונה"
+        aria-label={openLabel}
         className="group relative block w-full overflow-hidden bg-paper-warm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
       >
         <div className="gallery-img-wrap relative w-full">
           <Image
             src={src}
-            alt=""
+            alt={alt}
             width={800}
             height={600}
             quality={95}
@@ -220,14 +225,14 @@ export default function VisualizationGallery({ images, locale }: Props) {
     <>
       {/* ── Filter bar ──────────────────────────────────────────────── */}
       <div
-        role="tablist"
+        role="group"
         aria-label={locale === "he" ? "סינון לפי קטגוריה" : "Filter by category"}
         className="flex gap-2 mb-10"
       >
         {/* הכל */}
         <button
-          role="tab"
-          aria-selected={filter === "all"}
+          type="button"
+          aria-pressed={filter === "all"}
           onClick={() => changeFilter("all")}
           className={`${btnBase} ${filter === "all" ? btnOn : btnOff}`}
         >
@@ -237,9 +242,9 @@ export default function VisualizationGallery({ images, locale }: Props) {
         {/* חוץ ▾ */}
         <div ref={exteriorRef} className="relative">
           <button
-            role="tab"
-            aria-selected={isParentActive("exterior")}
-            aria-haspopup="listbox"
+            type="button"
+            aria-pressed={isParentActive("exterior")}
+            aria-haspopup="true"
             aria-expanded={openDropdown === "exterior"}
             onClick={() => handleParentClick("exterior")}
             className={`${btnBase} ${isParentActive("exterior") ? btnOn : btnOff}`}
@@ -248,7 +253,7 @@ export default function VisualizationGallery({ images, locale }: Props) {
               {locale === "he" ? "חוץ" : "Exterior"}
               {getSubLabel("exterior") && (
                 <span className="ms-1 text-xs opacity-70">
-                  — {getSubLabel("exterior")}
+                  · {getSubLabel("exterior")}
                 </span>
               )}
             </span>
@@ -277,9 +282,9 @@ export default function VisualizationGallery({ images, locale }: Props) {
         {/* פנים ▾ */}
         <div ref={interiorRef} className="relative">
           <button
-            role="tab"
-            aria-selected={isParentActive("interior")}
-            aria-haspopup="listbox"
+            type="button"
+            aria-pressed={isParentActive("interior")}
+            aria-haspopup="true"
             aria-expanded={openDropdown === "interior"}
             onClick={() => handleParentClick("interior")}
             className={`${btnBase} ${isParentActive("interior") ? btnOn : btnOff}`}
@@ -288,7 +293,7 @@ export default function VisualizationGallery({ images, locale }: Props) {
               {locale === "he" ? "פנים" : "Interior"}
               {getSubLabel("interior") && (
                 <span className="ms-1 text-xs opacity-70">
-                  — {getSubLabel("interior")}
+                  · {getSubLabel("interior")}
                 </span>
               )}
             </span>
@@ -317,14 +322,30 @@ export default function VisualizationGallery({ images, locale }: Props) {
 
       {/* ── Masonry grid ──────────────────────────────────────────────── */}
       <div className="masonry">
-        {filtered.map((img, i) => (
-          <MasonryItem
-            key={img.src}
-            src={img.src}
-            index={i}
-            onClick={() => openLightbox(i)}
-          />
-        ))}
+        {filtered.map((img, i) => {
+          const catLabel =
+            GALLERY_CATEGORIES.find((c) => c.id === img.categoryId)?.[locale] ??
+            (locale === "he" ? "הדמיה אדריכלית" : "Architectural visualization");
+          const altText =
+            img.title ||
+            (locale === "he"
+              ? `הדמיה אדריכלית, ${catLabel} (${i + 1})`
+              : `Architectural visualization, ${catLabel} (${i + 1})`);
+          const openLabel =
+            locale === "he"
+              ? `פתיחת תמונה בגודל מלא: ${altText}`
+              : `Open full-size image: ${altText}`;
+          return (
+            <MasonryItem
+              key={img.src}
+              src={img.src}
+              alt={altText}
+              openLabel={openLabel}
+              index={i}
+              onClick={() => openLightbox(i)}
+            />
+          );
+        })}
       </div>
 
       {filtered.length === 0 && (

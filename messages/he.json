@@ -363,14 +363,18 @@
     "close": "סגרו תפריט נגישות",
     "pageZoom": "הגדלת תצוגה",
     "bigText": "הגדלת גופן",
-    "highContrast": "שיפור ניגודיות",
+    "highContrast": "ניגודיות גבוהה",
+    "darkContrast": "ניגודיות כהה",
+    "monochrome": "גווני אפור",
     "readableFont": "גופן קריא",
     "biggerCursor": "סמן בולט",
     "pauseAnimations": "עצירת אנימציות",
     "highlightHeadings": "הדגשת כותרות",
     "highlightLinks": "הדגשת קישורים",
-    "showAlt": "תיאור ALT",
-    "reset": "איפוס הגדרות"
+    "focusHighlight": "הדגשת פוקוס",
+    "showAlt": "תיאור תמונות",
+    "reset": "איפוס הגדרות",
+    "statement": "הצהרת נגישות"
   },
   "common": {
     "loading": "טוען...",

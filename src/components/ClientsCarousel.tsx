@@ -23,7 +23,7 @@ export default function ClientsCarousel({ logos, title, embedded = false }: Prop
       </div>
 
       {/* dir=ltr forces consistent left-to-right layout in RTL context */}
-      <div className="relative overflow-hidden" dir="ltr">
+      <div className="relative overflow-hidden" dir="ltr" aria-hidden="true">
         {/* Fade left edge */}
         <div className="absolute inset-y-0 left-0 w-20 sm:w-28 z-10 bg-gradient-to-r from-paper to-transparent pointer-events-none" />
         {/* Fade right edge */}

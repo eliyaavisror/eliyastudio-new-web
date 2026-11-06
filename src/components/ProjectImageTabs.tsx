@@ -17,10 +17,16 @@ export default function ProjectImageTabs({ groups, title, locale }: Props) {
   return (
     <>
       {/* Tab bar */}
-      <div className="flex gap-6 border-b border-ink/10 mb-6">
+      <div
+        role="group"
+        aria-label={locale === "he" ? "קטגוריות תמונות בפרויקט" : "Project image categories"}
+        className="flex gap-6 border-b border-ink/10 mb-6"
+      >
         {groups.map((g) => (
           <button
             key={g.id}
+            type="button"
+            aria-pressed={activeId === g.id}
             onClick={() => setActiveId(g.id)}
             className={`pb-3 text-sm font-medium tracking-wide border-b-2 -mb-px transition-colors ${
               activeId === g.id
@@ -44,7 +50,7 @@ export default function ProjectImageTabs({ groups, title, locale }: Props) {
           >
             <Image
               src={src}
-              alt={`${title} — ${current[locale]} ${i + 1}`}
+              alt={`${title}, ${current[locale]} ${i + 1}`}
               fill
               sizes="(max-width: 768px) 100vw, 75vw"
               className="object-cover"

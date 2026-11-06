@@ -34,11 +34,10 @@ function Content() {
   );
 
   return (
-    <article className="pt-40 md:pt-48 pb-32">
+    <article className="pt-36 md:pt-44 pb-28">
       <div className="container-x max-w-3xl">
-        <p className="eyebrow mb-6">{t("title")}</p>
-        <h1 className="text-display-lg font-display font-light mb-6">{t("title")}</h1>
-        <p className="text-sm text-ink-muted mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight mb-4">{t("title")}</h1>
+        <p className="text-sm text-ink-muted mb-14">
           {t("lastUpdated")}: {date}
         </p>
 
