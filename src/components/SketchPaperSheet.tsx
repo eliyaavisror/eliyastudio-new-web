@@ -69,6 +69,11 @@ export default function SketchPaperSheet({
             className="object-contain mix-blend-multiply"
           />
         </div>
+
+        {/* Small subtle badge on the sketch paper */}
+        <span className="absolute bottom-3 start-4 z-20 pointer-events-none text-[10px] sm:text-[11px] font-light tracking-wide text-ink/55 bg-white/80 backdrop-blur-[1px] px-2 py-0.5">
+          מתוך סקיצות הפרויקט
+        </span>
       </div>
     </div>
   );

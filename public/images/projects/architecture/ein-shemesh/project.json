@@ -3,8 +3,8 @@
   "year": 2026,
   "status": "planning",
   "title": {
-    "he": "שכונת \"עין שמש\"",
-    "en": "\"Ein Shemesh\" Neighborhood"
+    "he": "שכונת עין שמש",
+    "en": "Ein Shemesh Neighborhood"
   },
   "location": {
     "he": "מעלה אדומים",
@@ -21,15 +21,15 @@
     "en": "Designed in collaboration with landscape architect **Tzofia Jacob**."
   },
   "description": {
-    "he": "שכונת \"עין שמש\" במעלה אדומים, ביוזמת \"ארץ בראשית\", היא חזון תכנוני לשכונה כפרית־חקלאית בת־קיימא הצומחת מתוך נופי המדבר. הפרויקט מציע מודל מגורים קהילתי ייחודי המשלב באופן טבעי והרמוני אוכלוסייה עם צרכים מיוחדים בתוך מארג החיים השכונתי, תוך קידום ערכים אקולוגיים וחקלאיים.",
-    "en": "The \"Ein Shemesh\" neighborhood in Ma'ale Adumim, initiated by \"Eretz Bereshit\", is a design vision for a sustainable rural-agricultural community growing out of the desert landscape. The project offers a unique communal living model that naturally and harmoniously integrates individuals with special needs into the fabric of neighborhood life, while promoting ecological and agricultural values."
+    "he": "שכונת עין שמש במעלה אדומים, ביוזמת ארץ בראשית, היא חזון תכנוני לשכונה כפרית חקלאית בת קיימא הצומחת מתוך נופי המדבר. הפרויקט מציע מודל מגורים קהילתי ייחודי המשלב באופן טבעי והרמוני אוכלוסייה עם צרכים מיוחדים בתוך מארג החיים השכונתי, תוך קידום ערכים אקולוגיים וחקלאיים.",
+    "en": "The Ein Shemesh neighborhood in Ma'ale Adumim, initiated by Eretz Bereshit, is a design vision for a sustainable rural agricultural community growing out of the desert landscape. The project offers a unique communal living model that naturally and harmoniously integrates individuals with special needs into the fabric of neighborhood life, while promoting ecological and agricultural values."
   },
   "sections": [
     {
       "id": "sun-concept",
       "title": {
-        "he": "קונספט \"השמש\" וקהילה מכילה",
-        "en": "The \"Sun\" Concept & Inclusive Community"
+        "he": "קונספט השמש וקהילה מכילה",
+        "en": "The Sun Concept & Inclusive Community"
       },
       "he": "הקונספט התכנוני המרכזי שואב השראה משם השכונה — מערך בינוי המתפרש כקרני שמש סביב לב קהילתי פועם. במרכז השכונה ממוקמים מבני הציבור והפונקציות הקהילתיות, המופעלים ומתוחזקים על ידי דיירי השכונה בעלי הצרכים המיוחדים. מבנה מרחבי זה מעניק להם תפקיד משמעותי ופעיל בלב העשייה היומיומית, ומייצר מפגש בלתי אמצעי, שוויון ותחושת שייכות עמוקה בין כלל התושבים.",
       "en": "The core planning concept draws inspiration from the neighborhood's name — a spatial layout radiating like sunbeams around a vibrant communal heart. Positioned at the center are the public buildings and shared amenities, operated and maintained by residents with special needs. This spatial structure gives them a meaningful, active role at the heart of daily life, fostering natural interaction, equality, and a deep sense of belonging across the entire community.",
