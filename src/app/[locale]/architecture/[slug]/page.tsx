@@ -217,6 +217,22 @@ function Content({ slug }: { slug: string }) {
         </section>
       )}
 
+      {/* ══ END OF PROJECT CONTACT CTA ══ */}
+      <section className="py-12 md:py-16 border-t border-ink/12 bg-paper-warm text-ink">
+        <div className="container-x flex flex-col items-center text-center">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+            {locale === "he" ? "מתכננים פרויקט דומה?" : "Planning a similar project?"}
+          </h2>
+          <Link
+            href="/contact"
+            className="mt-5 inline-flex items-center gap-2.5 px-7 py-2.5 border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper text-xs font-medium uppercase tracking-wider transition-all duration-300"
+          >
+            <span>{locale === "he" ? "בואו נדבר" : "Let's talk"}</span>
+            <span aria-hidden="true">{locale === "he" ? "←" : "→"}</span>
+          </Link>
+        </div>
+      </section>
+
       {/* ══ PROJECT NAVIGATION (ALL PROJECTS + NEXT PROJECT) ══ */}
       <section className="py-14 md:py-20 border-t border-ink/15 bg-paper">
         <div className="container-x">

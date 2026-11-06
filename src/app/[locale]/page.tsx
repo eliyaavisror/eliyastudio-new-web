@@ -129,17 +129,34 @@ function Content({ heroImages }: { heroImages: string[] }) {
         {/* Spacer to push scroll indicator to the bottom */}
         <div className="flex-1" />
 
-        {/* Centered gently bouncing scroll indicator */}
-        <div className="container-x relative pt-5 flex justify-center">
-          <span className="animate-gentle-bounce inline-flex items-center gap-1.5 text-xs sm:text-sm font-light tracking-[0.2em] text-paper/90">
-            <span>↓</span>
-            <span>{isHe ? "גלול" : "Scroll"}</span>
-          </span>
+        {/* Prominent, centered gently bouncing scroll invitation */}
+        <div className="container-x relative pt-5 pb-2 flex justify-center">
+          <a
+            href="#studio-intro"
+            className="animate-gentle-bounce group inline-flex flex-col items-center gap-2 text-paper hover:opacity-90 transition-opacity drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)]"
+          >
+            <span className="text-sm sm:text-base md:text-lg font-medium tracking-[0.25em]">
+              {isHe ? "גלול" : "Scroll"}
+            </span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </a>
         </div>
       </section>
 
       {/* ══ STUDIO IDENTITY — Iconic Summary + Centered Borderless Link ══ */}
-      <section className="py-16 md:py-24 bg-paper-warm text-ink border-b border-ink/12">
+      <section id="studio-intro" className="py-16 md:py-24 bg-paper-warm text-ink border-b border-ink/12">
         <div className="container-x">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-2xl sm:text-3xl md:text-[32px] font-semibold tracking-tight text-ink leading-snug">

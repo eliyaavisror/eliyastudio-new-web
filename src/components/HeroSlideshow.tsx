@@ -46,8 +46,10 @@ export default function HeroSlideshow({ images, intervalMs = 7500 }: Props) {
           </div>
         );
       })}
-      <div className="absolute inset-0 bg-gradient-to-l from-ink/25 via-ink/45 to-ink/70" />
-      <div className="absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-ink/70 to-transparent" />
+      {/* Reduced overall darkening so the architectural image shines through */}
+      <div className="absolute inset-0 bg-ink/15" />
+      <div className="absolute inset-x-0 top-0 h-28 md:h-36 bg-gradient-to-b from-ink/55 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink/60 to-transparent" />
     </div>
   );
 }

@@ -4,8 +4,8 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import VisualizationGallery from "@/components/VisualizationGallery";
 import { getHeroImage } from "@/lib/heroImage";
-import { loadAllGalleryImages } from "@/lib/gallery-loader";
-import type { GalleryImage } from "@/data/gallery";
+import { loadVizGalleryFromDisk } from "@/lib/gallery-loader";
+import type { VizProject, VizCategoryMeta } from "@/data/visualization-projects";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -24,16 +24,18 @@ export default async function VisualizationsPage({
   const heroImage =
     getHeroImage("visualizations") ??
     "/images/projects/visualizations/exterior/FF03 copy.webp";
-  const images = loadAllGalleryImages();
-  return <Content heroImage={heroImage} images={images} />;
+  const { categories, projects } = loadVizGalleryFromDisk();
+  return <Content heroImage={heroImage} categories={categories} projects={projects} />;
 }
 
 function Content({
   heroImage,
-  images,
+  categories,
+  projects,
 }: {
   heroImage: string;
-  images: GalleryImage[];
+  categories: VizCategoryMeta[];
+  projects: VizProject[];
 }) {
   const t = useTranslations("visualizations");
   const locale = useLocale() as "he" | "en";
@@ -126,7 +128,11 @@ function Content({
       {/* ══ GALLERY — Immediately visible on first screen ══ */}
       <section id="gallery" className="pt-10 md:pt-14 pb-20 md:pb-28 bg-paper border-b border-ink/12">
         <div className="container-x">
-          <VisualizationGallery images={images} locale={locale} />
+          <VisualizationGallery
+            projects={projects}
+            categories={categories}
+            locale={locale}
+          />
         </div>
       </section>
 
