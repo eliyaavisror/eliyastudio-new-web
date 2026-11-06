@@ -313,41 +313,62 @@ function Content({ heroImage }: { heroImage: string }) {
         </div>
       </section>
 
-      {/* ══ SECTION 1: ABOUT ELIYA EIDELMAN — Background, Degree & Experience ══ */}
+      {/* ══ SECTION 1: ABOUT ELIYA EIDELMAN — Background, Degree, Experience & Portrait ══ */}
       <section id="about-more" className="py-14 md:py-20 bg-paper text-ink border-b border-ink/12">
         <div className="container-x">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
-              {t("story.title")}
-            </h2>
-            <p className="mt-2.5 text-base md:text-lg font-light text-ink-soft leading-relaxed text-pretty">
-              {isHe
-                ? "משרד אידלמן אדריכלים הוקם ומובל על ידי אליה אידלמן, אדריכל רשוי ובוגר האקדמיה לאמנות ועיצוב בצלאל (B.Arch). המשרד משלב ניסיון עשיר בתכנון אדריכלי של בתים פרטיים, מבני ציבור, מתחמי תיירות ובינוי, יחד עם מומחיות עמוקה בהדמיות תלת ממד וטכנולוגיות תכנון מתקדמות."
-                : "Eidelman Architects was founded and is led by Eliya Eidelman, a licensed architect and graduate of the Bezalel Academy of Arts and Design (B.Arch). The practice combines extensive architectural experience with deep expertise in 3D visualization and advanced design technologies."}
-            </p>
-          </div>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Story & Credentials */}
+            <div className="lg:col-span-7">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
+                {t("story.title")}
+              </h2>
+              <p className="mt-3 text-base md:text-lg font-light text-ink-soft leading-relaxed text-pretty max-w-2xl">
+                {isHe
+                  ? "משרד אידלמן אדריכלים הוקם ומובל על ידי אליה אידלמן, אדריכל רשוי ובוגר האקדמיה לאמנות ועיצוב בצלאל (B.Arch). המשרד משלב ניסיון עשיר בתכנון אדריכלי של בתים פרטיים, מבני ציבור, מתחמי תיירות ובינוי, יחד עם מומחיות עמוקה בהדמיות תלת ממד וטכנולוגיות תכנון מתקדמות."
+                  : "Eidelman Architects was founded and is led by Eliya Eidelman, a licensed architect and graduate of the Bezalel Academy of Arts and Design (B.Arch). The practice combines extensive architectural experience with deep expertise in 3D visualization and advanced design technologies."}
+              </p>
 
-          {/* 3 Open Box-Free Credential Items */}
-          <div className="mt-10 pt-8 border-t border-ink/12 grid md:grid-cols-3 gap-8 md:gap-12">
-            {credentials.map((cred) => (
-              <div
-                key={cred.label}
-                className="flex items-start gap-4"
-              >
-                <span className="text-ink/70 shrink-0 pt-1">{cred.icon}</span>
-                <div>
-                  <span className="block text-xs font-light text-ink-muted mb-0.5">
-                    {cred.label}
-                  </span>
-                  <h3 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
-                    {cred.value}
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm font-light text-ink-soft leading-relaxed">
-                    {cred.sub}
-                  </p>
-                </div>
+              {/* 3 Open Box-Free Credential Items */}
+              <div className="mt-10 pt-8 border-t border-ink/12 grid sm:grid-cols-3 gap-6 md:gap-8">
+                {credentials.map((cred) => (
+                  <div
+                    key={cred.label}
+                    className="flex flex-col gap-2"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-ink/70 shrink-0">{cred.icon}</span>
+                      <span className="text-xs font-light text-ink-muted">
+                        {cred.label}
+                      </span>
+                    </div>
+                    <h3 className="text-base md:text-lg font-semibold tracking-tight text-ink">
+                      {cred.value}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-light text-ink-soft leading-relaxed">
+                      {cred.sub}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Portrait Image */}
+            <div className="lg:col-span-5">
+              <figure className="relative">
+                <div className="relative aspect-[3/2] w-full overflow-hidden bg-paper-warm border border-ink/12">
+                  <Image
+                    src="/images/about/eliya-eidelman.jpg"
+                    alt={isHe ? "אדריכל אליה אידלמן" : "Architect Eliya Eidelman"}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-2.5 text-xs font-light text-ink-muted">
+                  {isHe ? "אדריכל אליה אידלמן" : "Architect Eliya Eidelman"}
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
