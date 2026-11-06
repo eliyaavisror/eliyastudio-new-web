@@ -112,7 +112,7 @@ export default function Header() {
   const useLight = darkHero && !scrolled && !mobileOpen;
 
   const headerBg = mobileOpen
-    ? "bg-paper"
+    ? "bg-white"
     : scrolled
     ? "bg-paper/95 backdrop-blur-md border-b border-paper-line"
     : "bg-transparent";
@@ -177,10 +177,10 @@ export default function Header() {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="absolute inset-0 bg-paper/98 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-white" />
         <nav
           aria-label={t("menu")}
-          className="relative container-x pt-28 pb-12 h-full flex flex-col justify-center overflow-y-auto"
+          className="relative container-x pt-28 pb-12 h-full flex flex-col justify-start overflow-y-auto"
         >
           <ul className="flex flex-col gap-7">
             {navItems.map((item, i) => {
