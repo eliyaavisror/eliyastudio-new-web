@@ -112,17 +112,23 @@ function Content({ heroImage }: { heroImage: string }) {
           title: "אדם וחוויה",
           desc: "תכנון שמתחיל באורח החיים ובתחושת המרחב",
           icon: (
-            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
-              {/* Outer drafting circle */}
-              <circle cx="36" cy="36" r="28" strokeWidth="1" strokeDasharray="3 3" className=" opacity-35" />
-              {/* Spatial frame */}
-              <rect x="16" y="16" width="40" height="40" strokeWidth="1" className="opacity-30" />
-              {/* Human / Spatial proportion */}
-              <circle cx="36" cy="25" r="5.5" strokeWidth="1.5" />
-              <path d="M23 50C23 42.5 28.8 36.5 36 36.5C43.2 36.5 49 42.5 49 50" strokeWidth="1.5" strokeLinecap="round" />
-              {/* Axis ticks */}
-              <line x1="36" y1="4" x2="36" y2="10" strokeWidth="1" className="opacity-45" />
-              <line x1="36" y1="62" x2="36" y2="68" strokeWidth="1" className="opacity-45" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              {/* Vitruvian Circle */}
+              <circle cx="36" cy="34" r="28" strokeWidth="1.2" className="opacity-55" />
+              {/* Vitruvian Square (base tangent to bottom of circle at y=62) */}
+              <rect x="13" y="16" width="46" height="46" strokeWidth="1.2" className="opacity-45" />
+              {/* Head */}
+              <circle cx="36" cy="22.5" r="3.5" strokeWidth="1.4" />
+              {/* Raised arms (touching circle/square corners) */}
+              <path d="M16 20.5L32.5 28.5M56 20.5L39.5 28.5" strokeWidth="1.2" className="opacity-65" />
+              {/* Horizontal arms (touching square sides) */}
+              <line x1="13" y1="28.5" x2="59" y2="28.5" strokeWidth="1.4" />
+              {/* Torso */}
+              <path d="M32.5 28.5L33.5 42H38.5L39.5 28.5" strokeWidth="1.4" />
+              {/* Spread legs (touching circle) */}
+              <path d="M34 42L23.5 58.5M38 42L48.5 58.5" strokeWidth="1.2" className="opacity-65" />
+              {/* Straight legs (touching bottom of square at y=62) */}
+              <path d="M34.5 42V62M37.5 42V62" strokeWidth="1.4" />
             </svg>
           ),
         },
@@ -181,13 +187,15 @@ function Content({ heroImage }: { heroImage: string }) {
           title: "Human & Space",
           desc: "Design rooted in lifestyle and spatial experience",
           icon: (
-            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
-              <circle cx="36" cy="36" r="28" strokeWidth="1" strokeDasharray="3 3" className="opacity-35" />
-              <rect x="16" y="16" width="40" height="40" strokeWidth="1" className="opacity-30" />
-              <circle cx="36" cy="25" r="5.5" strokeWidth="1.5" />
-              <path d="M23 50C23 42.5 28.8 36.5 36 36.5C43.2 36.5 49 42.5 49 50" strokeWidth="1.5" strokeLinecap="round" />
-              <line x1="36" y1="4" x2="36" y2="10" strokeWidth="1" className="opacity-45" />
-              <line x1="36" y1="62" x2="36" y2="68" strokeWidth="1" className="opacity-45" />
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="36" cy="34" r="28" strokeWidth="1.2" className="opacity-55" />
+              <rect x="13" y="16" width="46" height="46" strokeWidth="1.2" className="opacity-45" />
+              <circle cx="36" cy="22.5" r="3.5" strokeWidth="1.4" />
+              <path d="M16 20.5L32.5 28.5M56 20.5L39.5 28.5" strokeWidth="1.2" className="opacity-65" />
+              <line x1="13" y1="28.5" x2="59" y2="28.5" strokeWidth="1.4" />
+              <path d="M32.5 28.5L33.5 42H38.5L39.5 28.5" strokeWidth="1.4" />
+              <path d="M34 42L23.5 58.5M38 42L48.5 58.5" strokeWidth="1.2" className="opacity-65" />
+              <path d="M34.5 42V62M37.5 42V62" strokeWidth="1.4" />
             </svg>
           ),
         },
