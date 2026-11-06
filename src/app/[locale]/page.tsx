@@ -136,16 +136,8 @@ function Content({ heroImage }: { heroImage: string }) {
           <div className="absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-ink/70 to-transparent" />
         </div>
 
-        {/* Main content — vertically centered */}
-        <div className="container-x relative flex-1 flex flex-col justify-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-balance max-w-[18ch] leading-tight">
-            {t("hero.title")}
-          </h1>
-
-          <p className="mt-3.5 text-base sm:text-lg md:text-xl font-light text-paper/85 max-w-[46ch] leading-relaxed text-pretty">
-            {t("hero.subtitle")}
-          </p>
-        </div>
+        {/* Spacer to push scroll indicator to the bottom */}
+        <div className="flex-1" />
 
         {/* Centered gently bouncing scroll indicator */}
         <div className="container-x relative pt-5 border-t border-paper/20 flex justify-center">
@@ -160,9 +152,9 @@ function Content({ heroImage }: { heroImage: string }) {
       <section className="py-16 md:py-24 bg-paper-warm text-ink border-b border-ink/12">
         <div className="container-x">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink leading-snug">
+            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink leading-snug">
               {t("intro.title")}
-            </h2>
+            </h1>
             <p className="mt-2.5 text-base md:text-lg font-light text-ink-soft leading-relaxed text-pretty">
               {isHe
                 ? "משרד אידלמן אדריכלים, בהובלת אדריכל אליה אידלמן, משלב תכנון אדריכלי מוקפד עם סטודיו להדמיות תלת ממד"
