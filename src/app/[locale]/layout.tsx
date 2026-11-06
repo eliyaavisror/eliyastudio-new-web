@@ -87,31 +87,42 @@ export default async function LocaleLayout({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": metaT("siteName"),
-    "alternateName": locale === "he" 
-      ? ["אידלמן אדריכלים", "אליה אידלמן אדריכלים", "אדריכל אליה אידלמן"] 
-      : ["Eidelman Architects", "Eliya Eidelman Architects", "Architect Eliya Eidelman"],
-    "founder": {
-      "@type": "Person",
-      "name": locale === "he" ? "אליה אידלמן" : "Eliya Eidelman",
-      "jobTitle": locale === "he" ? "אדריכל" : "Architect"
-    },
-    "image": `${siteConfig.url}/images/og/og-default.jpg`,
-    "@id": `${siteConfig.url}/#organization`,
-    "url": siteConfig.url,
-    "telephone": siteConfig.contact.phone,
-    "email": siteConfig.contact.email,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": locale === "he" ? "ישראל" : "Israel",
-      "addressCountry": "IL"
-    },
-    "sameAs": [
-      siteConfig.social.instagram,
-      siteConfig.social.facebook
-    ].filter(Boolean),
-    "description": metaT("description"),
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+        "url": siteConfig.url,
+        "name": "אידלמן אדריכלים Eidelman Architects",
+        "alternateName": ["אידלמן אדריכלים", "Eidelman Architects", "אליה אידלמן אדריכלים"]
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": metaT("siteName"),
+        "alternateName": locale === "he"
+          ? ["אידלמן אדריכלים", "אליה אידלמן אדריכלים", "אדריכל אליה אידלמן"]
+          : ["Eidelman Architects", "Eliya Eidelman Architects", "Architect Eliya Eidelman"],
+        "founder": {
+          "@type": "Person",
+          "name": locale === "he" ? "אליה אידלמן" : "Eliya Eidelman",
+          "jobTitle": locale === "he" ? "אדריכל" : "Architect"
+        },
+        "image": `${siteConfig.url}/images/og/og-default.jpg`,
+        "@id": `${siteConfig.url}/#organization`,
+        "url": siteConfig.url,
+        "telephone": siteConfig.contact.phone,
+        "email": siteConfig.contact.email,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": locale === "he" ? "ישראל" : "Israel",
+          "addressCountry": "IL"
+        },
+        "sameAs": [
+          siteConfig.social.instagram,
+          siteConfig.social.facebook
+        ].filter(Boolean),
+        "description": metaT("description")
+      }
+    ]
   };
 
   return (

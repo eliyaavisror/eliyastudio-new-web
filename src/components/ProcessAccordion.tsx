@@ -17,7 +17,7 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <div className="relative aspect-[16/10] sm:aspect-[16/9] min-h-[500px] sm:min-h-[580px] md:min-h-[680px] lg:min-h-[760px] rounded-2xl overflow-hidden shadow-2xl bg-ink">
+    <div className="relative w-full min-h-[430px] sm:min-h-[540px] md:min-h-[660px] lg:min-h-[740px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-ink">
       {/* Background images — clear, crisp display */}
       {steps.map((step, i) => (
         <div
@@ -40,22 +40,23 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
       ))}
 
       {/* Dark gradient confined strictly to the bottom text area */}
-      <div className="absolute inset-x-0 bottom-0 h-[45%] sm:h-[40%] md:h-[35%] min-h-[180px] md:min-h-[220px] bg-gradient-to-t from-ink/95 via-ink/75 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-[62%] sm:h-[45%] md:h-[38%] min-h-[210px] md:min-h-[220px] bg-gradient-to-t from-ink/95 via-ink/80 to-transparent z-10 pointer-events-none" />
 
-      {/* Circular step buttons — vertical side layout */}
-      <div className="absolute top-1/2 -translate-y-1/2 start-3 sm:start-5 md:start-8 lg:start-10 flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 z-30">
+      {/* Circular step buttons — horizontal top row on mobile, vertical side column on sm+ */}
+      <div className="absolute top-4 inset-x-4 flex flex-row justify-center gap-2.5 sm:inset-x-auto sm:top-1/2 sm:-translate-y-1/2 sm:start-5 md:start-8 lg:start-10 sm:flex-col sm:gap-2.5 md:gap-3 lg:gap-4 z-30">
         {steps.map((step, i) => {
           const isActive = i === openIndex;
           return (
             <button
               key={step.number}
+              type="button"
               onClick={() => setOpenIndex(i)}
               aria-label={step.title}
               aria-pressed={isActive}
-              className={`w-8 h-8 sm:w-10 sm:h-10 md:w-13 md:h-13 lg:w-14 lg:h-14 rounded-full flex items-center justify-center text-[11px] sm:text-xs md:text-sm lg:text-base tabular-nums tracking-widest transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-paper/50 ${
+              className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center text-xs md:text-sm lg:text-base tabular-nums tracking-widest transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-paper/50 ${
                 isActive
-                  ? "bg-white/90 text-ink font-bold backdrop-blur-xl shadow-2xl scale-110 border border-white"
-                  : "bg-black/25 text-paper/90 hover:bg-black/45 hover:text-white backdrop-blur-xl border border-white/20 shadow-lg"
+                  ? "bg-white/95 text-ink font-bold backdrop-blur-xl shadow-2xl scale-110 border border-white"
+                  : "bg-black/35 text-paper/90 hover:bg-black/55 hover:text-white backdrop-blur-xl border border-white/25 shadow-lg"
               }`}
             >
               {step.number}
@@ -71,13 +72,13 @@ export default function ProcessAccordion({ steps }: { steps: Step[] }) {
           <div
             key={step.number}
             aria-hidden={!isActive}
-            className={`absolute bottom-0 inset-x-0 p-6 pb-7 ps-16 sm:ps-20 md:p-12 md:pb-12 md:ps-28 lg:p-14 lg:pb-14 lg:ps-36 transition-all duration-500 z-20 ${
+            className={`absolute bottom-0 inset-x-0 p-5 pb-6 sm:p-8 sm:ps-20 md:p-12 md:pb-12 md:ps-28 lg:p-14 lg:pb-14 lg:ps-36 transition-all duration-500 z-20 ${
               isActive
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4 pointer-events-none"
             }`}
           >
-            <h3 className="text-paper text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug text-balance mb-2.5 md:mb-4">
+            <h3 className="text-paper text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug text-balance mb-2 md:mb-4">
               {step.title}
             </h3>
             <p className="text-paper/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-[58ch]">

@@ -176,19 +176,17 @@ function Content({ heroImage }: { heroImage: string }) {
       </section>
 
       {/* ══ COMPACT PROPORTIONAL CONTACT STRIP ══ */}
-      <section className="py-10 md:py-12 bg-paper text-ink">
-        <div className="container-x flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div>
-            <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
-              {t("cta.title")}
-            </h2>
-            <p className="mt-1 text-sm md:text-base font-light text-ink-soft">
-              {t("cta.body")}
-            </p>
-          </div>
+      <section className="py-12 md:py-16 bg-paper text-ink">
+        <div className="container-x flex flex-col items-center text-center">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+            {t("cta.title")}
+          </h2>
+          <p className="mt-1.5 text-sm md:text-base font-light text-ink-soft">
+            {t("cta.body")}
+          </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-paper text-xs font-medium uppercase tracking-wider hover:bg-ink-soft transition-colors shrink-0 self-start sm:self-auto"
+            className="mt-5 inline-flex items-center gap-2.5 px-7 py-2.5 border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper text-xs font-medium uppercase tracking-wider transition-all duration-300"
           >
             <span>{t("cta.button")}</span>
             <span aria-hidden="true">{locale === "he" ? "←" : "→"}</span>

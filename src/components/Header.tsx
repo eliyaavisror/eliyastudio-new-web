@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import Logo from "./Logo";
 import LocaleSwitcher from "./LocaleSwitcher";
+import { siteConfig } from "@/data/site";
 
 export default function Header() {
   const t = useTranslations("nav");
@@ -48,11 +49,58 @@ export default function Header() {
     return () => document.removeEventListener("keydown", handleKey);
   }, [mobileOpen]);
 
+  const isHe = locale === "he";
+
   const navItems = [
-    { href: "/architecture", label: t("architecture") },
-    { href: "/visualizations", label: t("visualizations") },
-    { href: "/about", label: t("about") },
-    { href: "/contact", label: t("contact") },
+    {
+      href: "/architecture",
+      label: t("architecture"),
+      sub: isHe ? "בתים פרטיים, מבני ציבור ומתחמים" : "Private homes, public buildings & complexes",
+      icon: (
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M4 27H28" />
+          <path d="M7 27V14L16 6L25 14V27" />
+          <path d="M13 27V18H19V27" />
+        </svg>
+      ),
+    },
+    {
+      href: "/visualizations",
+      label: t("visualizations"),
+      sub: isHe ? "הדמיות חוץ, פנים ותצלומי אוויר" : "Exterior, interior & aerial 3D renders",
+      icon: (
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polygon points="16 4 27 10.5 27 23.5 16 30 5 23.5 5 10.5 16 4" />
+          <polyline points="5 10.5 16 17 27 10.5" />
+          <line x1="16" y1="17" x2="16" y2="30" />
+        </svg>
+      ),
+    },
+    {
+      href: "/about",
+      label: t("about"),
+      sub: isHe ? "הסיפור שלנו וגישת התכנון בסטודיו" : "Our story and architectural approach",
+      icon: (
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="16" cy="16" r="11" className="opacity-60" />
+          <rect x="8" y="8" width="16" height="16" className="opacity-45" />
+          <circle cx="16" cy="11.5" r="1.8" />
+          <line x1="8" y1="14.5" x2="24" y2="14.5" />
+          <path d="M14.5 14.5V24M17.5 14.5V24" />
+        </svg>
+      ),
+    },
+    {
+      href: "/contact",
+      label: t("contact"),
+      sub: isHe ? "תיאום פגישת היכרות וייעוץ" : "Schedule an introductory consultation",
+      icon: (
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="4" y="7" width="24" height="18" rx="1" />
+          <polyline points="4 8 16 17 28 8" />
+        </svg>
+      ),
+    },
   ];
 
   const isActive = (href: string) =>
@@ -65,7 +113,7 @@ export default function Header() {
   const useLight = darkHero && !scrolled && !mobileOpen;
 
   const headerBg = mobileOpen
-    ? "bg-white"
+    ? "bg-paper border-b border-ink/10"
     : scrolled
     ? "bg-paper/95 backdrop-blur-md border-b border-paper-line"
     : "bg-transparent";
@@ -75,7 +123,7 @@ export default function Header() {
       <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ease-smooth ${headerBg}`}>
         <div className="container-x">
           <div className="flex items-center justify-between h-20 md:h-24">
-            <Link href="/" aria-label={"ELIYA Studio — " + t("home")} className="block">
+            <Link href="/" aria-label={"אידלמן אדריכלים — " + t("home")} className="block">
               <Logo variant={useLight ? "light" : "dark"} />
             </Link>
 
@@ -106,10 +154,10 @@ export default function Header() {
                 aria-controls="mobile-menu"
                 className="lg:hidden min-h-[48px] min-w-[48px] inline-flex items-center justify-center"
               >
-                <span className="relative flex flex-col gap-[5px] w-5">
-                  <span className={`block h-px transition-all duration-300 ${useLight ? "bg-paper" : "bg-ink"} ${mobileOpen ? "translate-y-[6px] rotate-45" : ""}`} />
-                  <span className={`block h-px transition-all duration-300 ${useLight ? "bg-paper" : "bg-ink"} ${mobileOpen ? "opacity-0" : ""}`} />
-                  <span className={`block h-px transition-all duration-300 ${useLight ? "bg-paper" : "bg-ink"} ${mobileOpen ? "-translate-y-[6px] -rotate-45" : ""}`} />
+                <span className="relative flex flex-col gap-[5px] w-6">
+                  <span className={`block h-[1.5px] transition-all duration-300 ${useLight ? "bg-paper" : "bg-ink"} ${mobileOpen ? "translate-y-[6.5px] rotate-45" : ""}`} />
+                  <span className={`block h-[1.5px] transition-all duration-300 ${useLight ? "bg-paper" : "bg-ink"} ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
+                  <span className={`block h-[1.5px] transition-all duration-300 ${useLight ? "bg-paper" : "bg-ink"} ${mobileOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
                 </span>
               </button>
             </div>
@@ -117,7 +165,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — Architectural Drawer with Icons, Subtitles & Quick Studio Contact */}
       <div
         ref={menuRef}
         id="mobile-menu"
@@ -126,29 +174,114 @@ export default function Header() {
         aria-label={t("menu")}
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
-        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ease-smooth ${
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ease-out ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="absolute inset-0 bg-white/95 backdrop-blur-sm" />
-        <nav aria-label={t("menu")} className="relative container-x pt-28 md:pt-36 pb-20 h-full overflow-y-auto">
-          <ul className="flex flex-col gap-1">
-            {navItems.map((item, i) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block py-3 text-2xl md:text-3xl font-semibold text-ink transition-all duration-500 ${
-                    mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  } ${isActive(item.href) ? "" : "!opacity-50"}`}
-                  style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : "0ms" }}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+        <div className="absolute inset-0 bg-paper grid-lines" />
+        <nav
+          aria-label={t("menu")}
+          className="relative container-x pt-24 pb-8 h-full flex flex-col justify-between overflow-y-auto"
+        >
+          {/* Main Iconic Navigation List */}
+          <ul className="divide-y divide-ink/12 border-b border-ink/12 mt-2">
+            {navItems.map((item, i) => {
+              const active = isActive(item.href);
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`group flex items-center justify-between gap-4 py-5 transition-all duration-500 ${
+                      mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                    }`}
+                    style={{ transitionDelay: mobileOpen ? `${i * 65}ms` : "0ms" }}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    <div className="flex items-center gap-4">
+                      <span
+                        className={`w-12 h-12 flex items-center justify-center border transition-colors duration-300 shrink-0 ${
+                          active
+                            ? "bg-ink text-paper border-ink"
+                            : "bg-paper-warm/70 text-ink/80 border-ink/15 group-hover:border-ink group-hover:text-ink"
+                        }`}
+                      >
+                        {item.icon}
+                      </span>
+                      <div>
+                        <span className="block text-xl sm:text-2xl font-semibold tracking-tight text-ink">
+                          {item.label}
+                        </span>
+                        <span className="block mt-0.5 text-xs sm:text-sm font-light text-ink-soft">
+                          {item.sub}
+                        </span>
+                      </div>
+                    </div>
+
+                    <span
+                      aria-hidden="true"
+                      className="text-ink/50 group-hover:text-ink text-lg transition-transform duration-300 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 shrink-0"
+                    >
+                      {isHe ? "←" : "→"}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
+
+          {/* Bottom Studio Direct Contact & Social Bar */}
+          <div
+            className={`pt-6 transition-all duration-500 ${
+              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: mobileOpen ? "280ms" : "0ms" }}
+          >
+            <div className="p-5 bg-paper-warm border border-ink/12 flex flex-col gap-3">
+              <p className="text-xs font-medium tracking-wider text-ink-muted uppercase">
+                {isHe ? "אידלמן אדריכלים · יצירת קשר מהירה" : "Eidelman Architects · Quick Contact"}
+              </p>
+              <div className="flex flex-wrap items-center justify-between gap-3 text-sm font-medium text-ink">
+                <a href={`tel:${siteConfig.contact.phone}`} className="link-underline">
+                  {siteConfig.contact.phoneDisplay}
+                </a>
+                <a href={`mailto:${siteConfig.contact.email}`} className="link-underline text-xs sm:text-sm">
+                  {siteConfig.contact.email}
+                </a>
+              </div>
+              <div className="pt-2 border-t border-ink/10 flex items-center justify-between text-xs text-ink-soft">
+                <div className="flex items-center gap-5">
+                  {siteConfig.social.instagram && (
+                    <a
+                      href={siteConfig.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-ink transition-colors font-medium"
+                    >
+                      Instagram ↗
+                    </a>
+                  )}
+                  {siteConfig.social.facebook && (
+                    <a
+                      href={siteConfig.social.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-ink transition-colors font-medium"
+                    >
+                      Facebook ↗
+                    </a>
+                  )}
+                </div>
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-ink-muted hover:text-ink transition-colors"
+                >
+                  {isHe ? "דף הבית" : "Home"}
+                </Link>
+              </div>
+            </div>
+          </div>
         </nav>
       </div>
     </>

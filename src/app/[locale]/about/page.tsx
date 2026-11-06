@@ -35,33 +35,27 @@ function Content({ heroImage }: { heroImage: string }) {
   const credentials = isHe
     ? [
         {
-          label: "השכלה אקדמית",
           value: "בוגר בצלאל (B.Arch)",
-          sub: "המחלקה לארכיטקטורה, האקדמיה לאמנות ועיצוב בצלאל ירושלים",
           icon: (
-            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M16 5L3 12L16 19L29 12L16 5Z" />
               <path d="M7 14.5V22.5C7 24.5 11 26.5 16 26.5C21 26.5 25 24.5 25 22.5V14.5" />
             </svg>
           ),
         },
         {
-          label: "הסמכה מקצועית",
           value: "אדריכל רשוי",
-          sub: "רישוי מלא לתכנון, הגשה להיתרים ופיקוח עליון בפרויקטים מורכבים",
           icon: (
-            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="16" cy="13" r="7" />
               <path d="M11.5 18.5L9 28L16 24.5L23 28L20.5 18.5" />
             </svg>
           ),
         },
         {
-          label: "ניסיון רב תחומי",
-          value: "תכנון והדמיות קצה לקצה",
-          sub: "הובלת פרויקטי מגורים, מבני ציבור, מתחמי תיירות ובינוי עירוני",
+          value: "תכנון והובלת פרויקטים",
           icon: (
-            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 28H28" />
               <path d="M7 28V14L16 6L25 14V28" />
               <path d="M13 28V19H19V28" />
@@ -71,33 +65,27 @@ function Content({ heroImage }: { heroImage: string }) {
       ]
     : [
         {
-          label: "Academic Degree",
           value: "Bezalel Graduate (B.Arch)",
-          sub: "Department of Architecture, Bezalel Academy of Arts and Design, Jerusalem",
           icon: (
-            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M16 5L3 12L16 19L29 12L16 5Z" />
               <path d="M7 14.5V22.5C7 24.5 11 26.5 16 26.5C21 26.5 25 24.5 25 22.5V14.5" />
             </svg>
           ),
         },
         {
-          label: "Professional License",
           value: "Licensed Architect",
-          sub: "Full certification for architectural planning, permits, and supreme supervision",
           icon: (
-            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="16" cy="13" r="7" />
               <path d="M11.5 18.5L9 28L16 24.5L23 28L20.5 18.5" />
             </svg>
           ),
         },
         {
-          label: "Multidisciplinary Experience",
-          value: "Architecture & 3D Studio",
-          sub: "Leading residential projects, public buildings, hospitality complexes, and masterplans",
+          value: "Project Leadership",
           icon: (
-            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 28H28" />
               <path d="M7 28V14L16 6L25 14V28" />
               <path d="M13 28V19H19V28" />
@@ -402,68 +390,62 @@ function Content({ heroImage }: { heroImage: string }) {
       {/* ══ SECTION 1: ABOUT ELIYA EIDELMAN — Background, Degree, Experience & Portrait ══ */}
       <section id="about-more" className="py-14 md:py-20 bg-paper text-ink border-b border-ink/12">
         <div className="container-x">
-          {/* Top Row: Story Narrative + Editorial Portrait */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
-            <div className="md:col-span-7 lg:col-span-8">
+          {/* Top Row: Editorial Portrait + Compact Credentials (Right in RTL) + Story Narrative (Left in RTL) */}
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-center">
+            {/* Editorial Portrait + Compact Icons Strip Underneath */}
+            <div className="md:col-span-5 lg:col-span-5">
+              <div className="max-w-xs sm:max-w-sm mx-auto md:max-w-none">
+                <div className="relative">
+                  <div
+                    aria-hidden="true"
+                    className="absolute -inset-2.5 sm:-inset-3 bg-paper-warm border border-ink/10 -z-10 -translate-x-2.5 translate-y-2.5 ltr:translate-x-2.5"
+                  />
+                  <div className="relative aspect-[4/3] md:aspect-[5/4] w-full overflow-hidden bg-paper-warm border border-ink/15 shadow-sm">
+                    <Image
+                      src="/images/about/eliya-eidelman.jpg"
+                      alt={isHe ? "אדריכל אליה אידלמן" : "Architect Eliya Eidelman"}
+                      fill
+                      sizes="(max-width: 768px) 90vw, 40vw"
+                      className="object-cover"
+                      style={{ objectPosition: "68% center" }}
+                    />
+                  </div>
+                </div>
+
+                {/* Stacked 3 Credentials directly under the portrait */}
+                <ul className="mt-6 pt-4 border-t border-ink/15 flex flex-col gap-3">
+                  {credentials.map((cred) => (
+                    <li
+                      key={cred.value}
+                      className="flex items-center gap-3 text-ink"
+                    >
+                      <span className="text-ink/75 shrink-0">{cred.icon}</span>
+                      <span className="text-sm md:text-base font-medium text-ink/90">
+                        {cred.value}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="md:col-span-7 lg:col-span-7">
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
                 {t("story.title")}
               </h2>
-              <div className="mt-4 space-y-4 text-base md:text-lg font-light text-ink-soft leading-relaxed text-pretty max-w-[60ch]">
+              <div className="mt-4 space-y-4 text-base md:text-lg font-light text-ink-soft leading-relaxed text-justify">
                 <p>
                   {isHe
-                    ? "משרד אידלמן אדריכלים הוקם ומובל על ידי אליה אידלמן, אדריכל רשוי ובוגר האקדמיה לאמנות ועיצוב בצלאל (B.Arch)."
-                    : "Eidelman Architects was founded and is led by Eliya Eidelman, a licensed architect and graduate of the Bezalel Academy of Arts and Design (B.Arch)."}
+                    ? "הסטודיו הוקם ומובל על ידי אליה אידלמן, אדריכל רשוי, בעל תואר ראשון בארכיטקטורה B.Arch ובוגר המחלקה לארכיטקטורה באקדמיה לאומנות ועיצוב בצלאל."
+                    : "The studio was founded and is led by Eliya Eidelman, a licensed architect holding a B.Arch degree and graduate of the Department of Architecture at the Bezalel Academy of Arts and Design."}
                 </p>
                 <p>
                   {isHe
-                    ? "המשרד משלב ניסיון עשיר בתכנון אדריכלי של בתים פרטיים, מבני ציבור, מתחמי תיירות ובינוי, יחד עם מומחיות עמוקה בהדמיות תלת ממד וטכנולוגיות תכנון מתקדמות המעניקות מענה ארכיטקטוני שלם, מותאם אישית ומדויק."
-                    : "The practice combines extensive architectural experience in private homes, public buildings, hospitality complexes, and masterplans with deep expertise in 3D visualization and advanced design technologies."}
+                    ? "לאורך שנות עבודתו במשרדי אדריכלים צבר אליה ניסיון מעמיק בתכנון ובהובלת פרויקטים מגוונים, ופועל מתוך תשוקה עמוקה לאדריכלות וליצירה. הסטודיו מקיים שיתופי פעולה מקצועיים עם אדריכלים מובילים ומשלב יכולות מתקדמות לתכנון שלם ומדויק."
+                    : "Throughout his years working in architecture firms, Eliya gained deep experience planning and leading diverse projects, driven by a profound passion for architecture and creation. The studio collaborates professionally with leading architects and integrates advanced capabilities for complete and precise design."}
                 </p>
               </div>
             </div>
-
-            {/* Editorial Portrait — Cropped to focus on Eliya with subtle architectural offset frame */}
-            <div className="md:col-span-5 lg:col-span-4">
-              <div className="relative max-w-xs sm:max-w-sm mx-auto md:max-w-none">
-                <div
-                  aria-hidden="true"
-                  className="absolute -inset-2.5 sm:-inset-3 bg-paper-warm border border-ink/10 -z-10 translate-x-2.5 translate-y-2.5 rtl:-translate-x-2.5"
-                />
-                <div className="relative aspect-[4/3] md:aspect-[5/4] w-full overflow-hidden bg-paper-warm border border-ink/15 shadow-sm">
-                  <Image
-                    src="/images/about/eliya-eidelman.jpg"
-                    alt={isHe ? "אדריכל אליה אידלמן" : "Architect Eliya Eidelman"}
-                    fill
-                    sizes="(max-width: 768px) 90vw, 35vw"
-                    className="object-cover"
-                    style={{ objectPosition: "68% center" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Row: Full-Width 3 Open Credential Items */}
-          <div className="mt-12 md:mt-16 pt-8 md:pt-10 border-t border-ink/12 grid md:grid-cols-3 gap-8 md:gap-12">
-            {credentials.map((cred) => (
-              <div
-                key={cred.label}
-                className="flex items-start gap-4"
-              >
-                <span className="text-ink/70 shrink-0 pt-1">{cred.icon}</span>
-                <div>
-                  <span className="block text-xs font-light text-ink-muted mb-0.5">
-                    {cred.label}
-                  </span>
-                  <h3 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
-                    {cred.value}
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm font-light text-ink-soft leading-relaxed">
-                    {cred.sub}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -546,19 +528,17 @@ function Content({ heroImage }: { heroImage: string }) {
       </section>
 
       {/* ══ COMPACT PROPORTIONAL CONTACT STRIP ══ */}
-      <section className="py-10 md:py-12 bg-paper-warm text-ink">
-        <div className="container-x flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div>
-            <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
-              {t("cta.title")}
-            </h2>
-            <p className="mt-1 text-sm md:text-base font-light text-ink-soft">
-              {t("cta.body")}
-            </p>
-          </div>
+      <section className="py-12 md:py-16 bg-paper-warm text-ink">
+        <div className="container-x flex flex-col items-center text-center">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+            {t("cta.title")}
+          </h2>
+          <p className="mt-1.5 text-sm md:text-base font-light text-ink-soft">
+            {t("cta.body")}
+          </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-paper text-xs font-medium uppercase tracking-wider hover:bg-ink-soft transition-colors shrink-0 self-start sm:self-auto"
+            className="mt-5 inline-flex items-center gap-2.5 px-7 py-2.5 border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper text-xs font-medium uppercase tracking-wider transition-all duration-300"
           >
             <span>{t("cta.button")}</span>
             <span aria-hidden="true">{isHe ? "←" : "→"}</span>

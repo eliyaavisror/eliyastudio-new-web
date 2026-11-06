@@ -3,18 +3,21 @@ import { useTranslations, useLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { getHeroImage } from "@/lib/heroImage";
+import { getArchProjects } from "@/data/projects";
+import HeroSlideshow from "@/components/HeroSlideshow";
 
 export default async function HomePage({
   params,
 }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const heroImage = getHeroImage("home") ?? "/images/hero/home/TO LR copy.webp";
-  return <Content heroImage={heroImage} />;
+  const heroImages = getArchProjects()
+    .filter((p) => p.slug !== "office-building")
+    .map((p) => p.cover);
+  return <Content heroImages={heroImages} />;
 }
 
-function Content({ heroImage }: { heroImage: string }) {
+function Content({ heroImages }: { heroImages: string[] }) {
   const t = useTranslations("home");
   const locale = useLocale() as "he" | "en";
   const isHe = locale === "he";
@@ -121,26 +124,13 @@ function Content({ heroImage }: { heroImage: string }) {
     <>
       {/* ══ HERO — Full Viewport Height + Centered Gently Bouncing Scroll Hint ══ */}
       <section className="relative min-h-[100svh] flex flex-col pt-28 md:pt-36 pb-8 md:pb-10 text-paper">
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src={heroImage}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            style={{ filter: "grayscale(1) brightness(1.18) contrast(0.68) saturate(0)" }}
-            aria-hidden="true"
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-ink/30 via-ink/55 to-ink/80" />
-          <div className="absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-ink/70 to-transparent" />
-        </div>
+        <HeroSlideshow images={heroImages} />
 
         {/* Spacer to push scroll indicator to the bottom */}
         <div className="flex-1" />
 
         {/* Centered gently bouncing scroll indicator */}
-        <div className="container-x relative pt-5 border-t border-paper/20 flex justify-center">
+        <div className="container-x relative pt-5 flex justify-center">
           <span className="animate-gentle-bounce inline-flex items-center gap-1.5 text-xs sm:text-sm font-light tracking-[0.2em] text-paper/90">
             <span>↓</span>
             <span>{isHe ? "גלול" : "Scroll"}</span>
@@ -151,14 +141,24 @@ function Content({ heroImage }: { heroImage: string }) {
       {/* ══ STUDIO IDENTITY — Iconic Summary + Centered Borderless Link ══ */}
       <section className="py-16 md:py-24 bg-paper-warm text-ink border-b border-ink/12">
         <div className="container-x">
-          <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink leading-snug">
-              {t("intro.title")}
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-[32px] font-semibold tracking-tight text-ink leading-snug">
+              {isHe ? (
+                <>
+                  <span className="block">המטרה שלנו היא להגשים את החלום שלכם,</span>
+                  <span className="block">לא את החלומות שלנו דרככם</span>
+                </>
+              ) : (
+                <>
+                  <span className="block">Our goal is to realize your dream,</span>
+                  <span className="block">not our own dreams through you</span>
+                </>
+              )}
             </h1>
-            <p className="mt-2.5 text-base md:text-lg font-light text-ink-soft leading-relaxed text-pretty">
+            <p className="mt-3 text-base md:text-lg font-light text-ink-soft leading-relaxed">
               {isHe
-                ? "משרד אידלמן אדריכלים, בהובלת אדריכל אליה אידלמן, משלב תכנון אדריכלי מוקפד עם סטודיו להדמיות תלת ממד"
-                : "Eidelman Architects, led by Architect Eliya Eidelman, combines meticulous architectural design with a 3D visualization studio"}
+                ? "כך אנו הופכים את החזון שלכם למציאות בנויה בסטודיו:"
+                : "How we turn your vision into built reality at the studio:"}
             </p>
           </div>
 
@@ -188,7 +188,7 @@ function Content({ heroImage }: { heroImage: string }) {
               href="/about"
               className="group inline-flex items-center gap-2 text-sm md:text-base font-medium text-ink link-underline pb-1 transition-opacity hover:opacity-80"
             >
-              <span>{isHe ? "על המשרד וגישת התכנון" : "About the Studio & Approach"}</span>
+              <span>{isHe ? "על הסטודיו וגישת התכנון" : "About the Studio & Approach"}</span>
               <span
                 aria-hidden="true"
                 className="transition-transform duration-300 group-hover:-translate-x-1 ltr:group-hover:translate-x-1"
@@ -242,19 +242,17 @@ function Content({ heroImage }: { heroImage: string }) {
       </section>
 
       {/* ══ COMPACT PROPORTIONAL CONTACT STRIP ══ */}
-      <section className="py-10 md:py-12 bg-paper-warm text-ink">
-        <div className="container-x flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div>
-            <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
-              {t("cta.title")}
-            </h2>
-            <p className="mt-1 text-sm md:text-base font-light text-ink-soft">
-              {t("cta.body")}
-            </p>
-          </div>
+      <section className="py-12 md:py-16 bg-paper-warm text-ink">
+        <div className="container-x flex flex-col items-center text-center">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-ink">
+            {t("cta.title")}
+          </h2>
+          <p className="mt-1.5 text-sm md:text-base font-light text-ink-soft">
+            {t("cta.body")}
+          </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-paper text-xs font-medium uppercase tracking-wider hover:bg-ink-soft transition-colors shrink-0 self-start sm:self-auto"
+            className="mt-5 inline-flex items-center gap-2.5 px-7 py-2.5 border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper text-xs font-medium uppercase tracking-wider transition-all duration-300"
           >
             <span>{t("cta.button")}</span>
             <span aria-hidden="true">{isHe ? "←" : "→"}</span>
