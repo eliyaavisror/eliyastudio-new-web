@@ -5,7 +5,6 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import Logo from "./Logo";
 import LocaleSwitcher from "./LocaleSwitcher";
-import { siteConfig } from "@/data/site";
 
 export default function Header() {
   const t = useTranslations("nav");
@@ -113,7 +112,7 @@ export default function Header() {
   const useLight = darkHero && !scrolled && !mobileOpen;
 
   const headerBg = mobileOpen
-    ? "bg-paper border-b border-ink/10"
+    ? "bg-paper"
     : scrolled
     ? "bg-paper/95 backdrop-blur-md border-b border-paper-line"
     : "bg-transparent";
@@ -165,7 +164,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile menu — Architectural Drawer with Icons, Subtitles & Quick Studio Contact */}
+      {/* Mobile menu — Clean, minimal iconic links without lines or contact box */}
       <div
         ref={menuRef}
         id="mobile-menu"
@@ -178,13 +177,12 @@ export default function Header() {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="absolute inset-0 bg-paper grid-lines" />
+        <div className="absolute inset-0 bg-paper/98 backdrop-blur-md" />
         <nav
           aria-label={t("menu")}
-          className="relative container-x pt-24 pb-8 h-full flex flex-col justify-between overflow-y-auto"
+          className="relative container-x pt-28 pb-12 h-full flex flex-col justify-center overflow-y-auto"
         >
-          {/* Main Iconic Navigation List */}
-          <ul className="divide-y divide-ink/12 border-b border-ink/12 mt-2">
+          <ul className="flex flex-col gap-7">
             {navItems.map((item, i) => {
               const active = isActive(item.href);
               return (
@@ -192,96 +190,23 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`group flex items-center justify-between gap-4 py-5 transition-all duration-500 ${
-                      mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                    }`}
-                    style={{ transitionDelay: mobileOpen ? `${i * 65}ms` : "0ms" }}
+                    className={`group inline-flex items-center gap-4 transition-all duration-500 ${
+                      mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                    } ${active ? "text-ink" : "text-ink/60 hover:text-ink"}`}
+                    style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : "0ms" }}
                     aria-current={active ? "page" : undefined}
                   >
-                    <div className="flex items-center gap-4">
-                      <span
-                        className={`w-12 h-12 flex items-center justify-center border transition-colors duration-300 shrink-0 ${
-                          active
-                            ? "bg-ink text-paper border-ink"
-                            : "bg-paper-warm/70 text-ink/80 border-ink/15 group-hover:border-ink group-hover:text-ink"
-                        }`}
-                      >
-                        {item.icon}
-                      </span>
-                      <div>
-                        <span className="block text-xl sm:text-2xl font-semibold tracking-tight text-ink">
-                          {item.label}
-                        </span>
-                        <span className="block mt-0.5 text-xs sm:text-sm font-light text-ink-soft">
-                          {item.sub}
-                        </span>
-                      </div>
-                    </div>
-
-                    <span
-                      aria-hidden="true"
-                      className="text-ink/50 group-hover:text-ink text-lg transition-transform duration-300 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 shrink-0"
-                    >
-                      {isHe ? "←" : "→"}
+                    <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
+                      {item.icon}
+                    </span>
+                    <span className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                      {item.label}
                     </span>
                   </Link>
                 </li>
               );
             })}
           </ul>
-
-          {/* Bottom Studio Direct Contact & Social Bar */}
-          <div
-            className={`pt-6 transition-all duration-500 ${
-              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: mobileOpen ? "280ms" : "0ms" }}
-          >
-            <div className="p-5 bg-paper-warm border border-ink/12 flex flex-col gap-3">
-              <p className="text-xs font-medium tracking-wider text-ink-muted uppercase">
-                {isHe ? "אידלמן אדריכלים · יצירת קשר מהירה" : "Eidelman Architects · Quick Contact"}
-              </p>
-              <div className="flex flex-wrap items-center justify-between gap-3 text-sm font-medium text-ink">
-                <a href={`tel:${siteConfig.contact.phone}`} className="link-underline">
-                  {siteConfig.contact.phoneDisplay}
-                </a>
-                <a href={`mailto:${siteConfig.contact.email}`} className="link-underline text-xs sm:text-sm">
-                  {siteConfig.contact.email}
-                </a>
-              </div>
-              <div className="pt-2 border-t border-ink/10 flex items-center justify-between text-xs text-ink-soft">
-                <div className="flex items-center gap-5">
-                  {siteConfig.social.instagram && (
-                    <a
-                      href={siteConfig.social.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-ink transition-colors font-medium"
-                    >
-                      Instagram ↗
-                    </a>
-                  )}
-                  {siteConfig.social.facebook && (
-                    <a
-                      href={siteConfig.social.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-ink transition-colors font-medium"
-                    >
-                      Facebook ↗
-                    </a>
-                  )}
-                </div>
-                <Link
-                  href="/"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-ink-muted hover:text-ink transition-colors"
-                >
-                  {isHe ? "דף הבית" : "Home"}
-                </Link>
-              </div>
-            </div>
-          </div>
         </nav>
       </div>
     </>
