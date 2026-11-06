@@ -69,7 +69,6 @@ export default function Lightbox({
   const resetView = useCallback(() => {
     setZoom(1);
     setPan({ x: 0, y: 0 });
-    setLoaded(false);
   }, []);
 
   const handlePrev = useCallback(() => {
@@ -372,21 +371,44 @@ export default function Lightbox({
             transition: isDragging ? "none" : "transform 0.15s ease",
           }}
         >
-          <Image
-            key={current.src}
-            src={current.src}
-            alt={
-              projectTitle
-                ? `${projectTitle} (${index + 1}/${images.length})`
-                : current.title ?? (isHe ? `הדמיה (${index + 1})` : `Visualization (${index + 1})`)
-            }
-            fill
-            unoptimized
-            sizes="90vw"
-            className="object-contain"
-            priority
-            onLoad={() => setLoaded(true)}
-          />
+          {images.map((slide, i) => {
+            const isActive = i === index;
+            const isAdjacent =
+              Math.abs(i - index) <= 1 ||
+              (index === 0 && i === images.length - 1) ||
+              (index === images.length - 1 && i === 0);
+            return (
+              <div
+                key={slide.src}
+                aria-hidden={!isActive}
+                className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                  isActive
+                    ? "opacity-100 z-10"
+                    : "opacity-0 z-0 pointer-events-none"
+                }`}
+              >
+                <Image
+                  src={slide.src}
+                  alt={
+                    isActive
+                      ? projectTitle
+                        ? `${projectTitle} (${i + 1}/${images.length})`
+                        : slide.title ??
+                          (isHe ? `הדמיה (${i + 1})` : `Visualization (${i + 1})`)
+                      : ""
+                  }
+                  fill
+                  unoptimized
+                  sizes="90vw"
+                  className="object-contain"
+                  priority={isActive || isAdjacent}
+                  onLoad={() => {
+                    if (isActive) setLoaded(true);
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
 
