@@ -16,7 +16,7 @@ export default function ClientsCarousel({ logos, title, embedded = false }: Prop
 
   return (
     <div className="overflow-hidden">
-      <div className={embedded ? "mb-6" : "container-x mb-8"}>
+      <div className={embedded ? "mb-6 text-center" : "container-x mb-8"}>
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-ink-muted">
           {title}
         </p>

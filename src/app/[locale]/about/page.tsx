@@ -237,30 +237,127 @@ function Content({ heroImage }: { heroImage: string }) {
   const vizFeatures = isHe
     ? [
         {
-          title: "נאמנות אדריכלית מלאה",
-          desc: "הדמיות המבוססות על קריאה מקצועית של תוכניות אדריכליות ומשקפות כל פרט, חומר ומידה בדיוק מרבי.",
+          title: "דיוק אדריכלי",
+          desc: "נאמנות מוחלטת לתוכניות ולפרטי הבניין",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Floorplan base grid */}
+              <polygon points="36 40 60 50 36 60 12 50 36 40" strokeWidth="1.2" className="opacity-45" />
+              {/* Rising 3D volume */}
+              <path d="M22 46V22L36 16L50 22V46" strokeWidth="1.5" strokeLinejoin="round" />
+              <line x1="36" y1="16" x2="36" y2="48" strokeWidth="1.2" strokeDasharray="3 3" className="opacity-50" />
+              <polyline points="22 22 36 28 50 22" strokeWidth="1.3" strokeLinejoin="round" />
+            </svg>
+          ),
         },
         {
-          title: "אור ואווירה פוטוריאליסטיים",
-          desc: "סימולציה מדויקת של תאורה טבעית, חומריות וטקסטורות המעוררת השראה ומפיחה חיים בחזון התכנוני.",
+          title: "אור וחומריות",
+          desc: "סימולציה טבעית של תאורה וטקסטורות",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Light rays */}
+              <line x1="14" y1="14" x2="28" y2="28" strokeWidth="1.2" strokeDasharray="3 3" className="opacity-45" />
+              <line x1="24" y1="10" x2="34" y2="24" strokeWidth="1" strokeDasharray="2 2" className="opacity-35" />
+              {/* Material sphere */}
+              <circle cx="40" cy="40" r="18" strokeWidth="1.5" />
+              {/* Equator & meridian shading arcs */}
+              <path d="M22 40C28 46 52 46 58 40" strokeWidth="1.1" className="opacity-40" />
+              <path d="M40 22C47 28 47 52 40 58" strokeWidth="1.1" className="opacity-40" />
+              {/* Highlight dot */}
+              <circle cx="33" cy="33" r="2.5" fill="currentColor" />
+            </svg>
+          ),
         },
         {
-          title: "כלי החלטה ושיווק ליזמים ואדריכלים",
-          desc: "המחשה מוחשית של הפרויקט עוד לפני הנחת הלבנה הראשונה, לטובת שיווק נדל״ן, ועדות תכנון וקבלת החלטות.",
+          title: "חוויה מוחשית",
+          desc: "להרגיש את החלל לפני תחילת הבנייה",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Outer perspective frame */}
+              <rect x="12" y="16" width="48" height="40" strokeWidth="1.5" />
+              {/* Inner vanishing frame */}
+              <rect x="26" y="27" width="20" height="18" strokeWidth="1.2" className="opacity-65" />
+              {/* Perspective vanishing lines */}
+              <line x1="12" y1="16" x2="26" y2="27" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+              <line x1="60" y1="16" x2="46" y2="27" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+              <line x1="12" y1="56" x2="26" y2="45" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+              <line x1="60" y1="56" x2="46" y2="45" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+            </svg>
+          ),
+        },
+        {
+          title: "שיווק והחלטות",
+          desc: "כלי מרכזי ליזמים, אדריכלים וועדות",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              {/* Framing corner marks */}
+              <path d="M14 24V14H24" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M58 24V14H48" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M14 48V58H24" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M58 48V58H48" strokeWidth="1.5" strokeLinecap="round" />
+              {/* Central architectural towers */}
+              <rect x="24" y="28" width="12" height="22" strokeWidth="1.4" />
+              <path d="M36 34H48V50H36" strokeWidth="1.4" />
+              <line x1="20" y1="50" x2="52" y2="50" strokeWidth="1.4" strokeLinecap="round" />
+            </svg>
+          ),
         },
       ]
     : [
         {
-          title: "Full Architectural Fidelity",
-          desc: "Visualizations grounded in professional architectural reading of plans, reflecting every detail and material accurately.",
+          title: "Architectural Fidelity",
+          desc: "Complete accuracy to plans and building details",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <polygon points="36 40 60 50 36 60 12 50 36 40" strokeWidth="1.2" className="opacity-45" />
+              <path d="M22 46V22L36 16L50 22V46" strokeWidth="1.5" strokeLinejoin="round" />
+              <line x1="36" y1="16" x2="36" y2="48" strokeWidth="1.2" strokeDasharray="3 3" className="opacity-50" />
+              <polyline points="22 22 36 28 50 22" strokeWidth="1.3" strokeLinejoin="round" />
+            </svg>
+          ),
         },
         {
-          title: "Photorealistic Light & Atmosphere",
-          desc: "Precise simulation of natural lighting, materiality, and textures that breathes life into the design vision.",
+          title: "Light & Material",
+          desc: "Natural simulation of lighting and textures",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <line x1="14" y1="14" x2="28" y2="28" strokeWidth="1.2" strokeDasharray="3 3" className="opacity-45" />
+              <line x1="24" y1="10" x2="34" y2="24" strokeWidth="1" strokeDasharray="2 2" className="opacity-35" />
+              <circle cx="40" cy="40" r="18" strokeWidth="1.5" />
+              <path d="M22 40C28 46 52 46 58 40" strokeWidth="1.1" className="opacity-40" />
+              <path d="M40 22C47 28 47 52 40 58" strokeWidth="1.1" className="opacity-40" />
+              <circle cx="33" cy="33" r="2.5" fill="currentColor" />
+            </svg>
+          ),
         },
         {
-          title: "Decision & Marketing Tool",
-          desc: "Tangible experience of the project before construction begins, built for developers, architects, and planning committees.",
+          title: "Tangible Experience",
+          desc: "Feel the space before construction begins",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <rect x="12" y="16" width="48" height="40" strokeWidth="1.5" />
+              <rect x="26" y="27" width="20" height="18" strokeWidth="1.2" className="opacity-65" />
+              <line x1="12" y1="16" x2="26" y2="27" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+              <line x1="60" y1="16" x2="46" y2="27" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+              <line x1="12" y1="56" x2="26" y2="45" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+              <line x1="60" y1="56" x2="46" y2="45" strokeWidth="1" strokeDasharray="2.5 2.5" className="opacity-45" />
+            </svg>
+          ),
+        },
+        {
+          title: "Marketing & Decisions",
+          desc: "Essential tool for developers and architects",
+          icon: (
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M14 24V14H24" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M58 24V14H48" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M14 48V58H24" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M58 48V58H48" strokeWidth="1.5" strokeLinecap="round" />
+              <rect x="24" y="28" width="12" height="22" strokeWidth="1.4" />
+              <path d="M36 34H48V50H36" strokeWidth="1.4" />
+              <line x1="20" y1="50" x2="52" y2="50" strokeWidth="1.4" strokeLinecap="round" />
+            </svg>
+          ),
         },
       ];
 
@@ -399,38 +496,43 @@ function Content({ heroImage }: { heroImage: string }) {
         </div>
       </section>
 
-      {/* ══ SECTION 3: THE VISUALIZATION STUDIO + INTEGRATED CLIENTS STRIP ══ */}
-      <section className="py-14 md:py-20 bg-paper text-ink border-b border-ink/12">
+      {/* ══ SECTION 3: THE VISUALIZATION STUDIO + INTEGRATED CLIENTS STRIP — Same Pure Iconic Language ══ */}
+      <section className="py-16 md:py-24 bg-paper text-ink border-b border-ink/12">
         <div className="container-x">
-          {/* Single Unified Frame so Clients are visually part of the Visualization Studio */}
-          <div className="border border-ink/15 bg-paper-warm/40 p-7 sm:p-10 md:p-12">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
-                {t("viz.title")}
-              </h2>
-              <p className="mt-2.5 text-base md:text-lg font-light text-ink-soft leading-relaxed text-pretty">
-                {t("viz.body1")}
-              </p>
-            </div>
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
+              {t("viz.title")}
+            </h2>
+            <p className="mt-2 text-base md:text-lg font-light text-ink-soft">
+              {isHe
+                ? "שפה אמנותית שמחברת בין רעיון למציאות ומפיחה חיים בחזון התכנוני"
+                : "An artistic language bridging concept and reality to bring design visions to life"}
+            </p>
+          </div>
 
-            {/* 3 Concise Visualization Highlights */}
-            <div className="mt-8 pt-8 border-t border-ink/12 grid md:grid-cols-3 gap-6 md:gap-8">
-              {vizFeatures.map((feat) => (
-                <div key={feat.title} className="flex flex-col">
-                  <h3 className="text-base md:text-lg font-semibold tracking-tight text-ink mb-1.5">
-                    {feat.title}
-                  </h3>
-                  <p className="text-sm md:text-base font-light text-ink-soft leading-relaxed text-pretty">
-                    {feat.desc}
-                  </p>
+          {/* 4 Monumental Iconic Visualization Pillars */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6 md:gap-x-10">
+            {vizFeatures.map((feat) => (
+              <div
+                key={feat.title}
+                className="group flex flex-col items-center text-center"
+              >
+                <div className="text-ink/80 group-hover:text-ink group-hover:scale-105 transition-all duration-500 mb-5">
+                  {feat.icon}
                 </div>
-              ))}
-            </div>
+                <h3 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
+                  {feat.title}
+                </h3>
+                <p className="mt-1.5 text-xs sm:text-sm font-light text-ink-soft max-w-[22ch] leading-relaxed">
+                  {feat.desc}
+                </p>
+              </div>
+            ))}
+          </div>
 
-            {/* Clients Carousel Embedded Inside the Visualization Studio Box */}
-            <div className="mt-10 pt-8 border-t border-ink/12 bg-paper p-6 sm:p-8 border border-ink/10">
-              <ClientsCarousel logos={clientLogos} title={t("clientsTitle")} embedded />
-            </div>
+          {/* Clients Carousel Seamlessly Integrated Below the Visualization Icons */}
+          <div className="mt-14 md:mt-20 pt-10 border-t border-ink/10">
+            <ClientsCarousel logos={clientLogos} title={t("clientsTitle")} embedded />
           </div>
         </div>
       </section>
