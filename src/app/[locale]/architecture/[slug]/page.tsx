@@ -9,6 +9,7 @@ import ProjectRichContent from "@/components/ProjectRichContent";
 import RichText from "@/components/RichText";
 import CoverViewer from "@/components/CoverViewer";
 import HeroVideo from "@/components/HeroVideo";
+import SketchPaperSheet from "@/components/SketchPaperSheet";
 import type { Metadata } from "next";
 
 const STATUS_MAP: Record<ProjectStatus, { he: string; en: string; dot: string }> = {
@@ -44,7 +45,13 @@ export default async function ArchProjectPage({
 
 function Content({ slug }: { slug: string }) {
   const locale = useLocale() as "he" | "en";
-  const project = getArchProjectBySlug(slug)!;
+  const allProjects = getArchProjects();
+  const currentIndex = allProjects.findIndex((p) => p.slug === slug);
+  const project = allProjects[currentIndex] ?? getArchProjectBySlug(slug)!;
+  const nextProject =
+    allProjects.length > 1
+      ? allProjects[(currentIndex + 1) % allProjects.length]
+      : null;
   const status = project.status ? STATUS_MAP[project.status] : null;
 
   return (
@@ -123,14 +130,14 @@ function Content({ slug }: { slug: string }) {
       {project.description && (
         <section className="bg-paper-warm mt-10 md:mt-14 py-14 md:py-20">
           <div className="container-x text-center">
-            <h2 className="text-display-lg font-bold tracking-tight mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-5">
               {locale === "he" ? "על הפרויקט" : "About the project"}
             </h2>
-            <p className="text-base md:text-xl font-light text-ink-soft leading-relaxed text-pretty max-w-[90ch] mx-auto">
+            <p className="text-base md:text-lg text-ink-soft leading-relaxed text-pretty max-w-[85ch] mx-auto">
               {project.description[locale]}
             </p>
             {project.credit && (
-              <p className="mt-6 text-sm md:text-base text-ink-muted max-w-[90ch] mx-auto">
+              <p className="mt-6 text-sm md:text-base text-ink-muted max-w-[85ch] mx-auto">
                 <RichText text={project.credit[locale]} />
               </p>
             )}
@@ -138,33 +145,13 @@ function Content({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* ══ NUMBERED SECTIONS ══ */}
+      {/* ══ SECTIONS ══ */}
       {project.sections ? (
-        <>
-          {/* Bridge heading — introduces the design principles */}
-          <section className="pt-16 md:pt-24 text-center">
-            <div className="container-x">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="h-px w-8 bg-accent" />
-                <span className="ticker text-[10px] text-accent-dark">
-                  {locale === "he" ? "התכנון" : "The design"}
-                </span>
-                <span className="h-px w-8 bg-accent" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-display-lg font-bold tracking-tight">
-                {locale === "he"
-                  ? "העקרונות המרכזיים בתכנון הפרויקט"
-                  : "The core principles behind the project's design"}
-              </h2>
-            </div>
-          </section>
-
-          <ProjectRichContent
-            sections={project.sections}
-            title={project.title[locale]}
-            locale={locale}
-          />
-        </>
+        <ProjectRichContent
+          sections={project.sections}
+          title={project.title[locale]}
+          locale={locale}
+        />
       ) : (project.imageGroups || project.images.length > 0) && (
         <section className="pt-12 pb-20 md:pb-32">
           <div className="container-x">
@@ -198,18 +185,110 @@ function Content({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* ══ BACK CTA ══ */}
-      <section className="py-12 md:py-16 border-t border-ink/10">
-        <div className="container-x flex flex-col sm:flex-row sm:items-center justify-between gap-5 sm:gap-8">
-          <Link
-            href="/architecture"
-            className="ticker link-underline text-ink-muted hover:text-ink transition-colors"
-          >
-            ← {locale === "he" ? "כל הפרויקטים" : "All projects"}
-          </Link>
-          <Link href="/contact" className="btn-secondary self-start sm:self-auto">
-            {locale === "he" ? "בואו נדבר על הפרויקט שלכם" : "Let's talk about your project"}
-          </Link>
+      {/* ══ SKETCHBOOK SECTION ══ */}
+      {project.sketches && project.sketches.length > 0 && (
+        <section className="py-16 md:py-24 bg-paper-warm border-t border-ink/10">
+          <div className="container-x">
+            <div className="text-center mb-10 md:mb-14">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+                {locale === "he" ? "מתוך ספר הסקיצות" : "From the Sketchbook"}
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-10 md:gap-12">
+              {project.sketches.map((src, i) => {
+                const isWide = i === 0 && project.sketches!.length % 2 === 1;
+                return (
+                  <div
+                    key={src}
+                    className={isWide ? "md:col-span-2 max-w-4xl mx-auto w-full" : ""}
+                  >
+                    <SketchPaperSheet
+                      src={src}
+                      alt={`${project.title[locale]} — ${locale === "he" ? "סקיצה" : "Sketch"} ${i + 1}`}
+                      sizes={isWide ? "(max-width: 1024px) 100vw, 80vw" : "(max-width: 768px) 100vw, 50vw"}
+                      tilt={i % 2 === 0 ? "left" : "right"}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ══ PROJECT NAVIGATION (ALL PROJECTS + NEXT PROJECT) ══ */}
+      <section className="py-14 md:py-20 border-t border-ink/15 bg-paper">
+        <div className="container-x">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12">
+            {/* Back to all projects */}
+            <Link
+              href="/architecture#projects"
+              className="group inline-flex items-center gap-3 text-ink-muted hover:text-ink transition-colors self-start md:self-center"
+            >
+              <span className="w-10 h-10 border border-ink/20 group-hover:border-ink group-hover:bg-ink group-hover:text-paper flex items-center justify-center transition-all duration-300">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  className="ltr:rotate-180"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+              <span className="flex flex-col">
+                <span className="ticker text-[10px] text-ink-subtle">
+                  {locale === "he" ? "חזרה לרשימה" : "Back to list"}
+                </span>
+                <span className="text-base md:text-lg font-semibold text-ink">
+                  {locale === "he" ? "כל הפרויקטים" : "All Projects"}
+                </span>
+              </span>
+            </Link>
+
+            {/* Next project card */}
+            {nextProject && (
+              <Link
+                href={`/architecture/${nextProject.slug}`}
+                className="group flex items-center justify-between md:justify-end gap-5 sm:gap-6 p-3 sm:p-4 border border-ink/15 hover:border-ink bg-paper-warm/50 hover:bg-paper-warm transition-all duration-300 md:min-w-[360px]"
+              >
+                <div className="relative w-24 sm:w-28 aspect-[16/10] overflow-hidden bg-paper-warm shrink-0">
+                  <Image
+                    src={nextProject.cover}
+                    alt={nextProject.title[locale]}
+                    fill
+                    sizes="120px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="flex flex-col min-w-0 flex-1">
+                  <span className="ticker text-[10px] text-accent-dark mb-1">
+                    {locale === "he" ? "הפרויקט הבא" : "Next Project"}
+                  </span>
+                  <span className="text-base sm:text-lg font-semibold text-ink truncate">
+                    {nextProject.title[locale]}
+                  </span>
+                  <span className="text-xs text-ink-muted truncate mt-0.5">
+                    {nextProject.location[locale]}
+                  </span>
+                </div>
+
+                <span
+                  aria-hidden="true"
+                  className="w-9 h-9 flex items-center justify-center text-ink-muted group-hover:text-ink transition-transform duration-300 group-hover:-translate-x-1 ltr:group-hover:translate-x-1 shrink-0"
+                >
+                  {locale === "he" ? "←" : "→"}
+                </span>
+              </Link>
+            )}
+          </div>
         </div>
       </section>
     </>

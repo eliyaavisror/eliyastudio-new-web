@@ -20,7 +20,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -134,7 +133,7 @@
     color: theme('colors.paper.line');
   }
 
-  .section-pad { @apply py-20 md:py-32 lg:py-40; }
+  .section-pad { @apply py-14 md:py-20 lg:py-24; }
 
   .grid-lines {
     background-image: linear-gradient(to right, rgba(10,10,10,0.04) 1px, transparent 1px);

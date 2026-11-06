@@ -1,0 +1,36 @@
+{
+  "slug": "ein-letzion",
+  "year": 2026,
+  "status": "planning",
+  "title": {
+    "he": "\"עין לציון\" — חווה חקלאית ותיירותית",
+    "en": "\"Ein LeTzion\" — Agricultural & Visitor Farm"
+  },
+  "location": {
+    "he": "סמוך לירושלים",
+    "en": "Near Jerusalem"
+  },
+  "cover": "עין לציון הדמיה.png",
+  "titleBackground": "עין לציון הדמיה.png",
+  "credit": {
+    "he": "הפרויקט מתוכנן בשיתוף פעולה עם אדריכלית הנוף **צופיה ג'ייקוב**.",
+    "en": "Designed in collaboration with landscape architect **Tzofia Jacob**."
+  },
+  "description": {
+    "he": "חוות \"עין לציון\", השוכנת בנוף ההררי סמוך לירושלים, היא פרויקט המשלב חקלאות חיה עם מרכז תיירות ומבקרים. התכנון מבקש לחבר בין עבודת האדמה והמסורת החקלאית של הרי ירושלים לבין חוויית אירוח, לימוד ופנאי — וליצור מוקד משיכה תיירותי הצומח באופן טבעי מתוך הטופוגרפיה והנוף המקומי.",
+    "en": "\"Ein LeTzion\" Farm, nestled in the mountainous landscape near Jerusalem, is a project combining working agriculture with a tourism and visitor center. The design seeks to bridge land cultivation and the agricultural heritage of the Jerusalem hills with hospitality, learning, and leisure — creating a destination that grows naturally out of the local topography and landscape."
+  },
+  "sections": [
+    {
+      "id": "visitor-experience",
+      "title": {
+        "he": "מרכז מבקרים, חקלאות ונוף",
+        "en": "Visitor Center, Agriculture & Landscape"
+      },
+      "he": "בלב החווה מתוכנן מרכז תיירות ומבקרים המזמין את הקהל לחוות מקרוב את המחזור החקלאי ואת נופי הבראשית של הרי ירושלים. בשיתוף פעולה הדוק עם אדריכלית הנוף צופיה ג'ייקוב, מערך המבנים, הטרסות והשבילים נשזר בטבעיות בקווי הגובה של ההר. האדריכלות נשענת על חומרים מקומיים וקווי מבט פתוחים אל הנוף, ומייצרת דיאלוג הרמוני בין פונקציות האירוח וההדרכה לבין השטחים החקלאיים הפעילים.",
+      "en": "At the heart of the farm, a tourism and visitor center invites guests to experience the agricultural cycle and the primeval scenery of the Jerusalem hills firsthand. In close collaboration with landscape architect Tzofia Jacob, the network of buildings, terraces, and pathways is woven naturally into the mountain contours. Relying on local materials and open sightlines, the architecture creates a harmonious dialogue between hospitality spaces and active agricultural plots.",
+      "image": "עין לציון סקיצה.jpg",
+      "imageStyle": "paper"
+    }
+  ]
+}

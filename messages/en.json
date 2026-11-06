@@ -20,24 +20,24 @@
     "hero": {
       "eyebrow": "Architectural Design & Visualization Studio",
       "title": "Meticulous architecture meets breathtaking 3D visualization",
-      "subtitle": "We design spaces that tell a story — from the first sketch to the final photorealistic render.",
+      "subtitle": "We design spaces that tell a story, from the first sketch to the final photorealistic render.",
       "ctaArch": "Architecture",
       "ctaViz": "Visualizations",
       "ctaSecondary": "Get in touch"
     },
     "intro": {
       "title": "A studio of precision and vision",
-      "body": "ELIYA Studio is an independent architectural practice and visualization studio led by licensed architect Eliya Eidelman. We combine rigorous architectural design with photorealistic 3D visualization, working with private clients, developers, and architectural firms."
+      "body": "Eidelman Architects, led by Architect Eliya Eidelman, combines human and site sensitive architecture with photorealistic 3D visualization and advanced BIM and AI workflows."
     },
     "services": {
       "title": "What we do",
       "architecture": {
         "title": "Architectural Design",
-        "body": "From private homes to public buildings. Functional, aesthetic planning tailored to client and site."
+        "body": "Private homes, public buildings, complexes and masterplans"
       },
       "visualizations": {
         "title": "3D Visualization",
-        "body": "High-resolution realistic renders — exterior, interior, day and night atmospheres."
+        "body": "Photorealistic exterior, interior and aerial renders"
       },
       "consulting": {
         "title": "Consulting & Interior Design",
@@ -168,7 +168,7 @@
       "body3": "Our goal is to inspire and provide clients with a tangible, precise experience of the project before the first brick is laid. We open a window into the world of tomorrow, allowing people to experience the space as close to reality as possible.",
       "clients": "Our clients include leading real-estate companies and top-tier architecture firms."
     },
-    "clientsTitle": "Clients & partners",
+    "clientsTitle": "Clients",
     "stats": {
       "projects": "Projects",
       "years": "Years experience",

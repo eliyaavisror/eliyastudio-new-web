@@ -7,8 +7,8 @@
     "en": "Island of Calm — Healing Farm"
   },
   "location": {
-    "he": "נופי פרת, מדבר יהודה",
-    "en": "Nofei Prat, Judean Desert"
+    "he": "נופי פרת",
+    "en": "Nofei Prat"
   },
   "client": {
     "he": "אור אסייג ושיבי כהן ארזי",
@@ -46,5 +46,10 @@
       "en": "Spanning 11 dunams, the project was designed with reverence for the desert environment. In close collaboration with landscape architect Tzofia Jacob, we created a design in which the built form grows out of the local topography and blends into it harmoniously. The architecture does not impose itself on the mountain, but rather holds a special dialogue with it. The local, natural materiality blurs the boundaries between the buildings and the landscape, allowing the desert serenity to permeate the interior spaces and become an integral part of the healing process.",
       "image": "חומריות.webp"
     }
+  ],
+  "sketches": [
+    "סקיצה כללית.jpg",
+    "סקיצה תכנית.jpg",
+    "סקיצות.jpg"
   ]
 }

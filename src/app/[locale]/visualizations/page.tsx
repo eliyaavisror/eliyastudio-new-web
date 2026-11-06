@@ -21,12 +21,20 @@ export default async function VisualizationsPage({
 }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const heroImage = getHeroImage("visualizations") ?? "/images/projects/visualizations/exterior/FF03 copy.webp";
+  const heroImage =
+    getHeroImage("visualizations") ??
+    "/images/projects/visualizations/exterior/FF03 copy.webp";
   const images = loadAllGalleryImages();
   return <Content heroImage={heroImage} images={images} />;
 }
 
-function Content({ heroImage, images }: { heroImage: string; images: GalleryImage[] }) {
+function Content({
+  heroImage,
+  images,
+}: {
+  heroImage: string;
+  images: GalleryImage[];
+}) {
   const t = useTranslations("visualizations");
   const locale = useLocale() as "he" | "en";
 
@@ -34,7 +42,7 @@ function Content({ heroImage, images }: { heroImage: string; images: GalleryImag
     {
       key: "exterior" as const,
       icon: (
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M4 36V17L19 5L34 17V36H4Z" />
           <path d="M14 36V25H24V36" />
           <path d="M9 19H15V25H9Z" />
@@ -45,7 +53,7 @@ function Content({ heroImage, images }: { heroImage: string; images: GalleryImag
     {
       key: "interior" as const,
       icon: (
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M5 33V5H33" />
           <path d="M9 33H33V9" />
           <rect x="12" y="21" width="18" height="8" />
@@ -57,7 +65,7 @@ function Content({ heroImage, images }: { heroImage: string; images: GalleryImag
     {
       key: "aerial" as const,
       icon: (
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <rect x="4" y="4" width="13" height="13" />
           <rect x="21" y="4" width="13" height="13" />
           <rect x="4" y="21" width="13" height="13" />
@@ -69,9 +77,8 @@ function Content({ heroImage, images }: { heroImage: string; images: GalleryImag
 
   return (
     <>
-      <div className="flex flex-col min-h-screen">
-      {/* HERO */}
-      <section className="relative min-h-[60vh] flex flex-col justify-end pt-28 md:pt-36 pb-10 md:pb-14">
+      {/* ══ HERO WITH BACKGROUND IMAGE ══ */}
+      <section className="relative min-h-[38vh] md:min-h-[40vh] flex flex-col justify-end pt-24 md:pt-28 pb-7 md:pb-9 border-b border-ink/12">
         <div className="absolute inset-0 -z-10">
           <Image
             src={heroImage}
@@ -80,60 +87,55 @@ function Content({ heroImage, images }: { heroImage: string; images: GalleryImag
             priority
             sizes="100vw"
             className="object-cover"
-            style={{ filter: "grayscale(1) brightness(1.2) contrast(0.65) saturate(0)", objectPosition: "center 75%" }}
+            style={{
+              filter: "grayscale(1) brightness(1.2) contrast(0.65) saturate(0)",
+              objectPosition: "center 75%",
+            }}
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-paper/20 via-paper/55 to-paper/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-paper/85 via-paper/70 to-paper/55" />
         </div>
+
         <div className="container-x relative">
-          <p className="ticker text-ink-muted mb-10">
-            {t("hero.eyebrow")}
-          </p>
-          <h1 className="text-display-2xl font-bold text-balance max-w-[18ch]">
-            {t("hero.title")}
-          </h1>
-          <div className="mt-12 md:mt-14 grid md:grid-cols-12 gap-8 items-end">
-            <p className="md:col-span-7 max-w-[52ch] text-lg md:text-xl text-ink-soft leading-relaxed text-pretty">
+          <div>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-ink leading-snug sm:whitespace-nowrap">
+              {t("hero.title")}
+            </h1>
+            <p className="mt-2 text-base md:text-lg text-ink/90 leading-relaxed max-w-2xl">
               {t("hero.body")}
             </p>
-            <div className="md:col-span-5 ticker text-ink-muted md:text-end">
-              EXTERIOR / INTERIOR / AERIAL
-            </div>
           </div>
         </div>
-        <a
-          href="#gallery"
-          aria-label={locale === "he" ? "גללו לגלריה" : "Scroll to gallery"}
-          className="absolute right-6 md:right-10 bottom-8 hidden md:flex flex-col items-center gap-2 opacity-40 hover:opacity-80 transition-opacity duration-300"
-        >
-          <span className="ticker text-ink text-[9px]" style={{ writingMode: "vertical-rl" }}>
-            {locale === "he" ? "גללו" : "scroll"}
-          </span>
-          <div className="w-px h-12 bg-ink/35 mt-1" />
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" className="text-ink" aria-hidden="true">
-            <path d="M1 1l4 4 4-4" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
       </section>
 
-      {/* TYPES — dark inverted grid */}
-      <section className="section-pad bg-ink text-paper">
+      {/* ══ GALLERY — Immediately visible on first screen ══ */}
+      <section id="gallery" className="pt-10 md:pt-14 pb-20 md:pb-28 bg-paper">
         <div className="container-x">
-          <div className="mb-8 md:mb-10">
-            <p className="ticker text-paper/60 mb-3">{t("types.title")}</p>
+          <VisualizationGallery images={images} locale={locale} />
+        </div>
+      </section>
+
+      {/* ══ TYPES — Light Swiss Architectural Grid ══ */}
+      <section className="section-pad bg-paper-warm text-ink border-y border-ink/12">
+        <div className="container-x">
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
+              {t("types.title")}
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-paper/15">
-            {types.map(({ key, icon }, i) => (
-              <div key={key} className="bg-ink p-7 md:p-9 flex flex-col">
-                <p className="ticker text-paper/45 mb-4">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <div className="text-paper/80 mb-4">{icon}</div>
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-2">
-                  {t(`types.${key}.title`)}
-                </h3>
-                <p className="text-paper/65 leading-relaxed text-sm flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-ink/15 border border-ink/15">
+            {types.map(({ key, icon }) => (
+              <div key={key} className="bg-paper p-7 md:p-10 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-end mb-6">
+                    <span className="text-ink/75">{icon}</span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-ink mb-3">
+                    {t(`types.${key}.title`)}
+                  </h3>
+                </div>
+                <p className="text-ink-soft text-sm md:text-base leading-relaxed text-pretty">
                   {t(`types.${key}.body`)}
                 </p>
               </div>
@@ -141,25 +143,24 @@ function Content({ heroImage, images }: { heroImage: string; images: GalleryImag
           </div>
         </div>
       </section>
-      </div>
 
-      {/* GALLERY */}
-      <section id="gallery" className="section-pad">
-        <div className="container-x">
-          <div className="pb-8 mb-14 border-b border-ink">
-            <p className="ticker text-ink-muted">{t("gallery.title")}</p>
+      {/* ══ COMPACT PROPORTIONAL CONTACT STRIP ══ */}
+      <section className="py-10 md:py-12 bg-paper text-ink">
+        <div className="container-x flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div>
+            <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
+              {t("cta.title")}
+            </h2>
+            <p className="mt-1 text-sm md:text-base font-light text-ink-soft">
+              {t("cta.body")}
+            </p>
           </div>
-          <VisualizationGallery images={images} locale={locale} />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-pad bg-ink text-paper">
-        <div className="container-x text-center max-w-3xl mx-auto">
-          <h2 className="text-display-xl font-semibold text-balance">{t("cta.title")}</h2>
-          <p className="mt-7 text-lg md:text-xl text-paper/70 text-pretty">{t("cta.body")}</p>
-          <Link href="/contact" className="btn-on-dark mt-10">
-            {t("cta.button")}
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-paper text-xs font-medium uppercase tracking-wider hover:bg-ink-soft transition-colors shrink-0 self-start sm:self-auto"
+          >
+            <span>{t("cta.button")}</span>
+            <span aria-hidden="true">{locale === "he" ? "←" : "→"}</span>
           </Link>
         </div>
       </section>

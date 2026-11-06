@@ -21,7 +21,9 @@ export default async function ArchitecturePage({
 }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const heroImage = getHeroImage("architecture") ?? "/images/projects/visualizations/exterior/A FINAL copy.webp";
+  const heroImage =
+    getHeroImage("architecture") ??
+    "/images/projects/visualizations/exterior/A FINAL copy.webp";
   return <Content heroImage={heroImage} />;
 }
 
@@ -54,9 +56,8 @@ function Content({ heroImage }: { heroImage: string }) {
 
   return (
     <>
-      <div className="flex flex-col min-h-screen">
-      {/* HERO */}
-      <section className="relative min-h-[60vh] flex flex-col justify-end pt-28 md:pt-36 pb-10 md:pb-14">
+      {/* ══ HERO WITH BACKGROUND IMAGE ══ */}
+      <section className="relative min-h-[40vh] md:min-h-[42vh] flex flex-col justify-end pt-24 md:pt-28 pb-7 md:pb-9 border-b border-ink/12">
         <div className="absolute inset-0 -z-10">
           <Image
             src={heroImage}
@@ -68,94 +69,129 @@ function Content({ heroImage }: { heroImage: string }) {
             style={{ filter: "grayscale(1) brightness(1.2) contrast(0.65) saturate(0)" }}
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-paper/20 via-paper/55 to-paper/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-paper/85 via-paper/70 to-paper/55" />
         </div>
+
         <div className="container-x relative">
-          <p className="ticker text-ink-muted mb-10">
-            {t("hero.eyebrow")}
-          </p>
-          <h1 className="text-display-2xl font-bold text-balance max-w-[18ch]">
-            {t("hero.title")}
-          </h1>
-          <div className="mt-12 md:mt-14 grid md:grid-cols-12 gap-8 items-end">
-            <p className="md:col-span-7 max-w-[52ch] text-lg md:text-xl text-ink-soft leading-relaxed text-pretty">
+          <div>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-ink tracking-tight leading-snug sm:whitespace-nowrap">
+              {t("hero.title")}
+            </h1>
+            <p className="mt-2 text-base md:text-lg text-ink/90 leading-relaxed max-w-2xl">
               {t("hero.body")}
             </p>
           </div>
-        </div>
-        <a
-          href="#projects"
-          aria-label={locale === "he" ? "גללו לפרויקטים" : "Scroll to projects"}
-          className="absolute right-6 md:right-10 bottom-8 hidden md:flex flex-col items-center gap-2 opacity-40 hover:opacity-80 transition-opacity duration-300"
-        >
-          <span className="ticker text-ink text-[9px]" style={{ writingMode: "vertical-rl" }}>
-            {locale === "he" ? "גללו" : "scroll"}
-          </span>
-          <div className="w-px h-12 bg-ink/35 mt-1" />
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" className="text-ink" aria-hidden="true">
-            <path d="M1 1l4 4 4-4" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
-      </section>
 
-      {/* SPECIALTIES — dark inverted */}
-      <section className="section-pad flex-1 bg-ink text-paper">
-        <div className="container-x">
-          <div className="mb-8 md:mb-10">
-            <p className="ticker text-paper/60 mb-4">{t("specialties.title")}</p>
-          </div>
-          <ul className="grid grid-cols-4 gap-4 md:gap-16">
-            {specialties.map((item, i) => (
-              <li key={item} className="group flex flex-col items-center gap-3 md:gap-4 text-center">
-                <span className="text-paper/70 [&>svg]:w-10 [&>svg]:h-10 md:[&>svg]:w-14 md:[&>svg]:h-14 transition-all duration-300 group-hover:-translate-y-1.5 group-hover:text-paper">
-                  {SPECIALTY_ICONS[i]}
-                </span>
-                <span className="text-xs md:text-base font-medium tracking-tight leading-snug">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      </div>
-
-      {/* PROCESS */}
-      <section className="pt-16 md:pt-24 pb-16 md:pb-24 border-t border-ink/10">
-        <div className="container-x">
-          <p className="ticker text-ink-muted mb-8 md:mb-12">{t("process.title")}</p>
-          <ProcessAccordion steps={steps} />
-        </div>
-      </section>
-
-      {/* SELECTED PROJECTS */}
-      {getArchProjects().length > 0 && (
-        <section id="projects" className="pt-10 md:pt-14 pb-20 md:pb-32 lg:pb-40">
-          <div className="container-x">
-            <div className="pb-4 mb-8 border-b border-ink/20">
-              <p className="ticker text-ink-muted mb-4">{locale === "he" ? "פרויקטים" : "Projects"}</p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              {getArchProjects().map((p, i) => (
-                <ArchProjectCard key={p.slug} project={p} locale={locale} index={i + 1} />
+          {/* Compact Specialties Row — 2 rows on mobile, 1 row on desktop */}
+          <div className="mt-6 pt-4 border-t border-ink/15">
+            <ul className="grid grid-cols-2 sm:flex sm:flex-nowrap sm:items-center gap-x-4 sm:gap-x-8 gap-y-2.5">
+              {specialties.map((item, i) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-2 text-ink whitespace-nowrap"
+                >
+                  <span className="text-ink/75 shrink-0 scale-90">
+                    {SPECIALTY_ICONS[i]}
+                  </span>
+                  <span className="text-xs sm:text-sm text-ink/90">
+                    {item}
+                  </span>
+                </li>
               ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ SELECTED PROJECTS — Immediately visible on first screen ══ */}
+      {getArchProjects().length > 0 && (
+        <section id="projects" className="pt-10 md:pt-14 pb-20 md:pb-28 bg-paper">
+          <div className="container-x">
+            <div className="grid md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-12 md:gap-y-16">
+              {getArchProjects().map((p) => (
+                <ArchProjectCard
+                  key={p.slug}
+                  project={p}
+                  locale={locale}
+                />
+              ))}
+
+              {/* 6th card — "Our Next Project" blurred teaser card */}
+              <article className="group">
+                <Link
+                  href="/contact"
+                  className="block"
+                  aria-label={locale === "he" ? "הפרויקט הבא שלנו" : "Our Next Project"}
+                >
+                  <div className="relative overflow-hidden bg-ink aspect-[16/10] flex items-center justify-center">
+                    <Image
+                      src="/images/projects/architecture/next-project.jpg"
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover scale-105 blur-[3px] brightness-[0.72] transition-all duration-[1200ms] ease-out group-hover:scale-110 group-hover:blur-[2px] group-hover:brightness-[0.8]"
+                      aria-hidden="true"
+                    />
+                    <div className="relative z-10 text-center px-6">
+                      <span className="ticker text-[10px] text-paper/60 block mb-2">
+                        {locale === "he" ? "בקרוב" : "Coming Soon"}
+                      </span>
+                      <p className="text-paper text-xl md:text-2xl font-semibold tracking-tight">
+                        {locale === "he" ? "הפרויקט הבא שלנו" : "Our Next Project"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 md:pt-5 pb-2 border-b border-ink/15 flex items-baseline justify-between gap-4 transition-colors duration-300 group-hover:border-ink">
+                    <h3 className="text-lg md:text-xl font-semibold tracking-tight text-ink-muted group-hover:text-ink transition-colors truncate">
+                      {locale === "he" ? "הפרויקט הבא שלנו" : "Our Next Project"}
+                    </h3>
+                    <div className="flex items-baseline gap-3 shrink-0">
+                      <span className="text-ink-subtle text-xs md:text-sm">
+                        {locale === "he" ? "בתכנון" : "In Progress"}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="text-ink-muted text-xs transition-transform duration-300 group-hover:-translate-x-1 ltr:group-hover:translate-x-1"
+                      >
+                        {locale === "he" ? "←" : "→"}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </article>
             </div>
-            <p className="mt-16 text-ink-muted text-sm ticker border-t border-ink/10 pt-8">
-              {locale === "he"
-                ? "בימים אלו אנו עובדים על עוד פרויקטים שיעלו לכאן בקרוב..."
-                : "We are currently working on more projects that will be added here soon..."}
-            </p>
           </div>
         </section>
       )}
 
-      {/* CTA */}
-      <section className="section-pad bg-ink text-paper">
-        <div className="container-x text-center max-w-3xl mx-auto">
-          <h2 className="text-display-xl font-semibold text-balance">{t("cta.title")}</h2>
-          <p className="mt-7 text-lg md:text-xl text-paper/70 text-pretty">{t("cta.body")}</p>
-          <Link href="/contact" className="btn-on-dark mt-10">
-            {t("cta.button")}
+      {/* ══ PROCESS ══ */}
+      <section id="process" className="py-16 md:py-24 bg-paper-warm border-y border-ink/12">
+        <div className="container-x">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink mb-8 md:mb-10">
+            {t("process.title")}
+          </h2>
+          <ProcessAccordion steps={steps} />
+        </div>
+      </section>
+
+      {/* ══ COMPACT PROPORTIONAL CONTACT STRIP ══ */}
+      <section className="py-10 md:py-12 bg-paper text-ink">
+        <div className="container-x flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div>
+            <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
+              {t("cta.title")}
+            </h2>
+            <p className="mt-1 text-sm md:text-base font-light text-ink-soft">
+              {t("cta.body")}
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-paper text-xs font-medium uppercase tracking-wider hover:bg-ink-soft transition-colors shrink-0 self-start sm:self-auto"
+          >
+            <span>{t("cta.button")}</span>
+            <span aria-hidden="true">{locale === "he" ? "←" : "→"}</span>
           </Link>
         </div>
       </section>

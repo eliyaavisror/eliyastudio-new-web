@@ -19,7 +19,9 @@ export default async function ContactPage({
 }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const heroImage = getHeroImage("contact") ?? "/images/projects/visualizations/exterior/Shazap view 01 copy.webp";
+  const heroImage =
+    getHeroImage("contact") ??
+    "/images/projects/visualizations/exterior/Shazap view 01 copy.webp";
   return <Content heroImage={heroImage} />;
 }
 
@@ -30,9 +32,8 @@ function Content({ heroImage }: { heroImage: string }) {
 
   return (
     <>
-      <div className="flex flex-col min-h-screen">
-      {/* HERO */}
-      <section className="relative min-h-[60vh] flex flex-col justify-end pt-28 md:pt-36 pb-10 md:pb-14">
+      {/* ══ HERO WITH BACKGROUND IMAGE ══ */}
+      <section className="relative min-h-[38vh] md:min-h-[40vh] flex flex-col justify-end pt-24 md:pt-28 pb-7 md:pb-9 border-b border-ink/12">
         <div className="absolute inset-0 -z-10">
           <Image
             src={heroImage}
@@ -44,52 +45,36 @@ function Content({ heroImage }: { heroImage: string }) {
             style={{ filter: "grayscale(1) brightness(1.2) contrast(0.65) saturate(0)" }}
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-paper/20 via-paper/55 to-paper/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-paper/85 via-paper/70 to-paper/55" />
         </div>
+
         <div className="container-x relative">
-          <p className="ticker text-ink-muted mb-10">
-            {t("hero.eyebrow")}
-          </p>
-          <h1 className="text-display-2xl font-bold text-balance max-w-[16ch]">
-            {t("hero.title")}
-          </h1>
-          <div className="mt-12 md:mt-14 grid md:grid-cols-12 gap-8 items-end min-h-20">
-            <p className="md:col-span-7 max-w-[52ch] text-lg md:text-xl text-ink-soft leading-relaxed text-pretty">
+          <div>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-ink leading-snug sm:whitespace-nowrap">
+              {t("hero.title")}
+            </h1>
+            <p className="mt-2 text-base md:text-lg text-ink/90 leading-relaxed max-w-2xl">
               {t("hero.body")}
             </p>
-            <div className="md:col-span-5 ticker text-ink-muted md:text-end">
-              N34.7818 / E32.0853
-            </div>
           </div>
         </div>
-        <a
-          href="#contact-grid"
-          aria-label={locale === "he" ? "גללו לפרטי קשר" : "Scroll to contact"}
-          className="absolute right-6 md:right-10 bottom-8 hidden md:flex flex-col items-center gap-2 opacity-40 hover:opacity-80 transition-opacity duration-300"
-        >
-          <span className="ticker text-ink text-[9px]" style={{ writingMode: "vertical-rl" }}>
-            {locale === "he" ? "גללו" : "scroll"}
-          </span>
-          <div className="w-px h-12 bg-ink/35 mt-1" />
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" className="text-ink" aria-hidden="true">
-            <path d="M1 1l4 4 4-4" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
       </section>
 
-      {/* CONTACT GRID */}
-      <section id="contact-grid" className="section-pad border-t border-ink">
+      {/* ══ CONTACT GRID — Immediately visible on first screen ══ */}
+      <section id="contact-grid" className="py-14 md:py-24 bg-paper">
         <div className="container-x grid md:grid-cols-12 gap-12 md:gap-16">
           <aside className="md:col-span-4">
-            <p className="ticker text-ink-muted mb-8">{locale === "he" ? "פרטי התקשרות" : "Contact details"}</p>
+            <h2 className="text-xl font-semibold tracking-tight text-ink mb-6">
+              {locale === "he" ? "פרטי התקשרות" : "Contact details"}
+            </h2>
 
             {/* Contact rows */}
             <div className="divide-y divide-ink/12 border-y border-ink/12">
 
               {/* Phone */}
               <div className="py-5 flex items-center gap-4">
-                <span className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full bg-ink text-paper">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <span className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full bg-paper-warm border border-ink/12 text-ink">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/>
                   </svg>
                 </span>
@@ -103,8 +88,8 @@ function Content({ heroImage }: { heroImage: string }) {
 
               {/* Email */}
               <div className="py-5 flex items-center gap-4">
-                <span className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full bg-ink text-paper">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <span className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full bg-paper-warm border border-ink/12 text-ink">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <rect x="2" y="4" width="20" height="16" rx="2"/>
                     <path d="m2 7 10 7 10-7"/>
                   </svg>
@@ -119,8 +104,8 @@ function Content({ heroImage }: { heroImage: string }) {
 
               {/* Hours */}
               <div className="py-5 flex items-center gap-4">
-                <span className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full bg-ink text-paper">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <span className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full bg-paper-warm border border-ink/12 text-ink">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                   </svg>
@@ -178,23 +163,13 @@ function Content({ heroImage }: { heroImage: string }) {
           </aside>
 
           <div className="md:col-span-8">
-            <h2 className="text-display-lg font-semibold mb-10">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-10">
               {t("form.title")}
             </h2>
             <ContactForm />
           </div>
         </div>
       </section>
-      </div>
     </>
-  );
-}
-
-function ContactItem({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="py-7 border-b last:border-b-0 border-ink/15">
-      <dt className="ticker text-ink-muted mb-3">{label}</dt>
-      <dd>{children}</dd>
-    </div>
   );
 }

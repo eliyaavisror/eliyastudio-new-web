@@ -14,6 +14,7 @@ export interface ContentSection {
   he: string;
   en: string;
   image?: string;
+  imageStyle?: "default" | "paper";
 }
 
 export interface Project {
@@ -33,6 +34,7 @@ export interface Project {
   heroVideo?: string;
   credit?: { he: string; en: string };
   images: string[];
+  sketches?: string[];
   imageGroups?: ImageGroup[];
   sections?: ContentSection[];
 }
@@ -57,6 +59,7 @@ type ContentSectionJSON = {
   he: string;
   en: string;
   image?: string;
+  imageStyle?: "default" | "paper";
 };
 
 type ProjectJSON = {
@@ -72,6 +75,7 @@ type ProjectJSON = {
   titleBackground?: string;
   heroVideo?: string;
   images?: string[];
+  sketches?: string[];
   imageGroups?: ImageGroupJSON[];
   sections?: ContentSectionJSON[];
 };
@@ -86,11 +90,14 @@ function loadArchProjects(): Project[] {
       const data: ProjectJSON = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
       const base = `${ARCH}/${e.name}`;
 
+      const fileExists = (rel: string) =>
+        fs.existsSync(path.join(ARCH_DIR, e.name, rel));
+
       const imageGroups: ImageGroup[] | undefined = data.imageGroups?.map((g) => ({
         id: g.id,
         he: g.he,
         en: g.en,
-        images: g.images.map((f) => `${base}/${encodePath(f)}`),
+        images: g.images.filter(fileExists).map((f) => `${base}/${encodePath(f)}`),
       }));
 
       const sections: ContentSection[] | undefined = data.sections?.map((s) => ({
@@ -98,14 +105,15 @@ function loadArchProjects(): Project[] {
         title: s.title,
         he: s.he,
         en: s.en,
-        image: s.image ? `${base}/${encodePath(s.image)}` : undefined,
+        image: s.image && fileExists(s.image) ? `${base}/${encodePath(s.image)}` : undefined,
+        imageStyle: s.imageStyle,
       }));
 
       const images = imageGroups
         ? imageGroups.flatMap((g) => g.images)
         : sections
         ? sections.flatMap((s) => (s.image ? [s.image] : []))
-        : (data.images ?? []).map((f) => `${base}/${encodePath(f)}`);
+        : (data.images ?? []).filter(fileExists).map((f) => `${base}/${encodePath(f)}`);
 
       // Read description.txt only when no sections defined (avoid overriding meta with long text)
       const descTxtPath = path.join(ARCH_DIR, e.name, "description.txt");
@@ -118,19 +126,23 @@ function loadArchProjects(): Project[] {
         : data.description;
 
       const fallback = `${ARCH}/placeholder-house-1.svg`;
-      const cover = (data.cover ? `${base}/${encodePath(data.cover)}` : null)
+      const cover = (data.cover && fileExists(data.cover) ? `${base}/${encodePath(data.cover)}` : null)
         ?? images[0]
         ?? fallback;
-      const titleBackground = data.titleBackground
+      const titleBackground = data.titleBackground && fileExists(data.titleBackground)
         ? `${base}/${encodePath(data.titleBackground)}`
         : undefined;
 
       // Real aspect ratio of the cover so it renders uncropped
       let coverAspect: number | undefined;
-      if (data.cover) {
+      if (data.cover && fileExists(data.cover)) {
         const dim = getImageSize(path.join(ARCH_DIR, e.name, data.cover));
         if (dim && dim.height > 0) coverAspect = dim.width / dim.height;
       }
+
+      const sketches = data.sketches
+        ?.filter(fileExists)
+        .map((f) => `${base}/${encodePath(f)}`);
 
       const project: Project = {
         slug: data.slug,
@@ -148,6 +160,7 @@ function loadArchProjects(): Project[] {
         titleBackground,
         heroVideo: data.heroVideo ? `${base}/${encodePath(data.heroVideo)}` : undefined,
         images: images.length ? images : [fallback],
+        sketches: sketches?.length ? sketches : undefined,
         imageGroups,
         sections,
       };
@@ -155,8 +168,22 @@ function loadArchProjects(): Project[] {
     });
 }
 
+const ARCH_PROJECT_ORDER: string[] = [
+  "island-of-calm",
+  "horse-farm",
+  "ein-shemesh",
+  "ein-letzion",
+  "office-building",
+];
+
 export function getArchProjects(): Project[] {
-  return loadArchProjects();
+  return loadArchProjects().sort((a, b) => {
+    const ia = ARCH_PROJECT_ORDER.indexOf(a.slug);
+    const ib = ARCH_PROJECT_ORDER.indexOf(b.slug);
+    const orderA = ia === -1 ? 999 : ia;
+    const orderB = ib === -1 ? 999 : ib;
+    return orderA - orderB;
+  });
 }
 
 // ── Visualization projects (dynamic) ──────────────────────────────────────────
