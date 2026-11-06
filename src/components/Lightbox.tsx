@@ -64,7 +64,14 @@ export default function Lightbox({
   const [loaded, setLoaded] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const dragStart = useRef({ x: 0, y: 0, panX: 0, panY: 0 });
-  const touchRef = useRef<{ x: number; y: number; dist: number } | null>(null);
+  const touchRef = useRef<{
+    x: number;
+    y: number;
+    panX: number;
+    panY: number;
+    dist: number;
+    pinched: boolean;
+  } | null>(null);
 
   const resetView = useCallback(() => {
     setZoom(1);
@@ -181,21 +188,41 @@ export default function Lightbox({
   };
   const onMouseUp = () => setIsDragging(false);
 
-  /* ── Touch: swipe + pinch-to-zoom ── */
+  /* ── Touch: swipe, 1-finger pan when zoomed, + pinch-to-zoom ── */
   const onTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length === 1) {
-      touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY, dist: 0 };
+      if (zoom > 1) setIsDragging(true);
+      touchRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+        panX: pan.x,
+        panY: pan.y,
+        dist: 0,
+        pinched: false,
+      };
     } else if (e.touches.length === 2) {
+      setIsDragging(true);
       const d = Math.hypot(
         e.touches[1].clientX - e.touches[0].clientX,
         e.touches[1].clientY - e.touches[0].clientY
       );
-      touchRef.current = { x: 0, y: 0, dist: d };
+      touchRef.current = {
+        x: 0,
+        y: 0,
+        panX: pan.x,
+        panY: pan.y,
+        dist: d,
+        pinched: true,
+      };
     }
   };
   const onTouchMove = (e: React.TouchEvent) => {
-    if (e.touches.length === 2 && touchRef.current?.dist) {
-      e.preventDefault();
+    if (e.touches.length === 1 && touchRef.current && zoom > 1 && !touchRef.current.pinched) {
+      setPan({
+        x: touchRef.current.panX + (e.touches[0].clientX - touchRef.current.x),
+        y: touchRef.current.panY + (e.touches[0].clientY - touchRef.current.y),
+      });
+    } else if (e.touches.length === 2 && touchRef.current?.dist) {
       const d = Math.hypot(
         e.touches[1].clientX - e.touches[0].clientX,
         e.touches[1].clientY - e.touches[0].clientY
@@ -210,7 +237,25 @@ export default function Lightbox({
     }
   };
   const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchRef.current && zoom === 1 && e.changedTouches.length === 1 && images.length > 1) {
+    if (e.touches.length === 1) {
+      touchRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+        panX: pan.x,
+        panY: pan.y,
+        dist: 0,
+        pinched: false,
+      };
+      return;
+    }
+    setIsDragging(false);
+    if (
+      touchRef.current &&
+      !touchRef.current.pinched &&
+      zoom === 1 &&
+      e.changedTouches.length === 1 &&
+      images.length > 1
+    ) {
       const dx = e.changedTouches[0].clientX - touchRef.current.x;
       if (Math.abs(dx) > 45) {
         dx < 0 ? handleNext() : handlePrev();
@@ -317,7 +362,7 @@ export default function Lightbox({
 
       {/* ── Main Image Stage ── */}
       <div
-        className="relative flex-1 flex items-center justify-center overflow-hidden px-4 sm:px-16 py-4"
+        className="relative flex-1 flex items-center justify-center overflow-hidden px-4 sm:px-16 py-4 touch-none"
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
