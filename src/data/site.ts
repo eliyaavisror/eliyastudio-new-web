@@ -14,7 +14,7 @@ export const siteConfig = {
   },
 
   social: {
-    instagram: "https://www.instagram.com/eliya_studio_?igshid=OGQ5ZDc2ODk2ZA%3D%3D",
+    instagram: "https://www.instagram.com/eliya_arch?dlrf=MWhzeWxqNzVyNnB5eA==",
     facebook: "https://www.facebook.com/profile.php?id=61575974943636&locale=he_IL",
     linkedin: "",
     pinterest: "",
