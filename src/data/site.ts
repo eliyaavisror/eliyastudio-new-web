@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "ELIYA Studio",
+  name: "אידלמן אדריכלים Eidelman Architects",
   domain: "eliyastudio.com",
   url: "https://eliyastudio.com",
   ogImage: "/images/og/og-default.jpg",
@@ -21,8 +21,8 @@ export const siteConfig = {
   },
 
   business: {
-    legalName: "ELIYA Studio",
-    legalNameHe: "אליה סטודיו",
+    legalName: "Eidelman Architects",
+    legalNameHe: "אידלמן אדריכלים",
     taxId: "",
     foundedYear: 2018,
   },

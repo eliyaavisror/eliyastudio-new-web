@@ -32,29 +32,29 @@ export async function generateMetadata({
 
   return {
     title: {
-      default: `${t("siteName")} — ${t("tagline")}`,
+      default: t("siteName"),
       template: `%s · ${t("siteName")}`,
     },
     description: t("description"),
     applicationName: t("siteName"),
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
     keywords: [
-      "אדריכלות","הדמיות","תכנון אדריכלי","הדמיות תלת מימד",
-      "architecture","3D visualization","architectural design","render",
+      "אידלמן אדריכלים","אליה אידלמן","אדריכלות","הדמיות","תכנון אדריכלי","הדמיות תלת מימד",
+      "Eidelman Architects","architecture","3D visualization","architectural design","render",
     ],
     openGraph: {
       type: "website",
       locale: locale === "he" ? "he_IL" : "en_US",
       url: locale === "he" ? siteConfig.url : `${siteConfig.url}/en`,
       siteName: t("siteName"),
-      title: `${t("siteName")} — ${t("tagline")}`,
+      title: t("siteName"),
       description: t("description"),
       images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: t("siteName") }],
     },
     twitter: {
       card: "summary_large_image",
       site: siteConfig.seo.twitterHandle,
-      title: `${t("siteName")} — ${t("tagline")}`,
+      title: t("siteName"),
       description: t("description"),
       images: [siteConfig.ogImage],
     },

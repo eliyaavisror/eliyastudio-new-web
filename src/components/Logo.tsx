@@ -15,7 +15,7 @@ export default function Logo({ variant = "dark", className = "" }: Props) {
     <span className={`inline-flex items-center ${className}`}>
       <Image
         src={src}
-        alt="ELIYA Studio"
+        alt="אידלמן אדריכלים Eidelman Architects"
         width={400}
         height={120}
         className="h-16 md:h-24 w-auto object-contain"
