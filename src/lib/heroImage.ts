@@ -19,3 +19,18 @@ export function getHeroImage(page: string): string | null {
     return null;
   }
 }
+
+/**
+ * Reads public/images/about/ and returns the path of the portrait image found.
+ * Drop any image into public/images/about/ and it will be used automatically.
+ */
+export function getAboutPortraitImage(): string {
+  unstable_noStore();
+  try {
+    const dir = join(process.cwd(), "public", "images", "about");
+    const file = readdirSync(dir).find((f) => EXTS.has(extname(f).toLowerCase()));
+    return file ? `/images/about/${encodeURIComponent(file)}` : "/images/about/eliya-eidelman.png";
+  } catch {
+    return "/images/about/eliya-eidelman.png";
+  }
+}

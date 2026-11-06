@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import ClientsCarousel from "@/components/ClientsCarousel";
 import { clientLogos } from "@/data/clients";
-import { getHeroImage } from "@/lib/heroImage";
+import { getHeroImage, getAboutPortraitImage } from "@/lib/heroImage";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -24,10 +24,17 @@ export default async function AboutPage({
   const heroImage =
     getHeroImage("about") ??
     "/images/projects/visualizations/exterior/01-VIEW.jpg";
-  return <Content heroImage={heroImage} />;
+  const portraitImage = getAboutPortraitImage();
+  return <Content heroImage={heroImage} portraitImage={portraitImage} />;
 }
 
-function Content({ heroImage }: { heroImage: string }) {
+function Content({
+  heroImage,
+  portraitImage,
+}: {
+  heroImage: string;
+  portraitImage: string;
+}) {
   const t = useTranslations("about");
   const locale = useLocale() as "he" | "en";
   const isHe = locale === "he";
@@ -393,21 +400,20 @@ function Content({ heroImage }: { heroImage: string }) {
           {/* Top Row: Editorial Portrait + Compact Credentials (Right in RTL) + Story Narrative (Left in RTL) */}
           <div className="grid md:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-center">
             {/* Editorial Portrait + Compact Icons Strip Underneath */}
-            <div className="md:col-span-5 lg:col-span-5">
-              <div className="max-w-xs sm:max-w-sm mx-auto md:max-w-none">
+            <div className="md:col-span-5 lg:col-span-4">
+              <div className="max-w-[260px] sm:max-w-[290px] mx-auto md:mx-0">
                 <div className="relative">
                   <div
                     aria-hidden="true"
                     className="absolute -inset-2.5 sm:-inset-3 bg-paper-warm border border-ink/10 -z-10 -translate-x-2.5 translate-y-2.5 ltr:translate-x-2.5"
                   />
-                  <div className="relative aspect-[4/3] md:aspect-[5/4] w-full overflow-hidden bg-paper-warm border border-ink/15 shadow-sm">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-paper-warm border border-ink/15 shadow-sm">
                     <Image
-                      src="/images/about/eliya-eidelman.jpg"
+                      src={portraitImage}
                       alt={isHe ? "אדריכל אליה אידלמן" : "Architect Eliya Eidelman"}
                       fill
-                      sizes="(max-width: 768px) 90vw, 40vw"
-                      className="object-cover"
-                      style={{ objectPosition: "68% center" }}
+                      sizes="(max-width: 768px) 290px, 320px"
+                      className="object-cover object-top"
                     />
                   </div>
                 </div>
@@ -429,7 +435,7 @@ function Content({ heroImage }: { heroImage: string }) {
               </div>
             </div>
 
-            <div className="md:col-span-7 lg:col-span-7">
+            <div className="md:col-span-7 lg:col-span-8">
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink">
                 {t("story.title")}
               </h2>
